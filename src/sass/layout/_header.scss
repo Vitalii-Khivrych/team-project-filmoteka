@@ -13,6 +13,14 @@
   }
 }
 
+.additional-bg {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56) 100%
+    ),
+    url(../images/header-library-background.jpg);
+}
+
 .additional-padding {
   padding-bottom: 62px;
 }
@@ -25,6 +33,18 @@
 
   @media screen and (min-width: 768px) {
     margin-bottom: 46px;
+  }
+}
+
+.additional-margin {
+  margin-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 38px;
   }
 }
 
@@ -60,10 +80,6 @@
 
     color: #ffffff;
   }
-}
-
-.additional-margin {
-  margin-bottom: 60px;
 }
 
 .nav-list {
