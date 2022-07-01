@@ -130,9 +130,7 @@
     justify-content: space-around;
   }
 
-  @include desktop {
-    justify-content: flex-start;
-  }
+ 
 
   button {
     text-transform: uppercase;
