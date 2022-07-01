@@ -102,7 +102,10 @@
   color: var(--white-colore);
   background-color: var(--activ-btn-color);
 }
-.modal__info-key--accent {
+.modal__info-value--slash{
+  color: #8C8C8C;
+}
+.modal__info-value--grey {
   display: inline-block;
   width: 36px;
   height: 16px;
@@ -111,12 +114,16 @@
   background-color: #f7f7f7;
 }
 .modal__about-title {
+  text-transform: uppercase;
+  font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
+  margin-bottom: 8px;
 }
 
 .modal__about-text {
-  font-size: 12px;
+  font-weight: 500;
+    font-size: 12px;
   line-height: 1.66;
   margin-bottom: 20px;
 }
