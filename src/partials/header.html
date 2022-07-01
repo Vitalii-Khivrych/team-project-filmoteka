@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header container">
   <div class="nav-wrap">
     <a href="#" class="header__logo">
       <img
@@ -8,29 +8,70 @@
       />
       <span class="header__text">Filmoteka</span>
     </a>
-    <nav class="nav">
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a class="nav__link" href="#">Home</a>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-list__item">
+          <a class="nav-list__link nav-list__link--current" href="#">Home</a>
         </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#">My library</a>
+        <li class="nav-list__item">
+          <a class="nav-list__link" href="#">My library</a>
         </li>
       </ul>
     </nav>
   </div>
   <div class="search-form-wrap">
     <form class="search-form">
-      <input class="search-form__input" type="text" />
-      <button class="search-form__button-submit" type="submit" style="">
-        <svg class="search-form__button-icon" width="24" height="24">
-          <use href="#"></use>
+      <input
+        class="search-form__input"
+        type="text"
+        placeholder="Movie search"
+      />
+      <button class="search-form__button-submit" type="submit">
+        <svg
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+        >
+          <path
+            d="M5.5 9.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM10.5 10.5 8.325 8.325"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </button>
     </form>
-    <span class="search-form__text"></span>
+    <p class="search-form__text">
+      Search result is not successful. Enter the correct movie name and try
+      again.
+    </p>
   </div>
+</header>
 
+<header class="header container additional-padding">
+  <div class="nav-wrap additional-margin">
+    <a href="#" class="header__logo">
+      <img
+        class="header__icon"
+        src="./images/main-logo.svg"
+        alt="icon piece of tape"
+      />
+      <span class="header__text">Filmoteka</span>
+    </a>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-list__item">
+          <a class="nav-list__link" href="#">Home</a>
+        </li>
+        <li class="nav-list__item">
+          <a class="nav-list__link nav-list__link--current" href="#"
+            >My library</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
   <ul class="button-list">
     <li class="button-list__item">
       <button class="button-list__btn button-list__btn--current" type="button">
