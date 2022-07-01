@@ -2,16 +2,16 @@
   width: 100%;
   padding: 0 20px;
   margin: 0 auto;
-  @include mob {
+  @include mobile {
     width: 320px;
   }
 
-  @include tab {
+  @include tablet {
     width: 768px;
     padding: 0 32px;
   }
 
-  @include desk {
+  @include desktop {
     width: 1280px;
   }
 }
