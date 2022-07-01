@@ -1,0 +1,77 @@
+.header {
+  background-image: url(../images/header-background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  color: var(--white-colore);
+}
+
+.header__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.header__text {
+}
+
+.search-form-wrap {
+}
+
+.search-form {
+}
+
+.search-form__input {
+}
+
+.search-form__button-submit {
+}
+
+.search-form__button-icon {
+}
+
+.search-form__text {
+}
+
+.nav {
+}
+
+.nav__list {
+}
+
+.nav__item {
+}
+
+.nav__link {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.button-list {
+}
+
+.button-list__item {
+}
+
+.button-list__btn {
+}
+
+.button-list__btn--current {
+}
