@@ -5,43 +5,33 @@ export default class ApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.searchId = '66732';
   }
 
   fetchTrending() {
     const url = `${BASE_URL}/trending/all/day?api_key=${KEY}&page=${this.page}`;
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        return data;
-      });
+    return fetch(url).then(res => res.json());
   }
 
   fetchSearchMovie() {
-    const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&page=${this.page}&include_adult=false`;
+    const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        return data;
-      });
+    return fetch(url).then(res => res.json());
   }
 
   fetchMovieDetails(movieId) {
-    const url = `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US`;
+    const url = `${BASE_URL}/movie/${searchId}?api_key=${KEY}&language=en-US`;
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        return data;
-      });
+    return fetch(url).then(res => res.json());
   }
 
   incrementPage() {
     this.page += 1;
+  }
+
+  set pageNumber(number) {
+    this.page = number;
   }
 
   resetPage() {
@@ -54,6 +44,14 @@ export default class ApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
+  }
+
+  get movieId() {
+    return this.searchId;
+  }
+
+  set movieId(newId) {
+    this.searchId = newId;
   }
 }
 
