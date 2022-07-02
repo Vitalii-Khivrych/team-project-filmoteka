@@ -14,8 +14,6 @@ refs.searchInput.addEventListener('submit', onSearchMovie);
 function onSearchMovie(e) {
   e.preventDefault();
 
-  console.log(appService.query);
-
   appService.query = e.currentTarget.elements.searchQuery.value.trim();
 
   const isEmptySearch = appService.searchQuery === '';
