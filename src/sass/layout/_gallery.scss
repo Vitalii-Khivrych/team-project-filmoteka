@@ -7,13 +7,19 @@
   }
 }
 
-.movie__info {
+.card__info {
+  margin-top: 8px;
+  @media screen and (min-width: 1280px) {
+    margin-top: 12px;
+  }
+}
+
+.card__movie-info {
   display: flex;
   justify-content: start;
   align-items: center;
 }
 .card__title {
-  margin-top: 8px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -22,7 +28,6 @@
   text-transform: uppercase;
   color: #000000;
   @media screen and (min-width: 1280px) {
-    margin-top: 12px;
     font-size: 20px;
     line-height: 1.2;
   }
