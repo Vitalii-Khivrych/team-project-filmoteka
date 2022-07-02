@@ -1,4 +1,4 @@
 import './sass/index.scss';
-import fetch from './js/api-service';
+import App from './js/api-service';
 
-console.log(fetch);
+console.log(App);
