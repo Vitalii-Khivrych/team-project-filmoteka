@@ -1,11 +1,36 @@
 .header {
+  height: 216px;
   padding-top: 40px;
-  padding-bottom: 44px;
 
-  background-image: url(../images/header-background.jpg);
+  background-image: url(../images/header/header-home-mob-1x.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(../images/header/header-home-mob-2x.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(../images/header/header-home-tab-1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/header/header-home-tab-2x.jpg);
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url(../images/header/header-home-desk-1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/header/header-home-desk-2x.jpg);
+    }
+  }
 
   // ================== Убрать при переносе в JS ======================
   &:first-child {
@@ -18,11 +43,53 @@
       rgba(0, 0, 0, 0.56),
       rgba(0, 0, 0, 0.56) 100%
     ),
-    url(../images/header-library-background.jpg);
-}
+    url(../images/header/header-lib-mob-1x.jpg);
 
-.additional-padding {
-  padding-bottom: 62px;
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56) 100%
+      ),
+      url(../images/header/header-lib-mob-2x.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56) 100%
+      ),
+      url(../images/header/header-lib-tab-1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56) 100%
+        ),
+        url(../images/header/header-lib-tab-2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56) 100%
+      ),
+      url(../images/header/header-lib-desk-1x.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56) 100%
+        ),
+        url(../images/header/header-lib-desk-2x.jpg);
+    }
+  }
 }
 
 .nav-wrap {
@@ -32,7 +99,7 @@
   margin-bottom: 54px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 46px;
+    margin-bottom: 40px;
   }
 }
 
@@ -40,11 +107,7 @@
   margin-bottom: 60px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 36px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    margin-bottom: 38px;
+    margin-bottom: 40px;
   }
 }
 
