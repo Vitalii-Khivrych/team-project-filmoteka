@@ -7,12 +7,18 @@
     height: 100%;
     overflow-y: scroll;
     background-color: rgba(0, 0, 0, 0.25);
-    // transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-modal {
+    max-height: 90%;
+    max-width: 280px;
     position: relative;
+    border-radius: 5px;
     background-color: var(--white-colore);
     padding: 15px;
+    overflow-y: auto;
+    @media screen and (max-width: 767px) {
+        margin: auto;
+    }
     @media screen and (min-width: 768px) {
         width: 100%;
         max-width: 600px;
@@ -20,7 +26,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(1);
-        // transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }
     @media screen and (min-width: 1280px) {
         min-width: 806px;
@@ -40,7 +45,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     fill: var(--primery-text-color);
-    // transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover, &:focus {
         fill: var(--active-btn-color);
     }
