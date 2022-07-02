@@ -13,9 +13,13 @@ footer {
 .footer__text {
   color: #545454;
   @include font(14px, 400, 1.14);
+  display: inline;
 }
 
-.footer__link {
+.footer__button {
+  background-color: transparent;
+  border: none;
   text-decoration: underline;
   color: #545454;
+  cursor: pointer;
 }
