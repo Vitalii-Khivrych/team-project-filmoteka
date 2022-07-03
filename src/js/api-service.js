@@ -21,7 +21,7 @@ export default class ApiService {
   }
 
   fetchMovieDetails(movieId) {
-    const url = `${BASE_URL}/movie/${searchId}?api_key=${KEY}&language=en-US`;
+    const url = `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US`;
 
     return fetch(url).then(res => res.json());
   }
