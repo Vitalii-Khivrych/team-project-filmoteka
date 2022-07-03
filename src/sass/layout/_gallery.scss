@@ -1,1 +1,69 @@
 
+.gallery-list-card { 
+ margin-bottom: 40px;
+ .item {  
+    margin-bottom: 20px;
+ }
+}    
+.gallery-card-container {
+    width: 280px;
+}
+/*Стили для мобильных кнопок*/
+.gallery-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-left-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: #F7F7F7;
+    border-radius: 5px;
+    border: none;
+}
+.gallery-left-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;   
+}
+.gallery-right-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: #F7F7F7;
+    border-radius: 5px;
+    border: none;
+}
+.gallery-right-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;   
+}
+.gallery-button-list {
+    display: flex;
+    align-items: center;
+}
+.number-btn {
+    padding: 11px 8px;
+    border: none;
+    background-color: #ffffff;
+}
+.choice-btn {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0em;
+    line-height: 16px;
+    background-color: #FF6B08;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 11px 13px;
+}
+
+
