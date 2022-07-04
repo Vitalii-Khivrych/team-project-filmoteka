@@ -1,91 +1,91 @@
 const WATCHED_LIST_STORAGE_KEY = 'watched-list';
 const QUEUE_LIST_STORAGE_KEY = 'queue-list';
 
-function getWatchedList() {
-  return JSON.parse(localStorage.getItem(WATCHED_LIST_STORAGE_KEY));
-}
+const localStorageApi = {
+  getWatchedList() {
+    return JSON.parse(localStorage.getItem(WATCHED_LIST_STORAGE_KEY));
+  },
 
-function setWatchedList(list) {
-  localStorage.setItem(WATCHED_LIST_STORAGE_KEY, JSON.stringify(list));
-}
+  setWatchedList(list) {
+    localStorage.setItem(WATCHED_LIST_STORAGE_KEY, JSON.stringify(list));
+  },
 
-function getQueueList() {
-  return JSON.parse(localStorage.getItem(QUEUE_LIST_STORAGE_KEY));
-}
+  getQueueList() {
+    return JSON.parse(localStorage.getItem(QUEUE_LIST_STORAGE_KEY));
+  },
 
-function setQueueList(list) {
-  localStorage.setItem(QUEUE_LIST_STORAGE_KEY, JSON.stringify(list));
-}
+  setQueueList(list) {
+    localStorage.setItem(QUEUE_LIST_STORAGE_KEY, JSON.stringify(list));
+  },
 
-function isWatchedListEmpty() {
-  const watchedList = getWatchedList();
-  return !watchedList ? true : false;
-}
+  isWatchedListEmpty() {
+    const watchedList = getWatchedList();
+    return !watchedList || watchedList.length === 0 ? true : false;
+  },
 
-function isQueueListEmpty() {
-  const queueList = getQueueList();
-  return !queueList ? true : false;
-}
+  isQueueListEmpty() {
+    const queueList = getQueueList();
+    return !queueList || queueList.length === 0 ? true : false;
+  },
 
-//================== Все что ниже идет на экспорт и используется при проверке
-//================== перед отрисовкой и при нажатии на кнопку
-function isMovieInWatchedList(movieId) {
-  if (isWatchedListEmpty()) {
-    return false;
-  }
+  isMovieInWatchedList(movieId) {
+    if (isWatchedListEmpty()) {
+      return false;
+    }
 
-  const parsedMovies = getWatchedList();
-  return parsedMovies.includes(movieId) ? true : false;
-}
-
-function isMovieInQueueList(movieId) {
-  if (isQueueListEmpty()) {
-    return false;
-  }
-
-  const parsedMovies = getQueueList();
-  return parsedMovies.includes(movieId) ? true : false;
-}
-
-function addMovieToWatchedList(movieId) {
-  if (isWatchedListEmpty()) {
-    localStorage.setItem(WATCHED_LIST_STORAGE_KEY, JSON.stringify([movieId]));
-  } else {
     const parsedMovies = getWatchedList();
-    parsedMovies.push(movieId);
-    setWatchedList(parsedMovies);
-  }
-}
+    return parsedMovies.includes(movieId) ? true : false;
+  },
 
-function addMovieToQueueList(movieId) {
-  if (isQueueListEmpty()) {
-    localStorage.setItem(QUEUE_LIST_STORAGE_KEY, JSON.stringify([movieId]));
-  } else {
+  isMovieInQueueList(movieId) {
+    if (isQueueListEmpty()) {
+      return false;
+    }
+
     const parsedMovies = getQueueList();
-    console.log(parsedMovies);
-    parsedMovies.push(movieId);
-    setQueueList(parsedMovies);
-  }
-}
+    return parsedMovies.includes(movieId) ? true : false;
+  },
 
-function removeMovieFromWatchedList(movieId) {
-  const parsedMovies = getWatchedList();
-  const changedList = parsedMovies.filter(id => id !== movieId);
-  setWatchedList(changedList);
-}
+  addMovieToWatchedList(movieId) {
+    if (isWatchedListEmpty()) {
+      localStorage.setItem(WATCHED_LIST_STORAGE_KEY, JSON.stringify([movieId]));
+    } else {
+      const parsedMovies = getWatchedList();
+      parsedMovies.push(movieId);
+      setWatchedList(parsedMovies);
+    }
+  },
 
-function removeMovieFromQueueList(movieId) {
-  const parsedMovies = getQueueList();
-  const changedList = parsedMovies.filter(id => id !== movieId);
-  setQueueList(changedList);
-}
+  addMovieToQueueList(movieId) {
+    if (isQueueListEmpty()) {
+      localStorage.setItem(QUEUE_LIST_STORAGE_KEY, JSON.stringify([movieId]));
+    } else {
+      const parsedMovies = getQueueList();
+      console.log(parsedMovies);
+      parsedMovies.push(movieId);
+      setQueueList(parsedMovies);
+    }
+  },
 
-// ================ Если мы захотим сделать кнопку очистить список полностью ==================
+  removeMovieFromWatchedList(movieId) {
+    const parsedMovies = getWatchedList();
+    const changedList = parsedMovies.filter(id => id !== movieId);
+    setWatchedList(changedList);
+  },
 
-function clearWatchedList() {
-  localStorage.removeItem(WATCHED_LIST_STORAGE_KEY);
-}
+  removeMovieFromQueueList(movieId) {
+    const parsedMovies = getQueueList();
+    const changedList = parsedMovies.filter(id => id !== movieId);
+    setQueueList(changedList);
+  },
 
-function clearQueueList() {
-  localStorage.removeItem(QUEUE_LIST_STORAGE_KEY);
-}
+  // ================ Если мы захотим сделать кнопку очистить список полностью ==================
+
+  clearWatchedList() {
+    localStorage.removeItem(WATCHED_LIST_STORAGE_KEY);
+  },
+
+  clearQueueList() {
+    localStorage.removeItem(QUEUE_LIST_STORAGE_KEY);
+  },
+};
