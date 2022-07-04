@@ -1,7 +1,6 @@
 import refs from '../refs';
 import Api from '../api-service';
-import renderModalCard from './render-card-modal';
-import ApiService from '../api-service';
+// import ApiService from '../api-service';
 //import { appService } from '../../index';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 const appService = new Api();
@@ -12,19 +11,20 @@ function handleResponse(response) {
   const cards = response.results;
   console.log(response);
 
-  Promise.all([
-    appService.fetchGenres('movie'),
-    appService.fetchGenres('tv'),
-  ]).then(allGenres => {
-    const genres = allGenres.map(r => r.genres);
-    const mergedGenres = [].concat.apply([], genres);
-    const genreMap = new Map(
-      mergedGenres.map(object => {
-        return [object.id, object.name];
-      })
-    );
-    renderPopularCards(cards, genreMap);
-  });
+  Promise.all([appService.fetchGenres('movie'), appService.fetchGenres('tv')])
+    .then(allGenres => {
+      const genres = allGenres.map(r => r.genres);
+      const mergedGenres = [].concat.apply([], genres);
+      const genreMap = new Map(
+        mergedGenres.map(object => {
+          return [object.id, object.name];
+        })
+      );
+      renderPopularCards(cards, genreMap);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 function renderPopularCards(cards, genres) {
@@ -40,6 +40,7 @@ function renderPopularCards(cards, genres) {
         release_date,
         first_air_date,
         vote_average,
+        id,
       }) => {
         const date = release_date ? release_date : first_air_date;
         const name = original_title ? original_title : original_name;
@@ -56,15 +57,14 @@ function renderPopularCards(cards, genres) {
         const genreStr = genreArr.join(', ');
         console.log(genreStr);
         const vote = vote_average.toFixed(1);
-        return `<li class="gallery__item card">
-        <a href="" class="card__link">
+        return `<li class="gallery__item card" data-id="${id}">
           <img
             class="card__image"
             src="${IMG_URL}${poster_path}"
             alt="poster"
             loading="lazy"
           />
-          <div class="card__info">
+          <div class="card__info" >
             <p class="card__title">${name}</p>
             <div class="card__movie-info">
               <p class="card__genre">${genreStr}</p>
@@ -73,11 +73,12 @@ function renderPopularCards(cards, genres) {
               <p class="card__rating">${vote}</p>
             </div>
           </div>
-        </a>
       </li>`;
       }
     )
     .join('');
+
+  refs.galleryList.insertAdjacentHTML('beforeend', markup);
 
   console.log(markup);
 }

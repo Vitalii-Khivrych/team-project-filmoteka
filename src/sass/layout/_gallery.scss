@@ -7,8 +7,17 @@
   }
 }
 
+.gallery__item {
+  cursor: pointer;
+}
+
+.card__image {
+  pointer-events: none;
+}
+
 .card__info {
   margin-top: 8px;
+  pointer-events: none;
   @media screen and (min-width: 1280px) {
     margin-top: 12px;
   }
