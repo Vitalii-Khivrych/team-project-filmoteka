@@ -6,7 +6,7 @@ return `<footer>
       Developed with<svg class="footer__icon" width="14" height="12.75">
         <use href="./images/sprite.svg#icon-heart"></use></svg
       >by
-      <button href="" class="footer__button">GoIT Students</button>
+      <button type="button" class="footer__button">GoIT Students</button>
     </p>
   </div>
 </footer>`
