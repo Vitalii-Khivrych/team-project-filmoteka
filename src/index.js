@@ -1,7 +1,7 @@
 import './sass/index.scss';
 import Api from './js/api-service';
 import refs from './js/refs';
-
+import renderModalCard from './js/templates/render-card-modal';
 const appService = new Api();
 
 // -------------Для рендеру карток головної сторінки-----------
@@ -28,3 +28,7 @@ function onSearchMovie(e) {
   appService.fetchSearchMovie().then(console.log);
 }
 // ------------------------------------------------
+// тест відкриття модали з ID фшльму 12 (розкоментуй renderModalCard)
+// renderModalCard(12);
+// експорт для доступу в функції renderModalCard
+export { appService };
