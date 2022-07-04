@@ -301,3 +301,70 @@
 
   filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
 }
+//-------------Firebase
+#user-container {
+  // position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 22px;
+  width: 100%;
+  right: 0;
+  padding-left: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+}
+
+#user-container #user-pic {
+ 
+  @media screen and (min-width: 768px) {
+    position: relative;
+      display: inline-block;
+      background-image: url('../images/free-icon-delete-account-7084160.png');
+      background-repeat: no-repeat;
+      width: 26px;
+      height: 26px;
+      background-size: 26px;
+      border-radius: 20px;
+  }
+}
+
+#user-container #user-name {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.17;
+  padding-right: 10px;
+  padding-left: 10px;
+  @media screen and (max-width: 768px){
+    padding-left: 0px;
+  }
+}
+
+#sign-out,
+#sign-in {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background: transparent;
+  @media screen and (max-width: 768px) {
+      font-size: 10px;
+    }
+}
+
+.mdl-button#sign-in {
+  margin-left: 10px;
+}
+.nav-list__link{
+white-space: nowrap;
+}
