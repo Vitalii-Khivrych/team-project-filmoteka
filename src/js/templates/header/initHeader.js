@@ -1,5 +1,6 @@
 import createInitialHeaderMarkup from './createInitialHeaderMarkup';
 import { onLibraryClick } from './relinkingApi';
+// import onSearchMovie
 // после инициализации блок header остается и рендеририться будет только разметка внутри
 // оставляю фиксированный блок для того, чтобы при переходе на другие страницы, не прыгала разметка
 

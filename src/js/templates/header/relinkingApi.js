@@ -1,3 +1,6 @@
+import createHeaderHomeMarkup from './createHeaderHomeMarkup';
+import createHeaderLibraryMarkup from './createHeaderLibraryMarkup';
+// import onSearchMovie
 // обработчики ниже нужно дополнить разметкой галереи и футера для рендера целой страницы
 
 const onLibraryClick = event => {
