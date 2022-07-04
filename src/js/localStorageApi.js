@@ -19,64 +19,64 @@ const localStorageApi = {
   },
 
   isWatchedListEmpty() {
-    const watchedList = getWatchedList();
+    const watchedList = this.getWatchedList();
     return !watchedList || watchedList.length === 0 ? true : false;
   },
 
   isQueueListEmpty() {
-    const queueList = getQueueList();
+    const queueList = this.getQueueList();
     return !queueList || queueList.length === 0 ? true : false;
   },
 
   isMovieInWatchedList(movieId) {
-    if (isWatchedListEmpty()) {
+    if (this.isWatchedListEmpty()) {
       return false;
     }
 
-    const parsedMovies = getWatchedList();
+    const parsedMovies = this.getWatchedList();
     return parsedMovies.includes(movieId) ? true : false;
   },
 
   isMovieInQueueList(movieId) {
-    if (isQueueListEmpty()) {
+    if (this.isQueueListEmpty()) {
       return false;
     }
 
-    const parsedMovies = getQueueList();
+    const parsedMovies = this.getQueueList();
     return parsedMovies.includes(movieId) ? true : false;
   },
 
   addMovieToWatchedList(movieId) {
-    if (isWatchedListEmpty()) {
+    if (this.isWatchedListEmpty()) {
       localStorage.setItem(WATCHED_LIST_STORAGE_KEY, JSON.stringify([movieId]));
     } else {
-      const parsedMovies = getWatchedList();
+      const parsedMovies = this.getWatchedList();
       parsedMovies.push(movieId);
-      setWatchedList(parsedMovies);
+      this.setWatchedList(parsedMovies);
     }
   },
 
   addMovieToQueueList(movieId) {
-    if (isQueueListEmpty()) {
+    if (this.isQueueListEmpty()) {
       localStorage.setItem(QUEUE_LIST_STORAGE_KEY, JSON.stringify([movieId]));
     } else {
-      const parsedMovies = getQueueList();
+      const parsedMovies = this.getQueueList();
       console.log(parsedMovies);
       parsedMovies.push(movieId);
-      setQueueList(parsedMovies);
+      this.setQueueList(parsedMovies);
     }
   },
 
   removeMovieFromWatchedList(movieId) {
-    const parsedMovies = getWatchedList();
+    const parsedMovies = this.getWatchedList();
     const changedList = parsedMovies.filter(id => id !== movieId);
-    setWatchedList(changedList);
+    this.setWatchedList(changedList);
   },
 
   removeMovieFromQueueList(movieId) {
-    const parsedMovies = getQueueList();
+    const parsedMovies = this.getQueueList();
     const changedList = parsedMovies.filter(id => id !== movieId);
-    setQueueList(changedList);
+    this.setQueueList(changedList);
   },
 
   // ================ Если мы захотим сделать кнопку очистить список полностью ==================

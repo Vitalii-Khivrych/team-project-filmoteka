@@ -1,4 +1,5 @@
-<!-- <header class="header container">
+export default function createInitialHeaderMarkup() {
+  return `<header class="header container">
   <div class="nav-wrap">
     <a href="#" class="header__logo" id="logoLink">
       <svg
@@ -62,4 +63,5 @@
   <p class="notification">
     Search result is not successful. Enter the correct movie name and try again.
   </p>
-</header> -->
+</header>`;
+}
