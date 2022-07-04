@@ -13,7 +13,13 @@ footer {
 .footer__text {
   color: #545454;
   @include font(14px, 400, 1.14);
-  display: inline;
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  @include tablet() {
+    display: inline;
+    @include font(16px, null, 1.17);
+  }
 }
 
 .footer__button {
