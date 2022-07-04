@@ -8,6 +8,11 @@ export default class ApiService {
     this.searchId = '66732';
   }
 
+  fetchGenres(type) {
+    const url = `${BASE_URL}/genre/${type}/list?api_key=${KEY}&language=en-US`;
+    return fetch(url).then(res => res.json());
+  }
+
   fetchTrending() {
     const url = `${BASE_URL}/trending/all/day?api_key=${KEY}&page=${this.page}`;
 
