@@ -67,7 +67,7 @@ function renderPopularCards(cards, genres) {
           <div class="card__info">
             <p class="card__title">${name}</p>
             <div class="card__movie-info">
-              <p class="card__genre">${genre_ids}</p>
+              <p class="card__genre">${genreStr}</p>
               <span class="vertical">&nbsp|&nbsp</span>
               <p class="card__release">${year}</p>
               <p class="card__rating">${vote}</p>
