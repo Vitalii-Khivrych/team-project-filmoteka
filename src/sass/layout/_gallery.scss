@@ -1,4 +1,4 @@
-.gallery__section {
+.section {
     padding-top: 20px;
     padding-bottom: 40px;
     @media screen and (min-width: 768px) {
@@ -69,37 +69,24 @@
 /*Стили для мобильной галереи и кнопок пагинации*/
 .gallery { 
     margin-bottom: 40px;
-    .gallery__item {  
+}
+    .card {  
        margin-bottom: 20px;
     }
+    .card:last-child {  
+      margin-bottom: 0px;
+   
    }    
    .card__image {
        width: 280px;
    }
    
-.gallery-button-container {
+.pagination {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.gallery-left-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    background: #F7F7F7;
-    border-radius: 5px;
-    border: none;
-    margin-right: 12px;
-}
-.gallery-left-icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;   
-}
-.gallery-right-btn {
+.pagination__arrow {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,16 +94,15 @@
     background: #F7F7F7;
     border-radius: 5px;
     border: none;
-    margin-left: 12px;
 }
-.gallery-right-icon {
+.pagination-arrow-icon {
     display: inline-block;
     width: 1em;
     height: 1em;
     stroke-width: 0;
     stroke: currentColor;   
 }
-.gallery-button-list {
+.pagination-list {
     display: flex;
     align-items: center;
 
@@ -127,66 +113,50 @@
         display: none;
     }
 }
-.number-btn {
-    font-style: normal;
+.pagination__btn {
     font-size: 12px;
     font-weight: 500;
-    line-height: 16px;
-}
-.number-btn {
-    padding: 11px 8px;
+    line-height: 1.33;
+    padding: 11px 14px;
+    border-radius: 5px;
     border: none;
     background-color: #ffffff;
 }
-.choice-btn {
-    font-weight: 500;
-    font-size: 12px;
-    letter-spacing: 0em;
-    line-height: 16px;
+.pagination__btn--choice {
     background-color: #FF6B08;
     color: #ffffff;
-    border-radius: 5px;
-    padding: 11px 13px;
-    margin: 0 12px;
-    border: none;
 }
-.more-btn {
+.pagination-btn-more {
     display: none;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 1.33;
     font-weight: 500;
     letter-spacing: 0em;
     background-color: #ffffff;
     border: none;
-    padding: 0 8px 9px 8px;
-    margin-bottom: 0px;   
+    padding: 0 0 6px 0; 
 }
 /*Стили для сетки галереи и кнопок планшета*/
 @media (min-width: 768px) and (max-width: 1280px) {
     .gallery {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 60px;
-        .gallery__item {
-            margin-bottom: 32px;
-        }
-        .gallery__item:nth-child(2n){
-            margin-left: 32px;
-        }
-        .gallery__item:nth-last-child(-n+2) {
-            margin-bottom: 0px;
-        }
+        margin: -32px -32px 30px 0px;
+    }
+    .card{
+        margin-bottom: 32px;
+        margin-right: 32px;
     }
     .card__image {
         width: 336px;
     }
-    .gallery-button-list .item:last-child {
+    .pagination-list .item:last-child {
         display: flex;
     }
-    .gallery-button-list .item:first-child {
+    .pagination-list .item:first-child {
         display: flex;
     }
-    .more-btn { 
+    .pagination-btn-more { 
         display: flex;
     }
   }
@@ -195,28 +165,22 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 60px;
-        .gallery__item {
+        margin: -16px -16px 60px 0px;
+        .card {
             margin-bottom: 32px;
             margin-right: 16px;
-        }
-        .gallery__item:nth-child(3n + 3){
-            margin-right: 0;
-        }
-        .gallery__item:nth-last-child(-n+3) {
-            margin-bottom: 0px;
         }
     }
     .card__image {
         width: 394px;
     }
-    .gallery-button-list .item:last-child {
+    .pagination-list .item:last-child {
         display: flex;
     }
-    .gallery-button-list .item:first-child {
+    .pagination-list .item:first-child {
         display: flex;
     }
-    .more-btn {
+    .pagination-btn-more {
         display: flex;
     }
   }
