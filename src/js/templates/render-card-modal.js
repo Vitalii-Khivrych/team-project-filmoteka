@@ -1,5 +1,5 @@
 import refs from '../refs';
-import { appService } from '../../index';
+import { appService } from '../handlers/onSearchMovie';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 
 // додавання розмітки на backdrop
