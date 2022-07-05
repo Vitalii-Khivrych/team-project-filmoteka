@@ -43,6 +43,7 @@ async function signIn() {
 
 function signOutUser() {
   signOut(getAuth());
+  
 }
 
 function initFirebaseAuth() {
