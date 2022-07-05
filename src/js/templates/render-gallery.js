@@ -3,7 +3,7 @@ const galleryButtonListEl = document.querySelector('.gallery-button-list');
 const numberMassiveGallery = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 import imgLink from '../../images/poster.jpg';
 const galleryRender = () => {
-const markup = numberMassiveGallery.map((element) => `<li class="gallery__item card">
+const markup = numberMassiveGallery.map((element) => `<li class="card">
 <a href="" class="card__link">
   <img
     class="card__image"
