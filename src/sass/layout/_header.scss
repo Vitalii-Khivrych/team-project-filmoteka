@@ -36,6 +36,9 @@
   &:first-child {
     margin-bottom: 20px;
   }
+  @media screen and(max-width: 768px) {
+    padding-top: 30px;
+  }
 }
 
 .additional-bg {
@@ -96,7 +99,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 54px;
+  margin-bottom: 45px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -310,9 +313,13 @@
   width: 100%;
   right: 0;
   padding-left: 10px;
+  margin-bottom: 10px;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 10px;
+  // padding-right: 10px;
+  @media screen and (max-width: 768px){
+    margin-bottom: 7px;
+  }
 }
 
 #user-container #user-pic {
@@ -340,6 +347,7 @@
   padding-left: 10px;
   @media screen and (max-width: 768px){
     padding-left: 0px;
+    font-size: 10px;
   }
 }
 
@@ -350,7 +358,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  text-transform: uppercase;
+  text-transform: inherit;
 
   color: #ffffff;
 
@@ -359,12 +367,25 @@
   background: transparent;
   @media screen and (max-width: 768px) {
       font-size: 10px;
+      font-weight: 400;
     }
 }
 
-.mdl-button#sign-in {
-  margin-left: 10px;
+.mdl-button#sign-in,
+.mdl-button#sign-out {
+  // margin-left: 10px;
+  padding: 0 7px;
+  height: 28px;
+  @media screen and(max-width: 768px) {
+    height: 24px;
+   
+  }
 }
 .nav-list__link{
 white-space: nowrap;
+}
+.mdl-button .material-icons {
+  @media screen and(max-width: 768px) {
+    font-size: 18px;
+  }
 }
