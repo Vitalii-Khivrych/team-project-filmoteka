@@ -1,5 +1,6 @@
 import createInitialHeaderMarkup from './createInitialHeaderMarkup';
-import { onLibraryClick, onSearchMovie } from './relinkingHandlers';
+import { onLibraryLinkClick } from '../../handlers/onLibraryLinkClick';
+import { onSearchMovie } from '../../handlers/onSearchMovie';
 
 // после инициализации блок header остается и рендеририться будет только разметка внутри
 // оставляю фиксированный блок для того, чтобы при переходе на другие страницы, не прыгала разметка
@@ -9,7 +10,7 @@ const initHeader = () => {
   document.body.insertAdjacentHTML('afterbegin', headerMarkup);
 
   const libraryLink = document.getElementById('libraryLink');
-  libraryLink.addEventListener('click', onLibraryClick);
+  libraryLink.addEventListener('click', onLibraryLinkClick);
 
   const searchInput = document.getElementById('search-movie');
   searchInput.addEventListener('submit', onSearchMovie);
