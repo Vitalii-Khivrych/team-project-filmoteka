@@ -1,35 +1,35 @@
-import refs from '../refs';
-import Api from '../api-service';
+// import refs from '../refs';
+// import Api from '../api-service';
 // import ApiService from '../api-service';
 //import { appService } from '../../index';
-const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
-const appService = new Api();
+// const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
+// const appService = new Api();
 
-appService.fetchTrending().then(handleResponse);
+// appService.fetchTrending().then(handleResponse);
 
-function handleResponse(response) {
-  const cards = response.results;
-  console.log(response);
+// function handleResponse(response) {
+//   const cards = response.results;
+//   console.log(response);
 
-  Promise.all([appService.fetchGenres('movie'), appService.fetchGenres('tv')])
-    .then(allGenres => {
-      const genres = allGenres.map(r => r.genres);
-      const mergedGenres = [].concat.apply([], genres);
-      const genreMap = new Map(
-        mergedGenres.map(object => {
-          return [object.id, object.name];
-        })
-      );
-      renderPopularCards(cards, genreMap);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-}
+//   Promise.all([appService.fetchGenres('movie'), appService.fetchGenres('tv')])
+//     .then(allGenres => {
+//       const genres = allGenres.map(r => r.genres);
+//       const mergedGenres = [].concat.apply([], genres);
+//       const genreMap = new Map(
+//         mergedGenres.map(object => {
+//           return [object.id, object.name];
+//         })
+//       );
+//       renderPopularCards(cards, genreMap);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// }
 
-function renderPopularCards(cards, genres) {
-  console.log(cards);
-  console.log(genres);
+export default function renderPopularCards(cards, genres) {
+  // console.log(cards);
+  // console.log(genres);
   const markup = cards
     .map(
       ({
@@ -44,23 +44,27 @@ function renderPopularCards(cards, genres) {
       }) => {
         const date = release_date ? release_date : first_air_date;
         const name = original_title ? original_title : original_name;
-        const dateArr = date.split('-');
-        const year = dateArr[0];
-        console.log(year);
-        console.log(genre_ids);
+        // const dateArr = date.split('-');
+
+        const year = new Date(date).getFullYear();
+        // console.log(dateArr);
+        // const year = dateArr[0];
+        // console.log(year);
+        // console.log(genre_ids);
         const genreArr = genre_ids.slice(0, 2).map(id => genres.get(id));
 
         if (genre_ids.length > 2) {
-          genreArr.push('others');
+          genreArr.push('Others');
         }
 
         const genreStr = genreArr.join(', ');
-        console.log(genreStr);
+        // console.log(genreStr);
         const vote = vote_average.toFixed(1);
+
         return `<li class="gallery__item card" data-id="${id}">
           <img
             class="card__image"
-            src="${IMG_URL}${poster_path}"
+            src="https://image.tmdb.org/t/p/w500/${poster_path}"
             alt="poster"
             loading="lazy"
           />
@@ -78,7 +82,8 @@ function renderPopularCards(cards, genres) {
     )
     .join('');
 
-  refs.galleryList.insertAdjacentHTML('beforeend', markup);
+  return markup;
+  // refs.galleryList.insertAdjacentHTML('beforeend', markup);
 
-  console.log(markup);
+  // console.log(markup);
 }
