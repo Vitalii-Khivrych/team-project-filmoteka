@@ -7,6 +7,7 @@
     }
   }
 .gallery {
+  // margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +18,7 @@
     margin-right: -32px;
   }
 }
+
 .card {  
        margin-bottom: 20px;
        @media screen and (min-width: 768px) {
@@ -48,7 +50,8 @@
     margin-top: 12px;
   }
 }
-.card__title {
+  
+  .card__title {
     @include font($fs: 12px, $fw: 500, $lh: 1.16);
     text-transform: uppercase;
     color: var(--primery-text-color);
@@ -59,6 +62,7 @@
       @include font($fs: 20px, $fw: 500, $lh: 1.2);
     }
   }
+
   .card__movie-info {
     display: flex;
     justify-content: start;
@@ -109,7 +113,7 @@
     align-items: center;
     justify-content: center;
     padding: 12px;
-    background: var(--white-colore);
+    background: #F7F7F7;
     border-radius: 5px;
     border: none;
 }

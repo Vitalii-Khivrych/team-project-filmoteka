@@ -6,9 +6,7 @@ import renderModalCard from './js/templates/render-card-modal';
 import renderPopularCard from './js/templates/render-popular-card';
 import galleryRender from './js/templates/render-gallery';
 import renderFooter from './js/templates/render-footer';
-import Spiner from './js/templates/spiner';
 
-const spiner = new Spiner();
 const appService = new Api();
 
 // -------------Для рендеру карток головної сторінки-----------
