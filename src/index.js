@@ -10,7 +10,7 @@ const appService = new Api();
 // ------------------------------------------------
 
 // -------------Поіск фільму по назві-----------
-refs.searchInput.addEventListener('submit', onSearchMovie);
+// refs.searchInput.addEventListener('submit', onSearchMovie);
 
 function onSearchMovie(e) {
   e.preventDefault();
