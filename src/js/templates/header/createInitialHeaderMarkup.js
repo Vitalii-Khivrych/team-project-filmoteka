@@ -1,9 +1,11 @@
+import icon from '../../../images/sprite.svg';
+
 export default function createInitialHeaderMarkup() {
   return `<header class="header container">
   <div class="nav-wrap">
     <a href="#" class="header__logo" id="logoLink">
       <svg class="header__icon">
-        <use href="./images/sprite.svg#icon-main-logo"></use>
+        <use href="${icon}#icon-main-logo"></use>
       </svg>
       <span class="header__text">Filmoteka</span>
     </a>
@@ -33,7 +35,7 @@ export default function createInitialHeaderMarkup() {
       />
       <button class="search-form__button-submit" type="submit">
         <svg width="12" height="12">
-          <use href="./images/sprite.svg#icon-search"></use>
+          <use href="${icon}#icon-search"></use>
         </svg>
       </button>
     </form>
