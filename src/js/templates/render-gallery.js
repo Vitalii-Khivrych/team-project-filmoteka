@@ -24,5 +24,5 @@ const markup = numberMassiveGallery.map((element) => `<li class="gallery__item c
 </li>`).join("");
 galleryEl.insertAdjacentHTML("beforeend", markup);
 }
-galleryRender();
+// galleryRender();
 export default galleryRender;
