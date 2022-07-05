@@ -1,25 +1,32 @@
 <header class="header container">
   <div class="nav-wrap">
-    <a href="#" class="header__logo">
-      <img
-        class="header__icon"
-        src="./images/main-logo.svg"
-        alt="icon piece of tape"
-      />
+    <a href="#" class="header__logo" id="logoLink">
+      <svg class="header__icon">
+        <use href="./images/sprite.svg#icon-main-logo"></use>
+      </svg>
       <span class="header__text">Filmoteka</span>
     </a>
     <nav>
       <ul class="nav-list">
         <li class="nav-list__item">
-          <a class="nav-list__link nav-list__link--current" href="#">Home</a>
+          <a
+            class="nav-list__link nav-list__link--current"
+            href="#"
+            id="homeLink"
+            >Home</a
+          >
         </li>
         <li class="nav-list__item">
-          <a class="nav-list__link" href="#">My library</a>
+          <a class="nav-list__link" href="#" id="libraryLink">My library</a>
         </li>
         <li id="user-container" class="nav-list__item">
           <div hidden id="user-pic"></div>
           <div hidden id="user-name"></div>
-          <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          <button
+            hidden
+            id="sign-out"
+            class="mdl-button mdl-js-button mdl-js-ripple-effect"
+          >
             Sign-out
           </button>
           <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect">
@@ -39,18 +46,8 @@
         placeholder="Movie search"
       />
       <button class="search-form__button-submit" type="submit">
-        <svg
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
-        >
-          <path
-            d="M5.5 9.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM10.5 10.5 8.325 8.325"
-            stroke="#fff"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
+        <svg width="12" height="12">
+          <use href="./images/sprite.svg#icon-search"></use>
         </svg>
       </button>
     </form>
@@ -83,11 +80,17 @@
         <li id="user-container" class="nav-list__item">
           <div hidden id="user-pic"></div>
           <div hidden id="user-name"></div>
-          <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+          <button
+            hidden
+            id="sign-out"
+            class="mdl-button mdl-js-button mdl-js-ripple-effect"
+          >
             Sign-out
           </button>
+
           <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect">
             <i class="material-icons">account_circle</i>
+
             Sign-in with Google
           </button>
         </li>
