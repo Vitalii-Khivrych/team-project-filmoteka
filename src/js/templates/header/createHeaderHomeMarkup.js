@@ -1,8 +1,10 @@
+import icon from '../../../images/sprite.svg';
+
 export default function createHeaderHomeMarkup() {
   return `<div class="nav-wrap">
     <a href="#" class="header__logo" id="logoLink">
      <svg class="header__icon">
-        <use href="./images/sprite.svg#icon-main-logo"></use>
+        <use href="${icon}#icon-main-logo"></use>
       </svg>
       <span class="header__text">Filmoteka</span>
     </a>
