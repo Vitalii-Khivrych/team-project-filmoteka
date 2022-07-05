@@ -1,4 +1,5 @@
-<footer>
+function renderFooter() {
+return `<footer>
   <div class="footer__container container">
     <p class="footer__text">© 2020 | All Rights Reserved |</p>
     <p class="footer__text">
@@ -8,4 +9,7 @@
       <button type="button" class="footer__button">GoIT Students</button>
     </p>
   </div>
-</footer>
+</footer>`
+}
+
+export default renderFooter;
