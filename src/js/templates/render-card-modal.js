@@ -1,5 +1,5 @@
 import refs from '../refs';
-import { appService } from '../../index';
+import { appService } from './header/relinkingHandlers';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 
 // додавання розмітки на backdrop

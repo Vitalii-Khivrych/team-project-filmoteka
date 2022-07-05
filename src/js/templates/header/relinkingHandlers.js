@@ -1,7 +1,26 @@
 import createHeaderHomeMarkup from './createHeaderHomeMarkup';
 import createHeaderLibraryMarkup from './createHeaderLibraryMarkup';
-import { onSearchMovie } from './initHeader';
+import Api from '../../api-service';
+
 // обработчики ниже нужно дополнить разметкой галереи и футера для рендера целой страницы
+const appService = new Api();
+
+const onSearchMovie = e => {
+  e.preventDefault();
+
+  appService.query = e.currentTarget.elements.searchQuery.value.trim();
+
+  const isEmptySearch = appService.searchQuery === '';
+
+  if (isEmptySearch) {
+    console.log('Пустий пошук');
+    //Зробити повідомлення про пустий пошук
+    return;
+  }
+
+  appService.resetPage();
+  appService.fetchSearchMovie().then(console.log);
+};
 
 const onLibraryClick = event => {
   event.preventDefault();
@@ -40,4 +59,4 @@ const renderLibraryPage = () => {
   logoLink.addEventListener('click', onHomeClick);
 };
 
-export { onLibraryClick, onHomeClick };
+export { onLibraryClick, onHomeClick, onSearchMovie, appService };

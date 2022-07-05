@@ -10,9 +10,11 @@ import Spiner from './js/templates/spiner';
 import { initHeader } from './js/templates/header/initHeader';
 
 const spiner = new Spiner();
-const appService = new Api();
 
 initHeader();
+
+// const appService = new Api();
+
 // -------------Для рендеру карток головної сторінки-----------
 // appService.fetchTrending().then(console.log)   // Повертає об'єкт, в якому є масив з фільмами, номер поточної сторінки, кількість сторінок і скільски всього знайдено відео
 // ------------------------------------------------
@@ -40,4 +42,4 @@ initHeader();
 // тест відкриття модали з ID фшльму 12 (розкоментуй renderModalCard)
 // renderModalCard(12);
 // експорт для доступу в функції renderModalCard
-export { appService };
+// export { appService };
