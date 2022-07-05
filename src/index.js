@@ -3,6 +3,7 @@ import './sass/index.scss';
 import Api from './js/api-service';
 import refs from './js/refs';
 import renderModalCard from './js/templates/render-card-modal';
+import renderPopularCard from './js/templates/render-popular-card';
 import galleryRender from './js/templates/render-gallery';
 import renderFooter from './js/templates/render-footer';
 
@@ -35,5 +36,4 @@ function onSearchMovie(e) {
 // тест відкриття модали з ID фшльму 12 (розкоментуй renderModalCard)
 // renderModalCard(12);
 // експорт для доступу в функції renderModalCard
-
 export { appService };
