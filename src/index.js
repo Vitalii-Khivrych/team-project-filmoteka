@@ -3,6 +3,7 @@ import Api from './js/api-service';
 import refs from './js/refs';
 import renderModalCard from './js/templates/render-card-modal';
 import renderPopularCard from './js/templates/render-popular-card';
+import renderFooter from './js/templates/render-footer';
 const appService = new Api();
 
 // -------------Для рендеру карток головної сторінки-----------
@@ -10,7 +11,7 @@ const appService = new Api();
 // ------------------------------------------------
 
 // -------------Поіск фільму по назві-----------
-refs.searchInput.addEventListener('submit', onSearchMovie);
+// refs.searchInput.addEventListener('submit', onSearchMovie);
 
 function onSearchMovie(e) {
   e.preventDefault();
