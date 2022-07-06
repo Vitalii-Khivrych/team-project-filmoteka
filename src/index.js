@@ -9,8 +9,10 @@ import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
 import { initRenderTrendingMovie } from './js/createTrandingMovieCars';
+import renderBackdrop from './js/templates/render-backdrop';
+import { onCardClick } from './js/handlers/onModalCardHandlers';
 
-// import Spiner from './js/templates/spiner';
+// import Spiner from './js/spiner';
 
 // import renderPopularCards from './js/templates/render-popular-card';
 
@@ -19,7 +21,6 @@ import { initRenderTrendingMovie } from './js/createTrandingMovieCars';
 // const appService = new Api();
 
 // -------------Створює початкову розмітку сайту-----------
-
 const rootRef = document.querySelector('#root');
 
 document.addEventListener('DOMContentLoaded', createSiteMarkup(), {
@@ -30,9 +31,14 @@ function createSiteMarkup() {
   initHeader();
   rootRef.insertAdjacentHTML('beforeend', makeBasicGalleryMarkup());
   rootRef.insertAdjacentHTML('beforeend', renderFooter());
+  rootRef.insertAdjacentHTML('beforeend', renderBackdrop());
+  const galleryList = document
+    .querySelector('.gallery')
+    .addEventListener('click', onCardClick);
 
   initRenderTrendingMovie();
 }
+
 // ------------------------------------------------------------
 
 // -------------Для рендеру карток головної сторінки-----------
