@@ -41,92 +41,154 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
                   </li>`;
 
   if (currentPage === 1) {
-    return ` <ul class="pagination-list">
+    return !window.matchMedia('(max-width:768px)').matches
+      ? ` <ul class="pagination-list"> 
               ${currentBtn} 
               ${nextBtn}
               ${nextNextBtn}
               ${moreBtn}
               ${lastBtn}
             </ul>
-            ${nextArow}`;
+            ${nextArow}`
+      : `<ul class="pagination-list">
+                ${currentBtn} 
+                ${nextBtn}
+                ${nextNextBtn}
+              </ul>
+              ${nextArow}`;
   }
 
   if (currentPage === 2) {
-    return `${prevArow}
-            <ul class="pagination-list">
-              ${prevBtn}
-              ${currentBtn} 
-              ${nextBtn}
-              ${nextNextBtn}
-              ${moreBtn}
-              ${lastBtn}
-            </ul>
-            ${nextArow}`;
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `${prevArow}
+        <ul class="pagination-list">
+          ${prevBtn}
+          ${currentBtn} 
+          ${nextBtn}
+          ${nextNextBtn}
+          ${moreBtn}
+          ${lastBtn}
+        </ul>
+        ${nextArow}`
+      : `${prevArow}
+        <ul class="pagination-list">
+          ${prevBtn}
+          ${currentBtn}
+          ${nextBtn}
+          ${nextNextBtn}
+        </ul>
+        ${nextArow}`;
   }
 
   if (currentPage === 3) {
-    return `${prevArow}
-            <ul class="pagination-list">
-              ${prevPrevBtn}
-              ${prevBtn}
-              ${currentBtn} 
-              ${nextBtn}
-              ${nextNextBtn}
-              ${moreBtn}
-              ${lastBtn}
-            </ul>
-            ${nextArow}`;
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `${prevArow}
+        <ul class="pagination-list">
+          ${prevPrevBtn}
+          ${prevBtn}
+          ${currentBtn} 
+          ${nextBtn}
+          ${nextNextBtn}
+          ${moreBtn}
+          ${lastBtn}
+        </ul>
+        ${nextArow}`
+      : `${prevArow}
+        <ul class="pagination-list">
+          ${prevPrevBtn}  
+          ${prevBtn}
+          ${currentBtn}
+          ${nextBtn}
+          ${nextNextBtn}
+        </ul>
+        ${nextArow}`;
   }
 
   if (currentPage === lastPage - 2) {
-    return `${prevArow}
-            <ul class="pagination-list">
-              ${firstPageBtn}
-              ${moreBtn}
-              ${prevPrevBtn}
-              ${prevBtn}
-              ${currentBtn} 
-              ${nextBtn}
-              ${nextNextBtn}
-            </ul>
-            ${nextArow}`;
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `${prevArow}
+        <ul class="pagination-list">
+          ${firstPageBtn}
+          ${moreBtn}
+          ${prevPrevBtn}
+          ${prevBtn}
+          ${currentBtn} 
+          ${nextBtn}
+          ${nextNextBtn}
+        </ul>
+        ${nextArow}`
+      : `${prevArow}
+        <ul class="pagination-list">
+          ${prevPrevBtn}  
+          ${prevBtn}
+          ${currentBtn}
+          ${nextBtn}
+          ${nextNextBtn}
+        </ul>
+        ${nextArow}`;
   }
 
   if (currentPage === lastPage - 1) {
-    return `${prevArow}
-            <ul class="pagination-list">
-              ${firstPageBtn}
-              ${moreBtn}
-              ${prevPrevBtn}
-              ${prevBtn}
-              ${currentBtn} 
-              ${nextBtn}
-            </ul>
-            ${nextArow}`;
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `${prevArow}
+        <ul class="pagination-list">
+          ${firstPageBtn}
+          ${moreBtn}
+          ${prevPrevBtn}
+          ${prevBtn}
+          ${currentBtn} 
+          ${nextBtn}
+        </ul>
+        ${nextArow}`
+      : `${prevArow}
+        <ul class="pagination-list">
+          ${prevPrevBtn}  
+          ${prevBtn}
+          ${currentBtn}
+          ${nextBtn}
+        </ul>
+        ${nextArow}`;
   }
 
   if (currentPage === lastPage) {
-    return `${prevArow}
-            <ul class="pagination-list">
-              ${firstPageBtn}
-              ${moreBtn}
-              ${prevPrevBtn}
-              ${prevBtn}
-              ${currentBtn} 
-            </ul>`;
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `${prevArow}
+        <ul class="pagination-list">
+          ${firstPageBtn}
+          ${moreBtn}
+          ${prevPrevBtn}
+          ${prevBtn}
+          ${currentBtn} 
+        </ul>`
+      : `${prevArow}
+        <ul class="pagination-list">
+          ${prevPrevBtn}  
+          ${prevBtn}
+          ${currentBtn}
+        </ul>`;
   }
 
-  return `${prevArow}
-            <ul class="pagination-list">
-              ${firstPageBtn}
-              ${moreBtn}
-              ${prevPrevBtn}
-              ${prevBtn}
-              ${currentBtn} 
-              ${nextBtn}
-              ${nextNextBtn}
-              ${moreBtn}
-              ${lastBtn}
-            </ul>
-            ${nextArow}`;
+  return !window.matchMedia('(max-width:768px)').matches
+    ? `${prevArow}
+      <ul class="pagination-list">
+        ${firstPageBtn}
+        ${moreBtn}
+        ${prevPrevBtn}
+        ${prevBtn}
+        ${currentBtn} 
+        ${nextBtn}
+        ${nextNextBtn}
+        ${moreBtn}
+        ${lastBtn}
+      </ul>
+      ${nextArow}`
+    : `${prevArow}
+      <ul class="pagination-list">
+        ${prevPrevBtn}  
+        ${prevBtn}
+        ${currentBtn}
+        ${nextBtn}
+        ${nextNextBtn}
+      </ul>
+      ${nextArow}`;
 }

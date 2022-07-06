@@ -82,9 +82,9 @@
   }
 }
 /*Стили для мобильной галереи и кнопок пагинации*/
-.gallery {
-  margin-bottom: 40px;
-}
+// .gallery {
+//   margin-bottom: 40px;
+// }
 .card {
   margin-bottom: 20px;
 }
@@ -96,9 +96,14 @@
 }
 
 .pagination {
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
 }
 .pagination__arrow {
   display: flex;
@@ -115,18 +120,20 @@
   height: 1em;
   stroke-width: 0;
   stroke: currentColor;
+  pointer-events: none;
 }
 .pagination-list {
   display: flex;
   align-items: center;
 
-  .item:last-child {
-    display: none;
-  }
-  .item:first-child {
-    display: none;
-  }
+  // .item:last-child {
+  //   display: none;
+  // }
+  // .item:first-child {
+  //   display: none;
+  // }
 }
+
 .pagination__btn {
   font-size: 12px;
   font-weight: 500;
@@ -141,7 +148,7 @@
   color: #ffffff;
 }
 .pagination-btn-more {
-  display: none;
+  // display: none;
   font-size: 12px;
   line-height: 1.33;
   font-weight: 500;
@@ -155,11 +162,12 @@
   .gallery {
     display: flex;
     flex-wrap: wrap;
-    margin: -32px -32px 30px 0px;
+    margin: 0 -32px -32px 0;
   }
   .card {
     margin-bottom: 32px;
     margin-right: 32px;
+    flex-basis: calc(100% / 2 - 32px);
   }
   .card__image {
     width: 336px;
@@ -173,13 +181,17 @@
   .pagination-btn-more {
     display: flex;
   }
+  .pagination {
+    margin-top: 30px;
+  }
 }
+
 @media (min-width: 1280px) {
   .gallery {
     display: flex;
     // justify-content: center;
     flex-wrap: wrap;
-    margin: -16px -16px 60px 0px;
+    margin: 0 -16px -16px 0;
     .card {
       margin-bottom: 32px;
       margin-right: 16px;
@@ -189,13 +201,16 @@
   .card__image {
     width: 394px;
   }
-  .pagination-list .item:last-child {
-    display: flex;
-  }
-  .pagination-list .item:first-child {
-    display: flex;
-  }
-  .pagination-btn-more {
-    display: flex;
+  // .pagination-list .item:last-child {
+  //   display: flex;
+  // }
+  // .pagination-list .item:first-child {
+  //   display: flex;
+  // }
+  // .pagination-btn-more {
+  //   display: flex;
+  // }
+  .pagination {
+    margin-top: 60px;
   }
 }
