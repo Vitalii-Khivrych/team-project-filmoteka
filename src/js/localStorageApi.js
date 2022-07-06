@@ -61,7 +61,6 @@ const localStorageApi = {
       localStorage.setItem(QUEUE_LIST_STORAGE_KEY, JSON.stringify([movieId]));
     } else {
       const parsedMovies = this.getQueueList();
-      console.log(parsedMovies);
       parsedMovies.push(movieId);
       this.setQueueList(parsedMovies);
     }
@@ -89,3 +88,5 @@ const localStorageApi = {
     localStorage.removeItem(QUEUE_LIST_STORAGE_KEY);
   },
 };
+
+export { localStorageApi };
