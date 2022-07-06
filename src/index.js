@@ -11,6 +11,8 @@ import { initHeader } from './js/templates/header/initHeader';
 import { initRenderTrendingMovie } from './js/createTrandingMovieCars';
 import renderBackdrop from './js/templates/render-backdrop';
 import { onCardClick } from './js/handlers/onModalCardHandlers';
+import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
+import onGoItClick from './js/handlers/onGoItStudentsClick';
 
 // import Spiner from './js/spiner';
 
@@ -32,6 +34,8 @@ function createSiteMarkup() {
   rootRef.insertAdjacentHTML('beforeend', makeBasicGalleryMarkup());
   rootRef.insertAdjacentHTML('beforeend', renderFooter());
   rootRef.insertAdjacentHTML('beforeend', renderBackdrop());
+  rootRef.insertAdjacentHTML('beforeend', renderBackdropTeamModal());
+  onGoItClick();
   const galleryList = document
     .querySelector('.gallery')
     .addEventListener('click', onCardClick);
