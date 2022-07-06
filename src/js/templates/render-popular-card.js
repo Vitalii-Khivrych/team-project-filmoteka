@@ -7,6 +7,7 @@ export default function renderPopularCards(cards, genres) {
     .map(
       ({
         poster_path,
+        backdrop_path,
         original_title,
         original_name,
         genre_ids,
@@ -18,8 +19,12 @@ export default function renderPopularCards(cards, genres) {
         const imageUrl = poster_path
           ? `https://image.tmdb.org/t/p/w500/${poster_path}`
           : `${defaultPoster}`;
+            
         const date = release_date ? release_date : first_air_date;
         const name = original_title ? original_title : original_name;
+
+        const poster_url = poster_path ? poster_path : backdrop_path;
+        // const dateArr = date.split('-');
 
         const year = date ? new Date(date).getFullYear() : 'N/A';
         // console.log(genre_ids);
