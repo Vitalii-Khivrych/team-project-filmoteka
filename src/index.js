@@ -10,7 +10,7 @@ import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
 import { initRenderTrendingMovie } from './js/createTrandingMovieCars';
 
-// import Spiner from './js/templates/spiner';
+// import Spiner from './js/spiner';
 
 // import renderPopularCards from './js/templates/render-popular-card';
 
@@ -33,6 +33,7 @@ function createSiteMarkup() {
 
   initRenderTrendingMovie();
 }
+
 // ------------------------------------------------------------
 
 // -------------Для рендеру карток головної сторінки-----------
