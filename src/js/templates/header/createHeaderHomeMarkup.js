@@ -34,7 +34,7 @@ export default function createHeaderHomeMarkup() {
       />
       <button class="search-form__button-submit" type="submit">
        <svg width="12" height="12">
-          <use href="./images/sprite.svg#icon-search"></use>
+          <use href="${icon}#icon-search"></use>
         </svg>
       </button>
     </form>

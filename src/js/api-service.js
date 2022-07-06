@@ -14,7 +14,7 @@ export default class ApiService {
   }
 
   fetchTrending() {
-    const url = `${BASE_URL}/trending/all/day?api_key=${KEY}&page=${this.page}`;
+    const url = `${BASE_URL}/trending/movie/day?api_key=${KEY}&page=${this.page}`;
 
     return fetch(url).then(res => res.json());
   }
@@ -33,6 +33,14 @@ export default class ApiService {
 
   incrementPage() {
     this.page += 1;
+  }
+
+  decrementPage() {
+    this.page -= 1;
+  }
+
+  get pageNumber() {
+    return this.page;
   }
 
   set pageNumber(number) {
