@@ -1,3 +1,4 @@
+import icon from '../../images/sprite.svg';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 
 export default function createModalMarkup({
@@ -12,7 +13,9 @@ export default function createModalMarkup({
 }) {
   const genersList = genres.map(element => element.name);
   return `<div class="modal">
-    <button class="modal__close" data-action="close-modal">X</button>
+    <button class="modal__close" data-action="close-modal"><svg class="modal__close-icon" width="14" height="14">
+        <use href="${icon}#icon-close"></use>
+      </svg></button>
  
       <img class="modal__img" src=${IMG_URL}${poster_path} alt="poster" />
   
