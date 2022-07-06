@@ -5,23 +5,7 @@
     padding-top: 60px;
     padding-bottom: 60px;
   }
-
-  .gallery__item {
-    cursor: pointer;
-  }
-
-  .card__image {
-    pointer-events: none;
-  }
-
-  .card__info {
-    margin-top: 8px;
-    pointer-events: none;
-
-    @media screen and (min-width: 1280px) {
-      margin-top: 12px;
-    }
-  }
+}
 .gallery {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -50,13 +34,18 @@
       @media screen and (max-width: 767px) {
       margin-bottom: 0px;
       }
-   }    
- 
+}     
 .card__image {
   pointer-events: none;
   border-radius: 5px;
+  height: 402px;
+  @media screen and (min-width: 768px) {
+  height: 455px;
+  }
+  @media screen and (min-width: 1280px) {
+  height: 574px;
+  }
 }
-
 .card__info {
   margin-top: 8px;
   pointer-events: none;
@@ -66,6 +55,7 @@
 }
 .card__title {
     @include font($fs: 12px, $fw: 500, $lh: 1.16);
+    font-family: 'Roboto';
     text-transform: uppercase;
     color: var(--primery-text-color);
     @media screen and (min-width: 768px) {
@@ -74,24 +64,26 @@
     @media screen and (min-width: 1280px) {
       @include font($fs: 20px, $fw: 500, $lh: 1.2);
     }
+    margin-bottom: 0;
   }
   .card__movie-info {
     display: flex;
     justify-content: start;
-    // align-items: center;
-    align-items: flex-start;
+    align-items: center;
   }
-  
   .card__release,
   .card__genre,
   .vertical {
+    margin-bottom: 0;
     @include font($fs: 12px, $fw: 500, $lh: 1.33);
+    font-family: 'Roboto';
     color: var(--accent-text-color);
     @media screen and (min-width: 1280px) {
       @include font($fs: 20px, $fw: 500, $lh: 1.2);
     }
   }
   .card__rating {
+    margin-bottom: 0;
     width: 36px;
     height: 16px;
     display: flex;
@@ -113,13 +105,12 @@
 
 .pagination {
   margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @media screen and (min-width: 768px) {
-      margin-top: 60px;
-    }
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    margin-top: 60px;
+  }
 }
 .pagination__arrow {
     display: flex;
@@ -141,13 +132,12 @@
   display: flex;
   align-items: center;
 
-    .item:last-child,
-    .item:first-child
-     {
-     display: none;
-     @media (min-width: 768px) {
+  .item:last-child,
+  .item:first-child {
+    display: none;
+    @media (min-width: 768px) {
       display: flex;
-     }
+    }
     }
   }
 .pagination__btn {
