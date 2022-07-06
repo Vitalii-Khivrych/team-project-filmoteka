@@ -34,6 +34,7 @@ export default function renderPopularCards(cards, genres) {
     .map(
       ({
         poster_path,
+        backdrop_path,
         original_title,
         original_name,
         genre_ids,
@@ -44,6 +45,7 @@ export default function renderPopularCards(cards, genres) {
       }) => {
         const date = release_date ? release_date : first_air_date;
         const name = original_title ? original_title : original_name;
+        const poster_url = poster_path ? poster_path : backdrop_path;
         // const dateArr = date.split('-');
 
         const year = new Date(date).getFullYear();
@@ -54,7 +56,7 @@ export default function renderPopularCards(cards, genres) {
         const genreArr = genre_ids.slice(0, 2).map(id => genres.get(id));
 
         if (genre_ids.length > 2) {
-          genreArr.push('Others');
+          genreArr.push('others');
         }
 
         const genreStr = genreArr.join(', ');
@@ -64,7 +66,7 @@ export default function renderPopularCards(cards, genres) {
         return `<li class="gallery__item card" data-id="${id}">
           <img
             class="card__image"
-            src="https://image.tmdb.org/t/p/w500/${poster_path}"
+            src="https://image.tmdb.org/t/p/w500/${poster_url}"
             alt="poster"
             loading="lazy"
           />
