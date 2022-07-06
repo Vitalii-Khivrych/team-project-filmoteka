@@ -3,7 +3,11 @@ const QUEUE_LIST_STORAGE_KEY = 'queue-list';
 
 const localStorageApi = {
   getWatchedList() {
-    return JSON.parse(localStorage.getItem(WATCHED_LIST_STORAGE_KEY));
+    try {
+      return JSON.parse(localStorage.getItem(WATCHED_LIST_STORAGE_KEY));
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   setWatchedList(list) {
@@ -11,7 +15,11 @@ const localStorageApi = {
   },
 
   getQueueList() {
-    return JSON.parse(localStorage.getItem(QUEUE_LIST_STORAGE_KEY));
+    try {
+      return JSON.parse(localStorage.getItem(QUEUE_LIST_STORAGE_KEY));
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   setQueueList(list) {
