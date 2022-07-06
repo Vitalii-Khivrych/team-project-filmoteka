@@ -12,7 +12,7 @@ import { initRenderTrendingMovie } from './js/createTrandingMovieCars';
 import renderBackdrop from './js/templates/render-backdrop';
 import { onCardClick } from './js/handlers/onModalCardHandlers';
 
-// import Spiner from './js/templates/spiner';
+// import Spiner from './js/spiner';
 
 // import renderPopularCards from './js/templates/render-popular-card';
 
@@ -38,6 +38,7 @@ function createSiteMarkup() {
 
   initRenderTrendingMovie();
 }
+
 // ------------------------------------------------------------
 
 // -------------Для рендеру карток головної сторінки-----------

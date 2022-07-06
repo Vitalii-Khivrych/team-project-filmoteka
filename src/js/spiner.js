@@ -1,6 +1,6 @@
 class Spiner {
     constructor() { 
-        this.markup = `<div class="spiner__holder is-hidden">
+        this.markup = `<div id="spiner" class="spiner__holder is-hidden">
       <div class="lds-spinner">
         <div></div>
         <div></div>
@@ -23,12 +23,16 @@ class Spiner {
         element.insertAdjacentHTML('beforeend', this.markup)
     }
     off() {
-        const spiner = document.querySelector('.spiner__holder');
+        const spiner = document.querySelector('#spiner');
         spiner.classList.add('is-hidden');
     }
     on() {
-        const spiner = document.querySelector('.spiner__holder');
+        const spiner = document.querySelector('#spiner');
         spiner.classList.remove('is-hidden');
+    }
+    delete() {
+        const spiner = document.querySelector('#spiner');
+        spiner.remove();
     }
 }
 
