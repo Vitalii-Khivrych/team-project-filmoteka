@@ -100,7 +100,7 @@
     }
   }  
 
-  
+
   // Пагинация
 
 .pagination {
@@ -127,19 +127,13 @@
   height: 1em;
   stroke-width: 0;
   stroke: currentColor;
+  pointer-events: none;
 }
 .pagination-list {
   display: flex;
   align-items: center;
-
-  .item:last-child,
-  .item:first-child {
-    display: none;
-    @media (min-width: 768px) {
-      display: flex;
-    }
-    }
   }
+
 .pagination__btn {
   @include font($fs: 12px, $fw: 500, $lh: 1.33);
     padding: 11px 14px;
@@ -151,10 +145,8 @@
     background-color: var(--activ-btn-color);
     color: var(--white-colore);
 }
-.pagination-btn-more {
-    display: none;
+.pagination-btn-more {    
     @media (min-width: 768px) {
-    display: flex;
     @include font($fs: 12px, $fw: 500, $lh: 1.33);
     letter-spacing: 0em;
     background-color: var(--white-colore);
@@ -162,3 +154,4 @@
     padding: 0 0 6px 0;
      }
 }
+
