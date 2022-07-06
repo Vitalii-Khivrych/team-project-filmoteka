@@ -129,47 +129,4 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
               ${lastBtn}
             </ul>
             ${nextArow}`;
-
-  // return `
-  //     <button class="pagination__arrow pagination__arrow-left">
-  //       <svg class="pagination-arrow-icon">
-  //         <use href="${icon}#icon-arrow-left"></use>
-  //       </svg>
-  //     </button>
-  //     <ul class="pagination-list">
-  //       <li class="item">
-  //         <button class="pagination__btn">1</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination-btn-more">...</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination__btn">${currentPage - 2}</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination__btn">${currentPage - 1}</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination__btn pagination__btn--choice">${currentPage}</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination__btn">${currentPage + 1}</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination__btn">${currentPage + 2}</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination-btn-more">...</button>
-  //       </li>
-  //       <li class="item">
-  //         <button class="pagination__btn">${lastPage}</button>
-  //       </li>
-  //     </ul>
-  //     <button class="pagination__arrow pagination__arrow-right">
-  //       <svg class="pagination-arrow-icon">
-  //         <use href="${icon}#icon-arrow-right"></use>
-  //       </svg>
-  //     </button>
-
-  // `;
 }
