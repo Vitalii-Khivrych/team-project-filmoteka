@@ -15,10 +15,10 @@ import renderBackdrop from './js/templates/render-backdrop';
 import { onCardClick } from './js/handlers/onModalCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
 import onGoItClick from './js/handlers/onGoItStudentsClick';
+import spiner from './js/spiner';
 
 // import Spiner from './js/spiner';
 
-// const spiner = new Spiner();
 
 // -------------Створює початкову розмітку сайту-----------
 const rootRef = document.querySelector('#root');
@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', createSiteMarkup(), {
 });
 
 function createSiteMarkup() {
+  rootRef.insertAdjacentHTML('afterend', spiner.getMarkup());
+  spiner.on()
   initHeader();
   rootRef.insertAdjacentHTML('afterbegin', createAuthMarkup())
   rootRef.insertAdjacentHTML('beforeend', makeBasicGalleryMarkup());

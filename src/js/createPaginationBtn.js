@@ -1,6 +1,7 @@
 import makePaginatuonBtnMarkup from './templates/paginationMarkup';
 import { initRenderTrendingMovie, appService } from './createTrandingMovieCars';
 import { searchMovie } from './handlers/onSearchMovie';
+import spiner from './spiner';
 
 let paginatioRef = null;
 let currentPage = null;
@@ -51,13 +52,14 @@ function onPaginationBtnClick(e) {
   }
 
   if (e.target.nodeName === 'BUTTON') {
+    spiner.on();
     appService.pageNumber = +e.target.textContent;
 
     if (appService.query !== '') {
       searchMovie();
       return;
     }
-
+    
     initRenderTrendingMovie();
   }
 }

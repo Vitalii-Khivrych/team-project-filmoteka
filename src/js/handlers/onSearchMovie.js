@@ -1,5 +1,6 @@
 import { appService } from '../createTrandingMovieCars';
 import handleResponse from './handlerResponse';
+import spiner from '../spiner'
 
 let searchForm = null;
 
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const onSearchMovie = e => {
   e.preventDefault();
+  spiner.on();
   const queryString = e.currentTarget.elements.searchQuery.value.trim();
 
   if (queryString === '') {
