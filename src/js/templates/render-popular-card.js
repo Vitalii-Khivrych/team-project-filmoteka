@@ -16,14 +16,15 @@ export default function renderPopularCards(cards, genres) {
         vote_average,
         id,
       }) => {
+        const poster_url = poster_path ? poster_path : backdrop_path;
+
         const imageUrl = poster_path
-          ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+          ? `https://image.tmdb.org/t/p/w500/${poster_url}`
           : `${defaultPoster}`;
-            
+
         const date = release_date ? release_date : first_air_date;
         const name = original_title ? original_title : original_name;
 
-        const poster_url = poster_path ? poster_path : backdrop_path;
         // const dateArr = date.split('-');
 
         const year = date ? new Date(date).getFullYear() : 'N/A';

@@ -1,53 +1,71 @@
-// import Api from '../js/api-service';
-
 import makePaginatuonBtnMarkup from './templates/paginationMarkup';
 import { initRenderTrendingMovie, appService } from './createTrandingMovieCars';
+import { searchMovie } from './handlers/onSearchMovie';
 import spiner from './spiner';
 
-// const appService = new Api();
+let paginatioRef = null;
+let currentPage = null;
 
-export default function createPaginationBtn(data) {
-  const paginatioRef = document.querySelector('.pagination');
-  const currentPage = appService.pageNumber;
+function createPaginationBtn(data) {
+  paginatioRef = document.querySelector('.pagination');
+  currentPage = appService.pageNumber;
   const lastPage = data.total_pages;
 
   paginatioRef.innerHTML = makePaginatuonBtnMarkup(currentPage, lastPage);
 
   // ------------- Логіка роботи кнопок пагінаціі -----------
   paginatioRef.addEventListener('click', onPaginationBtnClick);
+}
 
-  function onPaginationBtnClick(e) {
-    e.preventDefault();
-    // console.log(e);
+function onPaginationBtnClick(e) {
+  e.preventDefault();
 
-    if (+e.target.textContent === currentPage) {
-      console.log('Поточна сторінка');
+  if (+e.target.textContent === currentPage) {
+    console.log('Поточна сторінка');
+    return;
+  }
+
+  removePaginationBtnClick();
+
+  if (e.target.id === 'next') {
+    appService.incrementPage();
+
+    if (appService.query !== '') {
+      searchMovie();
       return;
     }
 
-    if (e.target.id === 'next') {
-      appService.incrementPage();
+    initRenderTrendingMovie();
+    return;
+  }
 
-      paginatioRef.removeEventListener('click', onPaginationBtnClick);
+  if (e.target.id === 'previous') {
+    appService.decrementPage();
 
-      initRenderTrendingMovie();
+    if (appService.query !== '') {
+      searchMovie();
       return;
     }
 
-    if (e.target.id === 'previous') {
-      appService.decrementPage();
+    initRenderTrendingMovie();
+    return;
+  }
 
-      paginatioRef.removeEventListener('click', onPaginationBtnClick);
+  if (e.target.nodeName === 'BUTTON') {
+    spiner.on();
+    appService.pageNumber = +e.target.textContent;
 
-      initRenderTrendingMovie();
+    if (appService.query !== '') {
+      searchMovie();
       return;
     }
-
-    if (e.target.nodeName === 'BUTTON') {
-      spiner.on();
-      appService.pageNumber = +e.target.textContent;
-      paginatioRef.removeEventListener('click', onPaginationBtnClick);
-      initRenderTrendingMovie();
-    }
+    
+    initRenderTrendingMovie();
   }
 }
+
+function removePaginationBtnClick() {
+  paginatioRef.removeEventListener('click', onPaginationBtnClick);
+}
+
+export { createPaginationBtn, removePaginationBtnClick };

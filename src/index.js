@@ -1,10 +1,12 @@
 import './sass/index.scss';
 
+
 // import refs from './js/refs'; // do not work
 
 // import Api from './js/api-service';
 
 // import renderModalCard from './js/templates/render-card-modal';
+import createAuthMarkup from './js/templates/header/createAuthMarkup';
 import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
@@ -13,11 +15,10 @@ import renderBackdrop from './js/templates/render-backdrop';
 import { onCardClick } from './js/handlers/onModalCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
 import onGoItClick from './js/handlers/onGoItStudentsClick';
-
 import spiner from './js/spiner';
-// import renderPopularCards from './js/templates/render-popular-card';
 
-// const appService = new Api();
+// import Spiner from './js/spiner';
+
 
 // -------------Створює початкову розмітку сайту-----------
 const rootRef = document.querySelector('#root');
@@ -30,6 +31,7 @@ function createSiteMarkup() {
   rootRef.insertAdjacentHTML('afterend', spiner.getMarkup());
   spiner.on()
   initHeader();
+  rootRef.insertAdjacentHTML('afterbegin', createAuthMarkup())
   rootRef.insertAdjacentHTML('beforeend', makeBasicGalleryMarkup());
   rootRef.insertAdjacentHTML('beforeend', renderFooter());
   rootRef.insertAdjacentHTML('beforeend', renderBackdrop());
