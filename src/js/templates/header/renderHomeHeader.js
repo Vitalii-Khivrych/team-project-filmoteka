@@ -1,8 +1,11 @@
 import createHeaderHomeMarkup from './createHeaderHomeMarkup';
 import { onLibraryLinkClick } from '../../handlers/onLibraryLinkClick';
 import { onSearchMovie } from '../../handlers/onSearchMovie';
+import { initRenderTrendingMovie } from '../../createTrandingMovieCars';
 
 const renderHomeHeader = () => {
+  initRenderTrendingMovie();
+
   const headerElement = document.querySelector('.header');
 
   headerElement.innerHTML = createHeaderHomeMarkup();

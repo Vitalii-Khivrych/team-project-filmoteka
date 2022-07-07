@@ -1,5 +1,6 @@
 import './sass/index.scss';
 
+
 // import refs from './js/refs'; // do not work
 
 // import Api from './js/api-service';
@@ -17,11 +18,7 @@ import onGoItClick from './js/handlers/onGoItStudentsClick';
 
 // import Spiner from './js/spiner';
 
-// import renderPopularCards from './js/templates/render-popular-card';
-
 // const spiner = new Spiner();
-
-// const appService = new Api();
 
 // -------------Створює початкову розмітку сайту-----------
 const rootRef = document.querySelector('#root');
