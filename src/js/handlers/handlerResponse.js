@@ -7,11 +7,11 @@ export default function handleResponse(response) {
   console.log(response);
   const cards = response.results;
 
-  Promise.all([appService.fetchGenres('movie'), appService.fetchGenres('tv')])
-    .then(allGenres => {
-      const genres = allGenres.flatMap(r => r.genres);
+  appService
+    .fetchGenres()
+    .then(genres => {
       const genreMap = new Map(
-        genres.map(object => {
+        genres.genres.map(object => {
           return [object.id, object.name];
         })
       );
