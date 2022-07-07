@@ -39,8 +39,6 @@ export default function createHeaderHomeMarkup() {
       </button>
     </form>
   </div>
-  <p class="notification">
-    Search result is not successful. Enter the correct movie name and try again.
-  </p>
+  <p class="notification notification--is-hidden"></p>
 `;
 }
