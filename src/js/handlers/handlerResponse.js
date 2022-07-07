@@ -1,12 +1,9 @@
-import Api from '../api-service';
-
 import renderPopularCards from '../templates/render-popular-card';
-import createPaginationBtn from '../createPaginationBtn';
-
-const appService = new Api();
+import { createPaginationBtn } from '../createPaginationBtn';
+import { appService } from '../createTrandingMovieCars';
 
 export default function handleResponse(response) {
-  // console.log(response);
+  console.log(response);
   const cards = response.results;
 
   Promise.all([appService.fetchGenres('movie'), appService.fetchGenres('tv')])
@@ -17,7 +14,9 @@ export default function handleResponse(response) {
           return [object.id, object.name];
         })
       );
+
       const galleryRef = document.querySelector('.gallery');
+
       galleryRef.innerHTML = renderPopularCards(cards, genreMap);
 
       createPaginationBtn(response);
