@@ -1,7 +1,8 @@
 import icon from '../../../images/sprite.svg';
 
 export default function createHeaderHomeMarkup() {
-  return `<div class="nav-wrap">
+  return `<div class="container">
+  <div class="nav-wrap">
     <a href="#" class="header__logo" id="logoLink">
      <svg class="header__icon">
         <use href="${icon}#icon-main-logo"></use>
@@ -40,5 +41,6 @@ export default function createHeaderHomeMarkup() {
     </form>
   </div>
   <p class="notification notification--is-hidden"></p>
+  </div>
 `;
 }
