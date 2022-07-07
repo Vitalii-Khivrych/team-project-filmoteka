@@ -5,6 +5,7 @@ import './sass/index.scss';
 // import Api from './js/api-service';
 
 // import renderModalCard from './js/templates/render-card-modal';
+import createAuthMarkup from './js/templates/header/createAuthMarkup';
 import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', createSiteMarkup(), {
 
 function createSiteMarkup() {
   initHeader();
+  rootRef.insertAdjacentHTML('afterbegin', createAuthMarkup())
   rootRef.insertAdjacentHTML('beforeend', makeBasicGalleryMarkup());
   rootRef.insertAdjacentHTML('beforeend', renderFooter());
   rootRef.insertAdjacentHTML('beforeend', renderBackdrop());
