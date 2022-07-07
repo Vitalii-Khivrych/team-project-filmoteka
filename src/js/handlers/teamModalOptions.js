@@ -8,6 +8,7 @@ function addTeamModal(teamModal) {
 function openTeamModal() {
     let backdropTeamModal = document.querySelector('.backdrop__team-modal');
     backdropTeamModal.classList.remove('is-hidden');
+    document.body.classList.toggle('lock');
     document.addEventListener('keydown', onEscCloseTeamModal);
     let closeTeamModalBtn = document.querySelector('.team-modal__btn-close');
     closeTeamModalBtn.addEventListener('click', closeTeamModal);
@@ -16,6 +17,7 @@ function openTeamModal() {
 function closeTeamModal() {
     let backdropTeamModal = document.querySelector('.backdrop__team-modal');
     backdropTeamModal.classList.add('is-hidden');
+    document.body.classList.toggle('lock');
     document.removeEventListener('keydown', onEscCloseTeamModal);
     backdropTeamModal.removeEventListener('click', onBtnCloseTeamModal);
 }
