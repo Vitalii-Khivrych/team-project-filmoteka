@@ -1,10 +1,5 @@
 import './sass/index.scss';
 
-// import refs from './js/refs'; // do not work
-
-// import Api from './js/api-service';
-
-// import renderModalCard from './js/templates/render-card-modal';
 import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
@@ -16,11 +11,7 @@ import onGoItClick from './js/handlers/onGoItStudentsClick';
 
 // import Spiner from './js/spiner';
 
-// import renderPopularCards from './js/templates/render-popular-card';
-
 // const spiner = new Spiner();
-
-// const appService = new Api();
 
 // -------------Створює початкову розмітку сайту-----------
 const rootRef = document.querySelector('#root');

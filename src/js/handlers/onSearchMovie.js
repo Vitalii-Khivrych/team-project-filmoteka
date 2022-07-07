@@ -1,10 +1,10 @@
-import Api from '../api-service';
-const appService = new Api();
+import { appService } from '../createTrandingMovieCars';
 import handleResponse from './handlerResponse';
 
+let searchForm = null;
+
 document.addEventListener('DOMContentLoaded', function () {
-  const searchForm = document.querySelector('#search-movie');
-  console.log(searchForm);
+  searchForm = document.querySelector('#search-movie');
   searchForm.addEventListener('submit', onSearchMovie);
 });
 
@@ -20,7 +20,14 @@ const onSearchMovie = e => {
   appService.query = queryString;
 
   appService.resetPage();
-  appService.fetchSearchMovie().then(handleResponse).catch(console.log);
+
+  searchMovie();
+
+  searchForm.reset();
 };
 
-export { onSearchMovie, appService };
+function searchMovie() {
+  appService.fetchSearchMovie().then(handleResponse).catch(console.log);
+}
+
+export { onSearchMovie, searchMovie };
