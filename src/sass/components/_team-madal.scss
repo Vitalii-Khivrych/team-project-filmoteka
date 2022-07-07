@@ -118,3 +118,6 @@
         @include font($fs: 14px, $fw: 500, $lh: 1.33);
     }
 }
+body.lock {
+    overflow: hidden;
+}
