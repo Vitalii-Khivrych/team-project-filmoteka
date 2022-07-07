@@ -24,7 +24,7 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Vitaliy Khivrych</h3>
               <p class="team-modal__text">Team-Lead
-                    <a href="https://github.com/Vitalii-Khivrych">
+                    <a target="_blank" href="https://github.com/Vitalii-Khivrych">
                         <svg width="20" height="20">
                             <use href="${icon}#icon-github-logo"></use>
                         </svg>
@@ -37,7 +37,7 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Natalia Delicheban</h3>
               <p class="team-modal__text">Scrum-Master
-                        <a href="https://github.com/NataliaDelicheban">
+                        <a target="_blank" href="https://github.com/NataliaDelicheban">
                             <svg width="20" height="20">
                                 <use href="${icon}#icon-github-logo"></use>
                             </svg>
@@ -50,7 +50,7 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Dima Zharyy</h3>
               <p class="team-modal__text">Web Developer
-                        <a href="https://github.com/dima-zharyy">
+                        <a target="_blank" href="https://github.com/dima-zharyy">
                             <svg width="20" height="20">
                                 <use href="${icon}#icon-github-logo"></use>
                             </svg>
@@ -63,7 +63,7 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Viktoria Fomenko</h3>
               <p class="team-modal__text">Web Developer
-                        <a href="https://github.com/ViktoriaFomenko">
+                        <a target="_blank" href="https://github.com/ViktoriaFomenko">
                             <svg width="20" height="20">
                                 <use href="${icon}#icon-github-logo"></use>
                             </svg>
@@ -76,7 +76,7 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Igor Smelyanets</h3>
               <p class="team-modal__text">Web Developer
-                        <a href="https://github.com/IgorSME">
+                        <a target="_blank" href="https://github.com/IgorSME">
                             <svg width="20" height="20">
                                 <use href="${icon}#icon-github-logo"></use>
                             </svg>
@@ -89,7 +89,7 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Samvel Ogmrtsyan</h3>
               <p class="team-modal__text">Web Developer
-                        <a href="https://github.com/samvel216">
+                        <a target="_blank" href="https://github.com/samvel216">
                         <svg width="20" height="20">
                             <use href="${icon}#icon-github-logo"></use>
                         </svg>
@@ -101,7 +101,7 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Yevhen Podoliaka</h3>
               <p class="team-modal__text">Web Developer
-                        <a href="https://github.com/yevhenpodoliaka">
+                        <a target="_blank" href="https://github.com/yevhenpodoliaka">
                             <svg width="20" height="20">
                                 <use href="${icon}#icon-github-logo"></use>
                             </svg>
@@ -114,12 +114,12 @@ function createTeamModal() {
           <div class="team-modal__box">
               <h3 class="team-modal__box-title">Oleksandr Suprun</h3>
               <p class="team-modal__text">Web Developer
-                        <a href="https://github.com/parfors">
+                        <a target="_blank" href="https://github.com/parfors">
                             <svg width="20" height="20">
                                 <use href="${icon}#icon-github-logo"></use>
                             </svg>
                         </a>
-                    </p>
+              </p>
           </div>
           </li>
       </ul>
