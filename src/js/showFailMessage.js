@@ -5,7 +5,9 @@ function showEmptyInputMessage() {
 
   setTimeout(() => {
     notificationElement.classList.add('notification--is-hidden');
-    notificationElement.textContent = '';
+    setTimeout(() => {
+      notificationElement.textContent = '';
+    }, 300);
   }, 4000);
 }
 
@@ -16,7 +18,9 @@ function showNoResultMessage() {
 
   setTimeout(() => {
     notificationElement.classList.add('notification--is-hidden');
-    notificationElement.textContent = '';
+    setTimeout(() => {
+      notificationElement.textContent = '';
+    }, 300);
   }, 4000);
 }
 
