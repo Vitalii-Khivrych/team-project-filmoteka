@@ -7,27 +7,31 @@ export default function renderPopularCards(cards, genres) {
     .map(
       ({
         poster_path,
-        backdrop_path,
+        // backdrop_path,
         original_title,
-        original_name,
+        // original_name,
         genre_ids,
         release_date,
-        first_air_date,
+        // first_air_date,
         vote_average,
         id,
       }) => {
-        const poster_url = poster_path ? poster_path : backdrop_path;
+        // const poster_url = poster_path : poster_path ? backdrop_path;
 
+        // const imageUrl = poster_path
+        //   ? `https://image.tmdb.org/t/p/w500/${poster_url}`
+        //   : `${defaultPoster}`;
         const imageUrl = poster_path
-          ? `https://image.tmdb.org/t/p/w500/${poster_url}`
+          ? `https://image.tmdb.org/t/p/w500/${poster_path}`
           : `${defaultPoster}`;
 
-        const date = release_date ? release_date : first_air_date;
-        const name = original_title ? original_title : original_name;
+        const date = release_date;
+        // const name = original_title ? original_title : original_name;
 
         // const dateArr = date.split('-');
 
-        const year = date ? new Date(date).getFullYear() : 'N/A';
+        const year = release_date ? new Date(date).getFullYear() : 'N/A';
+
         // console.log(genre_ids);
         const genreArr = genre_ids
           ? genre_ids.slice(0, 2).map(id => genres.get(id))
@@ -50,7 +54,7 @@ export default function renderPopularCards(cards, genres) {
             loading="lazy"
           />
           <div class="card__info" >
-            <p class="card__title">${name}</p>
+            <p class="card__title">${original_title}</p>
             <div class="card__movie-info">
               <p class="card__genre">${genreStr}</p>
               <span class="vertical">&nbsp|&nbsp</span>
