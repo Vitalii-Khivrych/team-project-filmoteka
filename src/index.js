@@ -14,11 +14,8 @@ import { onCardClick } from './js/handlers/onModalCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
 import onGoItClick from './js/handlers/onGoItStudentsClick';
 
-// import Spiner from './js/spiner';
-
+import spiner from './js/spiner';
 // import renderPopularCards from './js/templates/render-popular-card';
-
-// const spiner = new Spiner();
 
 // const appService = new Api();
 
@@ -30,6 +27,8 @@ document.addEventListener('DOMContentLoaded', createSiteMarkup(), {
 });
 
 function createSiteMarkup() {
+  rootRef.insertAdjacentHTML('afterend', spiner.getMarkup());
+  spiner.on()
   initHeader();
   rootRef.insertAdjacentHTML('beforeend', makeBasicGalleryMarkup());
   rootRef.insertAdjacentHTML('beforeend', renderFooter());

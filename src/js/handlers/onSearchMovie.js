@@ -1,6 +1,7 @@
 import Api from '../api-service';
 const appService = new Api();
 import handleResponse from './handlerResponse';
+import spiner from '../spiner'
 
 document.addEventListener('DOMContentLoaded', function () {
   const searchForm = document.querySelector('#search-movie');
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const onSearchMovie = e => {
   e.preventDefault();
+  spiner.on();
   const queryString = e.currentTarget.elements.searchQuery.value.trim();
 
   if (queryString === '') {

@@ -2,6 +2,7 @@
 
 import makePaginatuonBtnMarkup from './templates/paginationMarkup';
 import { initRenderTrendingMovie, appService } from './createTrandingMovieCars';
+import spiner from './spiner';
 
 // const appService = new Api();
 
@@ -43,6 +44,7 @@ export default function createPaginationBtn(data) {
     }
 
     if (e.target.nodeName === 'BUTTON') {
+      spiner.on();
       appService.pageNumber = +e.target.textContent;
       paginatioRef.removeEventListener('click', onPaginationBtnClick);
       initRenderTrendingMovie();

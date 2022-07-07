@@ -2,12 +2,13 @@ import Api from '../api-service';
 
 import renderPopularCards from '../templates/render-popular-card';
 import createPaginationBtn from '../createPaginationBtn';
+import spiner from '../spiner';
 
 const appService = new Api();
 
 export default function handleResponse(response) {
   // console.log(response);
-  const cards = response.results;
+    const cards = response.results;
 
   Promise.all([appService.fetchGenres('movie'), appService.fetchGenres('tv')])
     .then(allGenres => {
@@ -21,6 +22,7 @@ export default function handleResponse(response) {
       galleryRef.innerHTML = renderPopularCards(cards, genreMap);
 
       createPaginationBtn(response);
+      spiner.off()
     })
     .catch(console.log);
 }
