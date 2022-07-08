@@ -12,7 +12,6 @@ export default async function renderModalCard(movieId) {
     const data = await appService.fetchMovieDetails(movieId);
     const markup = await createModalMarkup(data);
     await uppendModalMarkap(markup);
-    await searchTrailerById(movieId);
   } catch (error) {
     console.log(error);
   }

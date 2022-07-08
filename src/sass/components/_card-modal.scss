@@ -65,7 +65,6 @@
 .modal__description-wrap {
   display: flex;
     flex-direction: column;
-    flex-grow: 1;
     @include tablet {
       width: 60%;
     }
@@ -128,6 +127,7 @@
 }
 
 .modal__about-text {
+      flex-grow: 1;
   font-weight: 500;
     font-size: 12px;
   line-height: 1.66;
@@ -215,21 +215,21 @@
 //   }
 // }
 
-// .modal__btn-play {
-//     text-transform: uppercase;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   padding: 0;
-//   width: 68px;
-//   height: 48px;
-//   border: none;
-//   border-radius: 5px;
-//   background-color: #ff6b01;
-//   color: white;
-//   transform: translate(-50%, -50%);
-//   cursor: pointer;
-// }
+.modal__btn-play {
+    text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  width: 68px;
+  height: 48px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff6b01;
+  color: white;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
 // .modal__btn-close-trailer{
 //     text-transform: uppercase;
 //   position: absolute;

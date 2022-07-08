@@ -1,35 +1,19 @@
+import * as basicLightbox from 'basiclightbox';
 export { onBtnPlayClick };
-
-function onBtnPlayClick(e) {
-  const backdropEl = document.querySelector('.backdrop');
-  const modalImgEl = document.querySelector('.modal__img');
-  const videoFrameEl = document.querySelector('.video-frame');
+import searchTrailerById from '../searchTailerById';
+// import traillerMarkup from '../templates/traillerMarkup';
+async function onBtnPlayClick(e) {
   const btnPlayEl = document.querySelector('.modal__btn-play');
-  const btnCloseTrailer = document.querySelector('.modal__btn-close-trailer');
+  const modalCardEl = document.querySelector('.modal__card');
+  console.log(modalCardEl);
   if (e.target.classList.contains('modal__btn-play')) {
-    modalImgEl.classList.toggle('visually-hidden');
-    videoFrameEl.classList.toggle('visually-hidden');
-    btnPlayEl.classList.toggle('visually-hidden');
-    btnCloseTrailer.classList.toggle('visually-hidden');
-    backdropEl.removeEventListener('click', onBtnPlayClick);
-    backdropEl.addEventListener('click', onBtnCloseTrailer);
-    console.log('on btn player click');
-  }
-}
-
-function onBtnCloseTrailer(e) {
-  const backdropEl = document.querySelector('.backdrop');
-  const modalImgEl = document.querySelector('.modal__img');
-  const videoFrameEl = document.querySelector('.video-frame');
-  const btnPlayEl = document.querySelector('.modal__btn-play');
-  const btnCloseTrailer = document.querySelector('.modal__btn-close-trailer');
-  if (e.target.classList.contains('modal__btn-close-trailer')) {
-    modalImgEl.classList.toggle('visually-hidden');
-    videoFrameEl.classList.toggle('visually-hidden');
-    btnPlayEl.classList.toggle('visually-hidden');
-    btnCloseTrailer.classList.toggle('visually-hidden');
-    backdropEl.removeEventListener('click', onBtnCloseTrailer);
-    backdropEl.addEventListener('click', onBtnPlayClick);
-    console.log('on btn player click');
+    const filmId = e.currentTarget.getAttribute('id');
+    const key = await searchTrailerById(filmId);
+    // const markup = await traillerMarkup(key);
+    basicLightbox
+      .create(
+        `<iframe src="https://www.youtube.com/embed/${key}" width="560" height="315" frameborder="0"></iframe`
+      )
+      .show();
   }
 }

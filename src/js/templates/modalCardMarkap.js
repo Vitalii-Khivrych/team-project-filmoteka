@@ -20,7 +20,7 @@ export default function createModalMarkup({
         <div class="modal__card">
         <div class="modal__content">
      
-    <button class="modal__btn-play visually-hidden">play</button>
+    <button class="modal__btn-play">play</button>
     <img class="modal__img" src="${IMG_URL}${poster_path}" alt="cinema" />
   </div>
 
