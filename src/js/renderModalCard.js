@@ -2,7 +2,7 @@ import ApiService from './api-service';
 import createModalMarkup from './templates/modalCardMarkap';
 import { openModal } from './handlers/modalCardOptions';
 import { localStorageApi } from './localStorageApi';
-
+import searchTrailerById from './searchTailerById';
 const appService = new ApiService();
 
 export default async function renderModalCard(movieId) {
@@ -12,6 +12,7 @@ export default async function renderModalCard(movieId) {
     const data = await appService.fetchMovieDetails(movieId);
     const markup = await createModalMarkup(data);
     await uppendModalMarkap(markup);
+    await searchTrailerById(movieId);
   } catch (error) {
     console.log(error);
   }
