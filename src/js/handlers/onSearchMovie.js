@@ -4,12 +4,12 @@ import spiner from '../spiner';
 import { showEmptyInputMessage } from '../showFailMessage';
 
 const apiServiceSearch = new Api();
-let searchInput = null;
+// let searchInput = null;
 
-document.addEventListener('DOMContentLoaded', function () {
-  searchInput = document.querySelector('#search-movie');
-  searchInput.addEventListener('submit', onSearchMovie);
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   searchInput = document.querySelector('#search-movie');
+//   searchInput.addEventListener('submit', onSearchMovie);
+// });
 
 const onSearchMovie = e => {
   e.preventDefault();
@@ -17,7 +17,7 @@ const onSearchMovie = e => {
   const queryString = e.currentTarget.elements.searchQuery.value.trim();
 
   if (queryString === '') {
-    searchInput.reset();
+    e.target.reset();
     showEmptyInputMessage();
     return;
   }
@@ -28,7 +28,7 @@ const onSearchMovie = e => {
 
   searchMovie();
 
-  searchInput.reset();
+  e.target.reset();
 };
 
 function searchMovie() {
