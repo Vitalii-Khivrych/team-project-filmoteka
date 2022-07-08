@@ -1,6 +1,7 @@
 import Api from '../api-service';
 import handleResponse from './handlerResponse';
 import spiner from '../spiner';
+import { showEmptyInputMessage } from '../showFailMessage';
 
 const apiServiceSearch = new Api();
 let searchInput = null;
@@ -12,14 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const onSearchMovie = e => {
   e.preventDefault();
-  spiner.on();
+
   const queryString = e.currentTarget.elements.searchQuery.value.trim();
 
   if (queryString === '') {
-    console.log('Пустий пошук');
-    //Зробити повідомлення про пустий пошук
+    searchInput.reset();
+    showEmptyInputMessage();
     return;
   }
+  spiner.on();
 
   apiServiceSearch.query = queryString;
   apiServiceSearch.resetPage();
