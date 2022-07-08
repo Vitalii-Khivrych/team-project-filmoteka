@@ -1,6 +1,7 @@
 import icon from '../../images/sprite.svg';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 export default function createModalMarkup({
+  videos,
   poster_path,
   genres = [],
   vote_count,
@@ -10,13 +11,26 @@ export default function createModalMarkup({
   title,
   overview,
 }) {
+  const videoKey = videos.results[0].key;
   const genersList = genres.map(element => element.name);
   return `<div class="modal">
     <button class="modal__close" data-action="close-modal"><svg class="modal__close-icon" width="14" height="14">
         <use href="${icon}#icon-close"></use>
       </svg></button>
- 
-      <img class="modal__img" src=${IMG_URL}${poster_path} alt="poster" />
+        <div class="modal__card">
+        <div class="modal__content">
+         <button  class="modal__btn-close-trailer visually-hidden"><svg class="modal__close-icon" width="14" height="14">
+        <use href="${icon}#icon-close"></use>
+      </svg></button>  
+    <iframe class="video-frame visually-hidden" src="https://www.youtube.com/embed/${videoKey}"
+    frameborder = '0';
+    title = 'YouTube video player';
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <button class="modal__btn-play">play</button>
+    <img class="modal__img" src="${IMG_URL}${poster_path}" alt="cinema" />
+  </div>
+
   
     <div class="modal__description-wrap">
       <h2 class="modal__title">${title}</h2>
@@ -51,6 +65,7 @@ export default function createModalMarkup({
         <button class="btn-add-wached" data-action="add-wached">add to Watched</button>
         <button class="btn-add-queue" data-action="add-queue">add to queue</button>
       </div>
+    </div>
     </div>
   </div>`;
 }
