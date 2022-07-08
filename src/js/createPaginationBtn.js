@@ -2,13 +2,13 @@ import makePaginatuonBtnMarkup from './templates/paginationMarkup';
 import { initRenderTrendingMovie } from './createTrendingMovieCards';
 import { searchMovie } from './handlers/onSearchMovie';
 import spiner from './spiner';
-import refs from '../index';
 
 function createPaginationBtn(data, apiService) {
+  const paginationSectionRef = document.querySelector('.section__pagination');
   const currentPage = apiService.pageNumber;
   const lastPage = data.total_pages;
 
-  refs.paginationSection.innerHTML = makePaginatuonBtnMarkup(
+  paginationSectionRef.innerHTML = makePaginatuonBtnMarkup(
     currentPage,
     lastPage
   );
