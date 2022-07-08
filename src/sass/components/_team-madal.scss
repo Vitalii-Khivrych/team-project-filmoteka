@@ -20,21 +20,21 @@
         margin: auto;
     }
     @media screen and (min-width: 768px) {
-        width: 100%;
-        max-width: 600px;
+        max-width: 700px;
+        max-width: 550px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(1);
     }
     @media screen and (min-width: 1280px) {
-        min-width: 806px;
-        min-height: 600px;
+        max-width: 800px;
+        max-height: 650px;
     }
 }
 .team-modal__btn-close {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +50,7 @@
     }
 }
 .team-modal__title {
+    margin-top: 0;
     text-align: center;
     @include font($fs: 12px, $fw: 700, $lh: 1.17);
     margin-bottom: 10px;
@@ -78,19 +79,9 @@
         margin: 10px;
     }
 }
-.team-modal__card img {
-    width: 100%;
-    height: 100%;
-    @media screen and (min-width: 768px) {
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-    }
-}
-
 .team-modal__box {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 .team-modal__box-title {
     text-align: center;
@@ -117,4 +108,7 @@
     @media screen and (min-width: 1280px) {
         @include font($fs: 14px, $fw: 500, $lh: 1.33);
     }
+}
+body.lock {
+    overflow: hidden;
 }

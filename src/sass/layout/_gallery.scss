@@ -1,21 +1,56 @@
 .section {
-    padding-top: 20px;
-    padding-bottom: 40px;
-    @media screen and (min-width: 768px) {
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
+  padding-top: 20px;
+  padding-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
-
-
-.gallery__item {
+}
+.gallery {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -32px;
+    margin-right: -16px;
+    margin-left: -16px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: -8px;
+    margin-left: -8px;
+  }
+}
+.card {
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    width: calc((100% - 64px) / 2);
+    margin-bottom: 32px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: calc((100% - 48px) / 3);
+    margin-bottom: 32px;
+    margin-right: 8px;
+    margin-left: 8px;
+  }
   cursor: pointer;
 }
-
+.card:last-child {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 0px;
+  }
+}
 .card__image {
   pointer-events: none;
+  border-radius: 5px;
+  height: 402px;
+  @media screen and (min-width: 768px) {
+    height: 455px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 574px;
+  }
 }
-
 .card__info {
   margin-top: 8px;
   pointer-events: none;
@@ -23,187 +58,107 @@
     margin-top: 12px;
   }
 }
-  .card__movie-info {
-    display: flex;
-    justify-content: start;
-    align-items: center;
+.card__title {
+  @include font($fs: 12px, $fw: 500, $lh: 1.16);
+  font-family: 'Roboto';
+  text-transform: uppercase;
+  color: var(--primery-text-color);
+  @media screen and (min-width: 768px) {
+    @include font($lh: 1.33);
   }
-  .card__title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    text-transform: uppercase;
-    color: #000000;
-    @media screen and (min-width: 1280px) {
-      font-size: 20px;
-      line-height: 1.2;
-    }
+  @media screen and (min-width: 1280px) {
+    @include font($fs: 20px, $fw: 500, $lh: 1.2);
   }
-  .card__release,
-  .card__genre,
-  .vertical {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    color: #ff6b08;
-    @media screen and (min-width: 1280px) {
-      font-size: 20px;
-      line-height: 1.2;
-    }
-  }
-  .card__rating {
-    width: 36px;
-    height: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    border-radius: 5px;
-    color: var(--white-colore);
-    background-color: var(--activ-btn-color);
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.16;
-    @media screen and (min-width: 1280px) {
-      width: 40px;
-      height: 20px;
-    }
-  }  
-/*Стили для мобильной галереи и кнопок пагинации*/
-.gallery { 
-    margin-bottom: 40px;
+  margin-bottom: 0;
 }
-    .card {  
-       margin-bottom: 20px;
-    }
-    .card:last-child {  
-      margin-bottom: 0px;
-   
-   }    
-   .card__image {
-       width: 280px;
-   }
-   
+.card__movie-info {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.card__release,
+.card__genre,
+.vertical {
+  margin-bottom: 0;
+  @include font($fs: 12px, $fw: 500, $lh: 1.33);
+  font-family: 'Roboto';
+  color: var(--accent-text-color);
+  @media screen and (min-width: 1280px) {
+    @include font($fs: 20px, $fw: 500, $lh: 1.2);
+  }
+}
+.card__rating {
+  margin-bottom: 0;
+  width: 36px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  border-radius: 5px;
+  color: var(--white-colore);
+  background-color: var(--activ-btn-color);
+  @include font($fs: 12px, $fw: 500, $lh: 1.16);
+  @media screen and (min-width: 1280px) {
+    width: 40px;
+    height: 20px;
+  }
+}
+
+// Пагинация
+.section__pagination {
+  margin-top: 40px;
+}
+
 .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    margin-top: 60px;
+  }
 }
 .pagination__arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    background: #F7F7F7;
-    border-radius: 5px;
-    border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #f7f7f7;
+  border-radius: 5px;
+  border: none;
 }
 .pagination-arrow-icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;   
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  pointer-events: none;
 }
 .pagination-list {
-    display: flex;
-    align-items: center;
-
-    .item:last-child {
-     display: none;
-    }
-    .item:first-child {
-        display: none;
-    }
+  display: flex;
+  align-items: center;
 }
+
 .pagination__btn {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.33;
-    padding: 11px 14px;
-    border-radius: 5px;
-    border: none;
-    background-color: #ffffff;
+  @include font($fs: 12px, $fw: 500, $lh: 1.33);
+  padding: 14px 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--white-colore);
 }
 .pagination__btn--choice {
-    background-color: #FF6B08;
-    color: #ffffff;
+  background-color: var(--activ-btn-color);
+  color: var(--white-colore);
 }
 .pagination-btn-more {
-    display: none;
-    font-size: 12px;
-    line-height: 1.33;
-    font-weight: 500;
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+    @include font($fs: 12px, $fw: 500, $lh: 1.33);
     letter-spacing: 0em;
-    background-color: #ffffff;
+    background-color: var(--white-colore);
     border: none;
-    padding: 0 0 6px 0; 
+    padding: 0 0 6px 0;
+  }
 }
-/*Стили для сетки галереи и кнопок планшета*/
-@media (min-width: 768px) and (max-width: 1280px) {
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -32px -32px 0px;
-    }
-    .card{
-        margin-bottom: 32px;
-        margin-right: 32px;
-    }
-    .card__image {
-        width: 336px;
-    }
-    .pagination {
-      margin-top: 60px;
-    }
-    .pagination-list .item:last-child {
-        display: flex;
-    }
-    .pagination-list .item:first-child {
-        display: flex;
-    }
-    .pagination-btn-more { 
-        display: flex;
-    }
-  }
-  @media (min-width: 1280px) {
-    .gallery {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 0 -16px -32px 0;
-        .card {
-            margin-bottom: 32px;
-            margin-right: 16px;
-        }
-    }
-    .card__image {
-        width: 394px;
-    }
-    .pagination {
-      margin-top: 60px;
-    }
-    .pagination-list {
-      .item:last-child {
-        display: flex;
-    }
-    .item:first-child {
-      display: flex;
-    }
-    }
-    
-  
-    .pagination-btn-more {
-        display: flex;
-    }
-  }
-
-
-
-
