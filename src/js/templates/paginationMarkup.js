@@ -42,48 +42,162 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
 
   if (currentPage === 1) {
     return !window.matchMedia('(max-width:768px)').matches
-      ? ` <ul class="pagination-list"> 
+      ? ` <div class="pagination">
+            <ul class="pagination-list"> 
               ${currentBtn} 
               ${nextBtn}
               ${nextNextBtn}
               ${moreBtn}
               ${lastBtn}
             </ul>
-            ${nextArow}`
-      : `<ul class="pagination-list">
-                ${currentBtn} 
-                ${nextBtn}
-                ${nextNextBtn}
-              </ul>
-              ${nextArow}`;
+            ${nextArow}
+          </div>`
+      : `<div class="pagination">
+          <ul class="pagination-list">
+            ${currentBtn} 
+            ${nextBtn}
+            ${nextNextBtn}
+          </ul>
+          ${nextArow}
+        </div>`;
   }
 
   if (currentPage === 2) {
     return !window.matchMedia('(max-width:768px)').matches
-      ? `${prevArow}
-        <ul class="pagination-list">
-          ${prevBtn}
-          ${currentBtn} 
-          ${nextBtn}
-          ${nextNextBtn}
-          ${moreBtn}
-          ${lastBtn}
-        </ul>
-        ${nextArow}`
-      : `${prevArow}
-        <ul class="pagination-list">
-          ${prevBtn}
-          ${currentBtn}
-          ${nextBtn}
-          ${nextNextBtn}
-        </ul>
-        ${nextArow}`;
+      ? `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${prevBtn}
+            ${currentBtn} 
+            ${nextBtn}
+            ${nextNextBtn}
+            ${moreBtn}
+            ${lastBtn}
+          </ul>
+          ${nextArow}
+        </div>`
+      : `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${prevBtn}
+            ${currentBtn}
+            ${nextBtn}
+            ${nextNextBtn}
+          </ul>
+          ${nextArow}
+        </div>`;
   }
 
   if (currentPage === 3) {
     return !window.matchMedia('(max-width:768px)').matches
-      ? `${prevArow}
+      ? `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${prevPrevBtn}
+            ${prevBtn}
+            ${currentBtn} 
+            ${nextBtn}
+            ${nextNextBtn}
+            ${moreBtn}
+            ${lastBtn}
+          </ul>
+          ${nextArow}
+        </div>`
+      : `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${prevPrevBtn}  
+            ${prevBtn}
+            ${currentBtn}
+            ${nextBtn}
+            ${nextNextBtn}
+          </ul>
+          ${nextArow}
+        </div>`;
+  }
+
+  if (currentPage === lastPage - 2) {
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${firstPageBtn}
+            ${moreBtn}
+            ${prevPrevBtn}
+            ${prevBtn}
+            ${currentBtn} 
+            ${nextBtn}
+            ${nextNextBtn}
+          </ul>
+          ${nextArow}
+        </div>`
+      : `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${prevPrevBtn}  
+            ${prevBtn}
+            ${currentBtn}
+            ${nextBtn}
+            ${nextNextBtn}
+          </ul>
+          ${nextArow}
+        </div>`;
+  }
+
+  if (currentPage === lastPage - 1) {
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${firstPageBtn}
+            ${moreBtn}
+            ${prevPrevBtn}
+            ${prevBtn}
+            ${currentBtn} 
+            ${nextBtn}
+          </ul>
+          ${nextArow}
+        </div>`
+      : `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${prevPrevBtn}  
+            ${prevBtn}
+            ${currentBtn}
+            ${nextBtn}
+          </ul>
+          ${nextArow}
+        </div>`;
+  }
+
+  if (currentPage === lastPage) {
+    return !window.matchMedia('(max-width:768px)').matches
+      ? `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${firstPageBtn}
+            ${moreBtn}
+            ${prevPrevBtn}
+            ${prevBtn}
+            ${currentBtn} 
+          </ul>
+        </div>`
+      : `<div class="pagination">
+          ${prevArow}
+          <ul class="pagination-list">
+            ${prevPrevBtn}  
+            ${prevBtn}
+            ${currentBtn}
+          </ul>
+        </div>`;
+  }
+
+  return !window.matchMedia('(max-width:768px)').matches
+    ? `<div class="pagination">
+        ${prevArow}
         <ul class="pagination-list">
+          ${firstPageBtn}
+          ${moreBtn}
           ${prevPrevBtn}
           ${prevBtn}
           ${currentBtn} 
@@ -92,8 +206,10 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
           ${moreBtn}
           ${lastBtn}
         </ul>
-        ${nextArow}`
-      : `${prevArow}
+        ${nextArow}
+      </div>`
+    : `<div class="pagination">
+        ${prevArow}
         <ul class="pagination-list">
           ${prevPrevBtn}  
           ${prevBtn}
@@ -101,94 +217,6 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
           ${nextBtn}
           ${nextNextBtn}
         </ul>
-        ${nextArow}`;
-  }
-
-  if (currentPage === lastPage - 2) {
-    return !window.matchMedia('(max-width:768px)').matches
-      ? `${prevArow}
-        <ul class="pagination-list">
-          ${firstPageBtn}
-          ${moreBtn}
-          ${prevPrevBtn}
-          ${prevBtn}
-          ${currentBtn} 
-          ${nextBtn}
-          ${nextNextBtn}
-        </ul>
-        ${nextArow}`
-      : `${prevArow}
-        <ul class="pagination-list">
-          ${prevPrevBtn}  
-          ${prevBtn}
-          ${currentBtn}
-          ${nextBtn}
-          ${nextNextBtn}
-        </ul>
-        ${nextArow}`;
-  }
-
-  if (currentPage === lastPage - 1) {
-    return !window.matchMedia('(max-width:768px)').matches
-      ? `${prevArow}
-        <ul class="pagination-list">
-          ${firstPageBtn}
-          ${moreBtn}
-          ${prevPrevBtn}
-          ${prevBtn}
-          ${currentBtn} 
-          ${nextBtn}
-        </ul>
-        ${nextArow}`
-      : `${prevArow}
-        <ul class="pagination-list">
-          ${prevPrevBtn}  
-          ${prevBtn}
-          ${currentBtn}
-          ${nextBtn}
-        </ul>
-        ${nextArow}`;
-  }
-
-  if (currentPage === lastPage) {
-    return !window.matchMedia('(max-width:768px)').matches
-      ? `${prevArow}
-        <ul class="pagination-list">
-          ${firstPageBtn}
-          ${moreBtn}
-          ${prevPrevBtn}
-          ${prevBtn}
-          ${currentBtn} 
-        </ul>`
-      : `${prevArow}
-        <ul class="pagination-list">
-          ${prevPrevBtn}  
-          ${prevBtn}
-          ${currentBtn}
-        </ul>`;
-  }
-
-  return !window.matchMedia('(max-width:768px)').matches
-    ? `${prevArow}
-      <ul class="pagination-list">
-        ${firstPageBtn}
-        ${moreBtn}
-        ${prevPrevBtn}
-        ${prevBtn}
-        ${currentBtn} 
-        ${nextBtn}
-        ${nextNextBtn}
-        ${moreBtn}
-        ${lastBtn}
-      </ul>
-      ${nextArow}`
-    : `${prevArow}
-      <ul class="pagination-list">
-        ${prevPrevBtn}  
-        ${prevBtn}
-        ${currentBtn}
-        ${nextBtn}
-        ${nextNextBtn}
-      </ul>
-      ${nextArow}`;
+        ${nextArow}
+      </div>`;
 }

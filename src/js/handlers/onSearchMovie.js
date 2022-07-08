@@ -1,12 +1,12 @@
-import { appService } from '../createTrandingMovieCars';
+import Api from '../api-service';
 import handleResponse from './handlerResponse';
-import spiner from '../spiner'
+import spiner from '../spiner';
+import refs from '../../index';
 
-let searchForm = null;
+const apiServiceSearch = new Api();
 
 document.addEventListener('DOMContentLoaded', function () {
-  searchForm = document.querySelector('#search-movie');
-  searchForm.addEventListener('submit', onSearchMovie);
+  refs.searchInput.addEventListener('submit', onSearchMovie);
 });
 
 const onSearchMovie = e => {
@@ -19,17 +19,20 @@ const onSearchMovie = e => {
     //Зробити повідомлення про пустий пошук
     return;
   }
-  appService.query = queryString;
 
-  appService.resetPage();
+  apiServiceSearch.query = queryString;
+  apiServiceSearch.resetPage();
 
   searchMovie();
 
-  searchForm.reset();
+  refs.searchInput.reset();
 };
 
 function searchMovie() {
-  appService.fetchSearchMovie().then(handleResponse).catch(console.log);
+  apiServiceSearch
+    .fetchSearchMovie()
+    .then(data => handleResponse(data, apiServiceSearch))
+    .catch(console.log);
 }
 
 export { onSearchMovie, searchMovie };
