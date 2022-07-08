@@ -1,13 +1,13 @@
 import renderPopularCards from '../templates/render-popular-card';
 import { createPaginationBtn } from '../createPaginationBtn';
-import { appService } from '../createTrandingMovieCars';
 import spiner from '../spiner';
+import refs from '../../index';
 
-export default function handleResponse(response) {
+export default function handleResponse(response, apiService) {
   console.log(response);
   const cards = response.results;
 
-  appService
+  apiService
     .fetchGenres()
     .then(genres => {
       const genreMap = new Map(
@@ -16,12 +16,11 @@ export default function handleResponse(response) {
         })
       );
 
-      const galleryRef = document.querySelector('.gallery');
+      refs.gallery.innerHTML = renderPopularCards(cards, genreMap);
 
-      galleryRef.innerHTML = renderPopularCards(cards, genreMap);
+      createPaginationBtn(response, apiService);
 
-      createPaginationBtn(response);
-      spiner.off()
+      spiner.off();
     })
     .catch(console.log);
 }

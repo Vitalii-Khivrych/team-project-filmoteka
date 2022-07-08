@@ -1,16 +1,9 @@
 import './sass/index.scss';
-
-
-// import refs from './js/refs'; // do not work
-
-// import Api from './js/api-service';
-
-// import renderModalCard from './js/templates/render-card-modal';
 import createAuthMarkup from './js/templates/header/createAuthMarkup';
 import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
-import { initRenderTrendingMovie } from './js/createTrandingMovieCars';
+import { initRenderTrendingMovie } from './js/createTrendingMovieCards';
 import renderBackdrop from './js/templates/render-backdrop';
 import { onCardClick } from './js/handlers/onModalCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
@@ -18,7 +11,6 @@ import onGoItClick from './js/handlers/onGoItStudentsClick';
 import spiner from './js/spiner';
 
 // import Spiner from './js/spiner';
-
 
 // -------------Створює початкову розмітку сайту-----------
 const rootRef = document.querySelector('#root');
@@ -29,21 +21,28 @@ document.addEventListener('DOMContentLoaded', createSiteMarkup(), {
 
 function createSiteMarkup() {
   rootRef.insertAdjacentHTML('afterend', spiner.getMarkup());
-  spiner.on()
+  spiner.on();
   initHeader();
-  rootRef.insertAdjacentHTML('afterbegin', createAuthMarkup())
+  rootRef.insertAdjacentHTML('afterbegin', createAuthMarkup());
   rootRef.insertAdjacentHTML('beforeend', makeBasicGalleryMarkup());
   rootRef.insertAdjacentHTML('beforeend', renderFooter());
   rootRef.insertAdjacentHTML('beforeend', renderBackdrop());
   rootRef.insertAdjacentHTML('beforeend', renderBackdropTeamModal());
   onGoItClick();
-  const galleryList = document
-    .querySelector('.gallery')
-    .addEventListener('click', onCardClick);
+  document.querySelector('.gallery').addEventListener('click', onCardClick);
 
   initRenderTrendingMovie();
 }
 
+export default refs = {
+  searchInput: document.querySelector('#search-movie'),
+  backdrop: document.querySelector('.backdrop'),
+  gallery: document.querySelector('.gallery'),
+  openTeamModalBtn: document.querySelector('.footer__button'),
+  closeTeamModalBtn: document.querySelector('.team-modal__btn-close'),
+  backdropTeamModal: document.querySelector('.backdrop__team-modal'),
+  paginationSection: document.querySelector('.section__pagination'),
+};
 // ------------------------------------------------------------
 
 // -------------Для рендеру карток головної сторінки-----------

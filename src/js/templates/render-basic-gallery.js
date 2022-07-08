@@ -5,7 +5,7 @@ export default function makeBasicGalleryMarkup() {
       <div class="container">
         <h2 class="visually-hidden">Gallery list</h2>
         <ul class="gallery"></ul>
-        <div class="pagination">
+        <div class="section__pagination">
           
         </div>
       </div>

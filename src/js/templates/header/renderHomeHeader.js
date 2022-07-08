@@ -1,7 +1,7 @@
 import createHeaderHomeMarkup from './createHeaderHomeMarkup';
 import { onLibraryLinkClick } from '../../handlers/onLibraryLinkClick';
 import { onSearchMovie } from '../../handlers/onSearchMovie';
-import { initRenderTrendingMovie } from '../../createTrandingMovieCars';
+import { initRenderTrendingMovie } from '../../createTrendingMovieCards';
 
 const renderHomeHeader = () => {
   initRenderTrendingMovie();

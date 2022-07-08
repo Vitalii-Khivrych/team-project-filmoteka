@@ -1,71 +1,72 @@
 import makePaginatuonBtnMarkup from './templates/paginationMarkup';
-import { initRenderTrendingMovie, appService } from './createTrandingMovieCars';
+import { initRenderTrendingMovie } from './createTrendingMovieCards';
 import { searchMovie } from './handlers/onSearchMovie';
 import spiner from './spiner';
+import refs from '../index';
 
-let paginatioRef = null;
-let currentPage = null;
-
-function createPaginationBtn(data) {
-  paginatioRef = document.querySelector('.pagination');
-  currentPage = appService.pageNumber;
+function createPaginationBtn(data, apiService) {
+  const currentPage = apiService.pageNumber;
   const lastPage = data.total_pages;
 
-  paginatioRef.innerHTML = makePaginatuonBtnMarkup(currentPage, lastPage);
+  refs.paginationSection.innerHTML = makePaginatuonBtnMarkup(
+    currentPage,
+    lastPage
+  );
 
   // ------------- Логіка роботи кнопок пагінаціі -----------
-  paginatioRef.addEventListener('click', onPaginationBtnClick);
-}
+  const paginationBtn = document.querySelector('.pagination');
+  paginationBtn.addEventListener('click', onPaginationBtnClick);
 
-function onPaginationBtnClick(e) {
-  e.preventDefault();
+  function onPaginationBtnClick(e) {
+    e.preventDefault();
 
-  if (+e.target.textContent === currentPage) {
-    console.log('Поточна сторінка');
-    return;
-  }
-
-  removePaginationBtnClick();
-
-  if (e.target.id === 'next') {
-    appService.incrementPage();
-
-    if (appService.query !== '') {
-      searchMovie();
+    if (+e.target.textContent === currentPage) {
+      console.log('Поточна сторінка');
       return;
     }
 
-    initRenderTrendingMovie();
-    return;
-  }
+    // removePaginationBtnClick();
 
-  if (e.target.id === 'previous') {
-    appService.decrementPage();
+    if (e.target.id === 'next') {
+      apiService.incrementPage();
 
-    if (appService.query !== '') {
-      searchMovie();
+      if (apiService.query !== '') {
+        searchMovie();
+        return;
+      }
+
+      initRenderTrendingMovie();
       return;
     }
 
-    initRenderTrendingMovie();
-    return;
-  }
+    if (e.target.id === 'previous') {
+      apiService.decrementPage();
 
-  if (e.target.nodeName === 'BUTTON') {
-    spiner.on();
-    appService.pageNumber = +e.target.textContent;
+      if (apiService.query !== '') {
+        searchMovie();
+        return;
+      }
 
-    if (appService.query !== '') {
-      searchMovie();
+      initRenderTrendingMovie();
       return;
     }
-    
-    initRenderTrendingMovie();
+
+    if (e.target.nodeName === 'BUTTON') {
+      spiner.on();
+      apiService.pageNumber = +e.target.textContent;
+
+      if (apiService.query !== '') {
+        searchMovie();
+        return;
+      }
+
+      initRenderTrendingMovie();
+    }
   }
 }
 
-function removePaginationBtnClick() {
-  paginatioRef.removeEventListener('click', onPaginationBtnClick);
-}
+// function removePaginationBtnClick() {
+//   paginatioRef.removeEventListener('click', onPaginationBtnClick);
+// }
 
-export { createPaginationBtn, removePaginationBtnClick };
+export { createPaginationBtn };
