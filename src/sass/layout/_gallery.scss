@@ -106,11 +106,9 @@
 }
 
 // Пагинация
-.section__pagination {
-  margin-top: 40px;
-}
 
 .pagination {
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +121,7 @@
   align-items: center;
   justify-content: center;
   padding: 12px;
-  background: #f7f7f7;
+  background: #f1ebe1;
   border-radius: 5px;
   border: none;
 }
