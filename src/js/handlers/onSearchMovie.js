@@ -1,12 +1,13 @@
 import Api from '../api-service';
 import handleResponse from './handlerResponse';
 import spiner from '../spiner';
-import refs from '../../index';
 
 const apiServiceSearch = new Api();
+let searchInput = null;
 
 document.addEventListener('DOMContentLoaded', function () {
-  refs.searchInput.addEventListener('submit', onSearchMovie);
+  searchInput = document.querySelector('#search-movie');
+  searchInput.addEventListener('submit', onSearchMovie);
 });
 
 const onSearchMovie = e => {
@@ -25,7 +26,7 @@ const onSearchMovie = e => {
 
   searchMovie();
 
-  refs.searchInput.reset();
+  searchInput.reset();
 };
 
 function searchMovie() {

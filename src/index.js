@@ -34,15 +34,15 @@ function createSiteMarkup() {
   initRenderTrendingMovie();
 }
 
-export default refs = {
-  searchInput: document.querySelector('#search-movie'),
-  backdrop: document.querySelector('.backdrop'),
-  gallery: document.querySelector('.gallery'),
-  openTeamModalBtn: document.querySelector('.footer__button'),
-  closeTeamModalBtn: document.querySelector('.team-modal__btn-close'),
-  backdropTeamModal: document.querySelector('.backdrop__team-modal'),
-  paginationSection: document.querySelector('.section__pagination'),
-};
+// export default refs = {
+//   searchInput: document.querySelector('#search-movie'),
+//   backdrop: document.querySelector('.backdrop'),
+//   gallery: document.querySelector('.gallery'),
+//   openTeamModalBtn: document.querySelector('.footer__button'),
+//   closeTeamModalBtn: document.querySelector('.team-modal__btn-close'),
+//   backdropTeamModal: document.querySelector('.backdrop__team-modal'),
+//   paginationSection: document.querySelector('.section__pagination'),
+// };
 // ------------------------------------------------------------
 
 // -------------Для рендеру карток головної сторінки-----------

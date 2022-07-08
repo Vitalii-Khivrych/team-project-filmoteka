@@ -1,7 +1,6 @@
 import renderPopularCards from '../templates/render-popular-card';
 import { createPaginationBtn } from '../createPaginationBtn';
 import spiner from '../spiner';
-import refs from '../../index';
 
 export default function handleResponse(response, apiService) {
   console.log(response);
@@ -16,7 +15,8 @@ export default function handleResponse(response, apiService) {
         })
       );
 
-      refs.gallery.innerHTML = renderPopularCards(cards, genreMap);
+      const galleryRef = document.querySelector('.gallery');
+      galleryRef.innerHTML = renderPopularCards(cards, genreMap);
 
       createPaginationBtn(response, apiService);
 
