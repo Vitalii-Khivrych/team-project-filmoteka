@@ -1,4 +1,6 @@
 .header {
+  width: 100vw;
+  overflow-x: hidden;
   height: 216px;
   padding-top: 40px;
 
@@ -320,7 +322,7 @@
   @media screen and (max-width: 768px) {
     margin-bottom: 7px;
     right: 20px;
-      top: 11px;
+    top: 11px;
   }
 }
 
@@ -388,6 +390,6 @@
     font-size: 18px;
   }
 }
-.auth{
+.auth {
   position: relative;
 }
