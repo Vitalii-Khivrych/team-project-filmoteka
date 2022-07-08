@@ -11,7 +11,7 @@ function onBtnAddToQueueClick(e) {
       : localStorageApi.addMovieToQueueList(filmId);
     addToQueue.classList.toggle('isActive');
     localStorageApi.isMovieInQueueList(filmId)
-      ? (addToQueue.textContent = 'delete to queue')
+      ? (addToQueue.textContent = 'delete for queue')
       : (addToQueue.textContent = 'add to queue');
     console.log(localStorageApi.getQueueList());
     if (!addToQueue.disabled && !addWached.disabled) {
@@ -32,7 +32,7 @@ function onBtnAddWachedClick(e) {
       : localStorageApi.addMovieToWatchedList(filmId);
     addWached.classList.toggle('isActive');
     localStorageApi.isMovieInWatchedList(filmId)
-      ? (addWached.textContent = 'delete to wached')
+      ? (addWached.textContent = 'delete for wached')
       : (addWached.textContent = 'add to watched');
     console.log(localStorageApi.getWatchedList());
     if (!addToQueue.disabled && !addWached.disabled) {

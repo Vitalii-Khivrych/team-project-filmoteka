@@ -12,9 +12,6 @@
   position: absolute;
   border-radius: 5px;
   background-color: var(--white-colore);
-  padding: 48px 20px 40px 20px;
-  overflow-y: auto;
-
   margin: auto;
   right: 0;
   left: 0;
@@ -26,43 +23,52 @@
   @include tablet {
     max-width: 704px;
     max-height: 552px;
-    padding: 40px 64px 40px 44px;
-    display: flex;
   }
 
   @include desktop {
     max-width: 806px;
     max-height: 558x;
-    padding: 40px 12px;
+  }
+}
+.modal__card {
+  max-width: 100%;
+  height: 100%;
+  padding: 16px;
+  overflow-y: auto;
+  @include tablet {
+    padding: 24px;
+    display: flex;
+    gap: 20px;
+  }
+
+  @include desktop {
     overflow: visible;
   }
 }
-
-.modal__img {
-  border-radius: 5px;
+.modal__content {
+  position: relative;
   margin-bottom: 20px;
-
   @include tablet {
-    width: 264px;
-    height: 374px;
+    width: 40%;
     margin-bottom: 0;
-    margin-right: 68px;
   }
 
-  @include desktop {
-    width: 375px;
-    height: 478px;
-  }
+}
+.modal__img {
+  display: block;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+
 }
 
 .modal__description-wrap {
-  @include tablet {
-    width: 264px;
-  }
-
-  @include desktop {
-    width: 391px;
-  }
+  display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    @include tablet {
+      width: 60%;
+    }
 }
 
 .modal__title {
@@ -194,4 +200,48 @@
 }
 .modal__close-icon{
   pointer-events: none;
+}
+.video-frame {
+  width: 100%;
+  height: 60%;
+
+  @include tablet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 60%
+  }
+}
+
+.modal__btn-play {
+    text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  width: 68px;
+  height: 48px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff6b01;
+  color: white;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.modal__btn-close-trailer{
+    text-transform: uppercase;
+  position: absolute;
+    border: transparent;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8;
+  font-weight: 700;
+
+  &:hover {
+    fill: var(--activ-btn-color);
+  }
 }
