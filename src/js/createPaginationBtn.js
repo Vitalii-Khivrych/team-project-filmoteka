@@ -31,8 +31,11 @@ function createPaginationBtn(data, apiService) {
     if (e.target.id === 'next') {
       apiService.incrementPage();
 
-      changeUrl().changePage(apiService.pageNumber, apiService.query);
+      changeUrl().changePage(apiService.pageNumber);
+
       if (apiService.query !== '') {
+        changeUrl().setQuery(apiService.query);
+
         searchMovie();
         return;
       }
@@ -44,14 +47,17 @@ function createPaginationBtn(data, apiService) {
     if (e.target.id === 'previous') {
       apiService.decrementPage();
 
-      changeUrl().changePage(apiService.pageNumber, apiService.query);
+      changeUrl().changePage(apiService.pageNumber);
 
       if (apiService.query !== '') {
+        changeUrl().setQuery(apiService.query);
+
         searchMovie();
         return;
       }
 
       initRenderTrendingMovie();
+
       return;
     }
 
@@ -61,6 +67,8 @@ function createPaginationBtn(data, apiService) {
       changeUrl().changePage(apiService.pageNumber, apiService.query);
 
       if (apiService.query !== '') {
+        changeUrl().setQuery(apiService.query);
+
         searchMovie();
         return;
       }

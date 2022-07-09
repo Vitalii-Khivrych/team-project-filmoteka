@@ -24,16 +24,19 @@ const onSearchMovie = e => {
   }
   spiner.on();
 
-  apiServiceSearch.query = queryString;
   apiServiceSearch.resetPage();
 
+  changeUrl().goToSearch(queryString);
   searchMovie();
-  changeUrl().goToSearch();
 
   e.target.reset();
 };
 
 function searchMovie() {
+  apiServiceSearch.pageNumber = +changeUrl().getCurrentPage();
+  apiServiceSearch.query = changeUrl().getQuery();
+  console.log(apiServiceSearch.query);
+
   apiServiceSearch
     .fetchSearchMovie()
     .then(data => handleResponse(data, apiServiceSearch))
