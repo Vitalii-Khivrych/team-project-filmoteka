@@ -5,20 +5,20 @@ import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 
 const apiService = new Api();
 
-function renderQueueList() {
-  const queueBtn = document.getElementById('js-queue').classList.add('button-list__btn--current');
-    const watchedBtn = document.getElementById('js-watched').classList.remove('button-list__btn--current')
+function renderWatchedList() {
+    const queueBtn = document.getElementById('js-queue').classList.remove('button-list__btn--current');
+    const watchedBtn = document.getElementById('js-watched').classList.add('button-list__btn--current')
   const galleryElement = document.querySelector('.gallery');
-  const queueList = localStorageApi.getQueueList();
+  const watchedList = localStorageApi.getWatchedList();
 
   galleryElement.innerHTML = '';
 
-  if (localStorageApi.isQueueListEmpty()) {
+  if (localStorageApi.isWatchedListEmpty()) {
     addEmptyListPlaceholder(galleryElement);
     return;
   }
 
-  const movieCards = queueList.map(id =>
+  const movieCards = watchedList.map(id =>
     apiService.fetchMovieDetails(id).catch(error => console.log(error))
   );
 
@@ -30,4 +30,4 @@ function renderQueueList() {
     .catch(error => console.log(error));
 }
 
-export { renderQueueList };
+export { renderWatchedList };
