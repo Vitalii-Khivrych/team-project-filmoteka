@@ -3,7 +3,7 @@ import icon from '../../images/sprite.svg';
 function renderFooter() {
   return `<footer>
   <div class="footer__container container">
-    <p class="footer__text">© 2020 | All Rights Reserved |</p>
+    <p class="footer__text">© 2022 | All Rights Reserved |</p>
     <p class="footer__text">
       Developed with<svg xmlns="http://www.w3.org/2000/svg" id="icon-heart" class="footer__icon" viewBox="0 0 34 32" width="14" height="13">
       <path
