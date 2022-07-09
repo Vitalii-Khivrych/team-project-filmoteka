@@ -2,11 +2,10 @@ import ApiService from './api-service';
 import createModalMarkup from './templates/modalCardMarkap';
 import { openModal } from './handlers/modalCardOptions';
 import { localStorageApi } from './localStorageApi';
-
 const appService = new ApiService();
 
 export default async function renderModalCard(movieId) {
-  let backdropEl = document.querySelector('.backdrop');
+  const backdropEl = document.querySelector('.backdrop');
   backdropEl.setAttribute('id', movieId);
   try {
     const data = await appService.fetchMovieDetails(movieId);
@@ -30,7 +29,7 @@ export default async function renderModalCard(movieId) {
   openModal();
 }
 
-async function uppendModalMarkap(markup) {
-  let backdropEl = document.querySelector('.backdrop');
+function uppendModalMarkap(markup) {
+  const backdropEl = document.querySelector('.backdrop');
   backdropEl.innerHTML = markup;
 }
