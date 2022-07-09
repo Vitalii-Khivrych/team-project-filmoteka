@@ -6,9 +6,15 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  transition-duration: 2s;
+  transition-property: scale;
+  scale: 1;
 }
-
+.backdrop.is-hidden{
+  scale: 0.2;
+}
 .modal {
+  
   position: absolute;
   border-radius: 5px;
   background-color: var(--white-colore);
@@ -19,10 +25,12 @@
   bottom: 0;
   max-height: 90%;
   max-width: 280px;
+  padding:32px 16px;
 
   @include tablet {
     max-width: 704px;
     max-height: 552px;
+    
   }
 
   @include desktop {
@@ -33,10 +41,8 @@
 .modal__card {
   max-width: 100%;
   height: 100%;
-  padding: 16px;
   overflow: auto;
   @include tablet {
-    padding: 24px;
     display: flex;
     gap: 20px;
   }
@@ -58,6 +64,7 @@
   border-radius: 5px;
   width: 100%;
   height: 100%;
+ 
 }
 
 .modal__description-wrap {
@@ -240,7 +247,6 @@
 }
 .modal__btn-close-trailer{
   z-index: 35;
- 
   position: absolute;
   border: transparent;
   background-color: transparent;

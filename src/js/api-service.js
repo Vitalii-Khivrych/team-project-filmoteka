@@ -31,7 +31,13 @@ export default class ApiService {
     const data = await response.json();
     return data;
   }
-
+  async searchTrailerById(movieId) {
+    const url = `${BASE_URL}/movie/${movieId}/videos?api_key=${KEY}&language=en-US`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const trailer = data.results.find(el => el.name.includes('Official'));
+    return trailer.key;
+  }
   incrementPage() {
     this.page += 1;
   }
