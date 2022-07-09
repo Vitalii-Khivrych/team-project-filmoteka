@@ -2,6 +2,7 @@ import makePaginatuonBtnMarkup from './templates/paginationMarkup';
 import { initRenderTrendingMovie } from './createTrendingMovieCards';
 import { searchMovie } from './handlers/onSearchMovie';
 import spiner from './spiner';
+import { changeUrl } from './service/chengingUrlApi';
 
 function createPaginationBtn(data, apiService) {
   const paginationSectionRef = document.querySelector('.section__pagination');
@@ -30,6 +31,7 @@ function createPaginationBtn(data, apiService) {
     if (e.target.id === 'next') {
       apiService.incrementPage();
 
+      changeUrl().changePage(apiService.pageNumber, apiService.query);
       if (apiService.query !== '') {
         searchMovie();
         return;
@@ -41,6 +43,8 @@ function createPaginationBtn(data, apiService) {
 
     if (e.target.id === 'previous') {
       apiService.decrementPage();
+
+      changeUrl().changePage(apiService.pageNumber, apiService.query);
 
       if (apiService.query !== '') {
         searchMovie();
@@ -54,6 +58,7 @@ function createPaginationBtn(data, apiService) {
     if (e.target.nodeName === 'BUTTON') {
       spiner.on();
       apiService.pageNumber = +e.target.textContent;
+      changeUrl().changePage(apiService.pageNumber, apiService.query);
 
       if (apiService.query !== '') {
         searchMovie();

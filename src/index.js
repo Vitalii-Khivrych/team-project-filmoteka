@@ -9,7 +9,7 @@ import { onCardClick } from './js/handlers/onModalCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
 import onGoItClick from './js/handlers/onGoItStudentsClick';
 import spiner from './js/spiner';
-import changeUrl from './js/service/chengingUrlApi';
+import { changeUrl } from './js/service/chengingUrlApi';
 
 // import Spiner from './js/spiner';
 
@@ -33,10 +33,12 @@ function createSiteMarkup() {
   document.querySelector('.gallery').addEventListener('click', onCardClick);
 
   initRenderTrendingMovie();
+
+  changeUrl().goToStartPage();
 }
 
-window.onpopstate = function (event) {
-  alert(
-    `location: ${document.location}, state: ${JSON.stringify(event.state)}`
-  );
-};
+// window.onpopstate = function (event) {
+//   alert(
+//     `location: ${document.location}, state: ${JSON.stringify(event.state)}`
+//   );
+// };

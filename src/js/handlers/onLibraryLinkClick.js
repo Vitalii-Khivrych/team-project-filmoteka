@@ -2,7 +2,7 @@ import { renderLibraryHeader } from '../templates/header/renderLibraryHeader';
 import { renderQueueList } from '../templates/renderQueueList';
 import { getAuth } from 'firebase/auth';
 import swal from 'sweetalert';
-import changeUrl from 'module';
+import { changeUrl } from '../service/chengingUrlApi';
 
 // Добавить проверку авторизации в начало
 
@@ -17,7 +17,7 @@ const onLibraryLinkClick = event => {
 
   renderLibraryHeader();
   renderQueueList();
-  changeUrl(event.target.id);
+  changeUrl().goToLibrary();
 };
 
 export { onLibraryLinkClick };

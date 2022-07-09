@@ -2,6 +2,7 @@ import Api from '../api-service';
 import handleResponse from './handlerResponse';
 import spiner from '../spiner';
 import { showEmptyInputMessage } from '../showFailMessage';
+import { changeUrl } from '../service/chengingUrlApi';
 
 const apiServiceSearch = new Api();
 // let searchInput = null;
@@ -27,6 +28,7 @@ const onSearchMovie = e => {
   apiServiceSearch.resetPage();
 
   searchMovie();
+  changeUrl().goToSearch();
 
   e.target.reset();
 };
