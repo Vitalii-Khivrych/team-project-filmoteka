@@ -8,21 +8,25 @@ export default class ApiService {
     this.searchId = '';
   }
 
-  fetchGenres() {
+  async fetchGenres() {
     const url = `${BASE_URL}/genre/movie/list?api_key=${KEY}&language=en-US`;
-    return fetch(url).then(res => res.json());
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   }
 
-  fetchTrending() {
+  async fetchTrending() {
     const url = `${BASE_URL}/trending/movie/day?api_key=${KEY}&page=${this.page}`;
-
-    return fetch(url).then(res => res.json());
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   }
 
-  fetchSearchMovie() {
+  async fetchSearchMovie() {
     const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${this.searchQuery}&page=${this.page}&include_adult=false`;
-
-    return fetch(url).then(res => res.json());
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   }
 
   async fetchMovieDetails(movieId) {

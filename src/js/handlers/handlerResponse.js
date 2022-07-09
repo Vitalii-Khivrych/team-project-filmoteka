@@ -2,6 +2,7 @@ import renderPopularCards from '../templates/render-popular-card';
 import { createPaginationBtn } from '../createPaginationBtn';
 import spiner from '../spiner';
 import { showNoResultMessage } from '../showFailMessage';
+import changeUrl from '../service/chengingUrlApi';
 
 export default function handleResponse(response, apiService) {
   if (response.total_results === 0) {
@@ -26,7 +27,7 @@ export default function handleResponse(response, apiService) {
       galleryRef.innerHTML = renderPopularCards(cards, genreMap);
 
       createPaginationBtn(response, apiService);
-
+      changeUrl(apiService.pageNumber);
       spiner.off();
     })
     .catch(console.log);
