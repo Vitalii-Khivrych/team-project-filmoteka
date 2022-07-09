@@ -5,6 +5,7 @@ import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 
 const apiService = new Api();
 
+
 function renderWatchedList() {
     const queueBtn = document.getElementById('js-queue').classList.remove('button-list__btn--current');
     const watchedBtn = document.getElementById('js-watched').classList.add('button-list__btn--current')
@@ -31,3 +32,4 @@ function renderWatchedList() {
 }
 
 export { renderWatchedList };
+
