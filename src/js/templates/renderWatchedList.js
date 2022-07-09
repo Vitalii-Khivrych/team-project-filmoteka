@@ -5,7 +5,10 @@ import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 
 const apiService = new Api();
 
-function renderQueueList() {
+
+function renderWatchedList() {
+    const queueBtn = document.getElementById('js-queue').classList.remove('button-list__btn--current');
+    const watchedBtn = document.getElementById('js-watched').classList.add('button-list__btn--current')
   const galleryElement = document.querySelector('.gallery');
   const watchedList = localStorageApi.getWatchedList();
 
@@ -28,4 +31,5 @@ function renderQueueList() {
     .catch(error => console.log(error));
 }
 
-export { renderQueueList };
+export { renderWatchedList };
+

@@ -6,6 +6,8 @@ import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 const apiService = new Api();
 
 function renderQueueList() {
+  const queueBtn = document.getElementById('js-queue').classList.add('button-list__btn--current');
+    const watchedBtn = document.getElementById('js-watched').classList.remove('button-list__btn--current')
   const galleryElement = document.querySelector('.gallery');
   const queueList = localStorageApi.getQueueList();
 
