@@ -1,35 +1,35 @@
 export { onBtnPlayClick };
-
-function onBtnPlayClick(e) {
+import searchTrailerById from '../searchTailerById';
+import traillerMarkup from '../templates/traillerMarkup';
+async function onBtnPlayClick(e) {
   const backdropEl = document.querySelector('.backdrop');
-  const modalImgEl = document.querySelector('.modal__img');
-  const videoFrameEl = document.querySelector('.video-frame');
-  const btnPlayEl = document.querySelector('.modal__btn-play');
-  const btnCloseTrailer = document.querySelector('.modal__btn-close-trailer');
+  const modalEl = document.querySelector('.modal');
+  const modalCardEl = document.querySelector('.modal__card');
+  const closeModalBtn = document.querySelector('.modal__close');
+  const closeTrailerlBtn = document.querySelector('.modal__btn-close-trailer');
   if (e.target.classList.contains('modal__btn-play')) {
-    modalImgEl.classList.toggle('visually-hidden');
-    videoFrameEl.classList.toggle('visually-hidden');
-    btnPlayEl.classList.toggle('visually-hidden');
-    btnCloseTrailer.classList.toggle('visually-hidden');
-    backdropEl.removeEventListener('click', onBtnPlayClick);
+    const filmId = e.currentTarget.getAttribute('id');
+    const key = await searchTrailerById(filmId);
+    const markup = await traillerMarkup(key);
+    modalCardEl.classList.add('is-hidden');
+    closeModalBtn.classList.add('is-hidden');
+    closeTrailerlBtn.classList.remove('is-hidden');
+    modalEl.insertAdjacentHTML('afterbegin', markup);
     backdropEl.addEventListener('click', onBtnCloseTrailer);
-    console.log('on btn player click');
   }
 }
-
 function onBtnCloseTrailer(e) {
   const backdropEl = document.querySelector('.backdrop');
-  const modalImgEl = document.querySelector('.modal__img');
-  const videoFrameEl = document.querySelector('.video-frame');
-  const btnPlayEl = document.querySelector('.modal__btn-play');
-  const btnCloseTrailer = document.querySelector('.modal__btn-close-trailer');
+  const modalVideoEl = document.querySelector('.modal__video');
+  const modalCardEl = document.querySelector('.modal__card');
+  const closeModalBtn = document.querySelector('.modal__close');
+  const closeTrailerlBtn = document.querySelector('.modal__btn-close-trailer');
   if (e.target.classList.contains('modal__btn-close-trailer')) {
-    modalImgEl.classList.toggle('visually-hidden');
-    videoFrameEl.classList.toggle('visually-hidden');
-    btnPlayEl.classList.toggle('visually-hidden');
-    btnCloseTrailer.classList.toggle('visually-hidden');
-    backdropEl.removeEventListener('click', onBtnCloseTrailer);
-    backdropEl.addEventListener('click', onBtnPlayClick);
+    modalVideoEl.remove();
     console.log('on btn player click');
+    modalCardEl.classList.remove('is-hidden');
+    closeModalBtn.classList.remove('is-hidden');
+    closeTrailerlBtn.classList.add('is-hidden');
+    backdropEl.removeEventListener('click', onBtnCloseTrailer);
   }
 }

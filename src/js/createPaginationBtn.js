@@ -5,7 +5,7 @@ import spiner from './spiner';
 import { changeUrl } from './service/chengingUrlApi';
 
 function createPaginationBtn(data, apiService) {
-  const paginationSectionRef = document.querySelector('.section__pagination');
+  const paginationSectionRef = document.querySelector('.pagination');
   const currentPage = apiService.pageNumber;
   const lastPage = data.total_pages;
 
@@ -15,7 +15,7 @@ function createPaginationBtn(data, apiService) {
   );
 
   // ------------- Логіка роботи кнопок пагінаціі -----------
-  const paginationBtn = document.querySelector('.pagination');
+  const paginationBtn = document.querySelector('.pagination-list ');
   paginationBtn.addEventListener('click', onPaginationBtnClick);
 
   function onPaginationBtnClick(e) {
@@ -55,7 +55,7 @@ function createPaginationBtn(data, apiService) {
       return;
     }
 
-    if (e.target.nodeName === 'BUTTON') {
+    if (e.target.textContent !== '...' && e.target.nodeName === 'BUTTON') {
       spiner.on();
       apiService.pageNumber = +e.target.textContent;
       changeUrl().changePage(apiService.pageNumber, apiService.query);

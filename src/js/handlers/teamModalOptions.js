@@ -19,7 +19,7 @@ function closeTeamModal() {
     backdropTeamModal.classList.add('is-hidden');
     document.body.classList.toggle('lock');
     document.removeEventListener('keydown', onEscCloseTeamModal);
-    backdropTeamModal.removeEventListener('click', onBtnCloseTeamModal);
+    backdropTeamModal.removeEventListener('click', onBackdropCloseTeamModal);
 }
 
 function onEscCloseTeamModal(event) {

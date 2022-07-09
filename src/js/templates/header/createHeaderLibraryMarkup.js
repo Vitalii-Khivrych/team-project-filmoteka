@@ -24,12 +24,12 @@ export default function createHeaderLibraryMarkup() {
   </div>
   <ul class="button-list">
     <li class="button-list__item">
-      <button class="button-list__btn button-list__btn--current" type="button">
+      <button class="button-list__btn " type="button" id="js-watched">
         Watched
       </button>
     </li>
     <li class="button-list__item">
-      <button class="button-list__btn" type="button">Queue</button>
+      <button class="button-list__btn button-list__btn--current" type="button" id="js-queue">Queue</button>
     </li>
   </ul>
   </div>

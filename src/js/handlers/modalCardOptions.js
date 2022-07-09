@@ -7,7 +7,7 @@ import {
 // // знімає is.hidden з refs.backdrop та додає слухачів
 
 function openModal() {
-  let backdropEl = document.querySelector('.backdrop');
+  const backdropEl = document.querySelector('.backdrop');
   backdropEl.classList.remove('is-hidden');
   document.addEventListener('keydown', onCloseEsc);
   backdropEl.addEventListener('click', onBtnCloseModalClick);
@@ -17,7 +17,9 @@ function openModal() {
 }
 // //додає is.hidden на refs.backdrop та знімає слухачів
 function closeModal() {
-  let backdropEl = document.querySelector('.backdrop');
+  const backdropEl = document.querySelector('.backdrop');
+  const modalEl = document.querySelector('.modal');
+  modalEl.remove();
   backdropEl.classList.add('is-hidden');
   document.removeEventListener('keydown', onCloseEsc);
   backdropEl.removeEventListener('click', onBtnCloseModalClick);
