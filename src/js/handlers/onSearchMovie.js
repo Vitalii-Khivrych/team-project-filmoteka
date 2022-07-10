@@ -11,12 +11,26 @@ const apiServiceSearch = new Api();
 //   searchInput = document.querySelector('#search-movie');
 //   searchInput.addEventListener('submit', onSearchMovie);
 // });
+const onFocusInput = (event) => {
+  event.preventDefault();
+  const currentInputPlaceholder = localStorage.getItem("current-input-placeholder");
+  if (currentInputPlaceholder !== null) {
+    event.currentTarget.placeholder = currentInputPlaceholder;
+    event.currentTarget.classList.add("search-form__input-1");
+  }
+}
+const onBlurInput = (event) => {
+  event.preventDefault();
+  event.currentTarget.placeholder = "Movie search";
+  event.currentTarget.classList.remove("search-form__input-1");
+}
 
 const onSearchMovie = e => {
   e.preventDefault();
-
   const queryString = e.currentTarget.elements.searchQuery.value.trim();
-
+  localStorage.setItem("current-input-placeholder", `${queryString}`);
+  e.currentTarget.elements.searchQuery.placeholder = queryString;
+  e.currentTarget.elements.searchQuery.classList.add("search-form__input-1");
   if (queryString === '') {
     e.target.reset();
     showEmptyInputMessage();
@@ -43,4 +57,4 @@ function searchMovie() {
     .catch(console.log);
 }
 
-export { onSearchMovie, searchMovie };
+export { onSearchMovie, searchMovie,onFocusInput, onBlurInput};
