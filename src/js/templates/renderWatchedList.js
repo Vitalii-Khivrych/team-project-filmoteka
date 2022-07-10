@@ -2,13 +2,17 @@ import Api from '../api-service';
 import { renderLibraryCards } from './renderLibraryCards';
 import { localStorageApi } from '../localStorageApi';
 import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
+import { changeUrl } from '../service/chengingUrlApi';
 
 const apiService = new Api();
 
-
 function renderWatchedList() {
-    const queueBtn = document.getElementById('js-queue').classList.remove('button-list__btn--current');
-    const watchedBtn = document.getElementById('js-watched').classList.add('button-list__btn--current')
+  const queueBtn = document
+    .getElementById('js-queue')
+    .classList.remove('button-list__btn--current');
+  const watchedBtn = document
+    .getElementById('js-watched')
+    .classList.add('button-list__btn--current');
   const galleryElement = document.querySelector('.gallery');
   const watchedList = localStorageApi.getWatchedList();
 
@@ -25,6 +29,7 @@ function renderWatchedList() {
 
   Promise.all(movieCards)
     .then(cards => {
+      changeUrl().goToLibrary('library/watched');
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
     })
@@ -32,4 +37,3 @@ function renderWatchedList() {
 }
 
 export { renderWatchedList };
-
