@@ -1,6 +1,7 @@
 import './sass/index.scss';
 import createAuthMarkup from './js/templates/header/createAuthMarkup';
 import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
+import { onFilterUpdate } from './js/handlers/onSearchFilters';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
 import { initRenderTrendingMovie } from './js/createTrendingMovieCards';
@@ -38,6 +39,9 @@ function createSiteMarkup() {
   if (!changeUrl().isSearch()) {
     changeUrl().goToStartPage();
   }
+
+  document.querySelector('#genre').addEventListener('change', onFilterUpdate);
+  document.querySelector('#year').addEventListener('change', onFilterUpdate);
 }
 
 // window.onpopstate = function (event) {
