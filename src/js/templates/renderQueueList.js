@@ -5,6 +5,7 @@ import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 import { renderQueuePagination } from '../renderLibraryPagination';
 import { devideListBy20 } from '../devideListBy20';
 import spiner from '../spiner';
+import { changeUrl } from '../service/chengingUrlApi';
 
 const apiService = new Api();
 
@@ -34,6 +35,7 @@ function renderQueueList() {
 
   Promise.all(movieCards)
     .then(cards => {
+      changeUrl().goToLibrary('library/queue');
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
 

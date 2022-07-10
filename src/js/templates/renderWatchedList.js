@@ -5,6 +5,7 @@ import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 import { renderWatchedPagination } from '../renderLibraryPagination';
 import { devideListBy20 } from '../devideListBy20';
 import spiner from '../spiner';
+import { changeUrl } from '../service/chengingUrlApi';
 
 const apiService = new Api();
 
@@ -34,6 +35,7 @@ function renderWatchedList() {
 
   Promise.all(movieCards)
     .then(cards => {
+      changeUrl().goToLibrary('library/watched');
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
 
