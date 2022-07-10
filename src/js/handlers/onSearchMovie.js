@@ -16,13 +16,13 @@ const onFocusInput = (event) => {
   const currentInputPlaceholder = localStorage.getItem("current-input-placeholder");
   if (currentInputPlaceholder !== null) {
     event.currentTarget.placeholder = currentInputPlaceholder;
-    event.currentTarget.classList.add("search-form__input-1");
+    event.currentTarget.classList.add("search-form__input-focus-placeholder");
   }
 }
 const onBlurInput = (event) => {
   event.preventDefault();
   event.currentTarget.placeholder = "Movie search";
-  event.currentTarget.classList.remove("search-form__input-1");
+  event.currentTarget.classList.remove("search-form__input-focus-placeholder");
 }
 
 const onSearchMovie = e => {
@@ -30,7 +30,7 @@ const onSearchMovie = e => {
   const queryString = e.currentTarget.elements.searchQuery.value.trim();
   localStorage.setItem("current-input-placeholder", `${queryString}`);
   e.currentTarget.elements.searchQuery.placeholder = queryString;
-  e.currentTarget.elements.searchQuery.classList.add("search-form__input-1");
+  e.currentTarget.elements.searchQuery.classList.add("search-form__input-focus-placeholder");
   if (queryString === '') {
     e.target.reset();
     showEmptyInputMessage();

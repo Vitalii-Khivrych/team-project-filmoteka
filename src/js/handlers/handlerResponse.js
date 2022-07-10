@@ -2,6 +2,7 @@ import renderPopularCards from '../templates/render-popular-card';
 import { createPaginationBtn } from '../createPaginationBtn';
 import spiner from '../spiner';
 import { showNoResultMessage } from '../showFailMessage';
+import { scrollUp } from '../scrollUp';
 
 export default function handleResponse(response, apiService) {
   if (response.total_results === 0) {
@@ -28,6 +29,8 @@ export default function handleResponse(response, apiService) {
       createPaginationBtn(response, apiService);
 
       spiner.off();
+
+      scrollUp();
     })
     .catch(console.log);
 }
