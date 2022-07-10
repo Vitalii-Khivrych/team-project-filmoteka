@@ -1,7 +1,7 @@
 import Api from '../api-service';
 import handleResponse from './handlerResponse';
 
-const apiServiceSearch = new Api();
+const apiServiceFilterSearch = new Api();
 console.log('onSearchFilters');
 
 function onFilterUpdate() {
@@ -11,7 +11,7 @@ function onFilterUpdate() {
   apiServiceSearch.genreIdFilter = genre.value;
   apiServiceSearch.yearFilter = year.value;
   apiServiceSearch.fetchMoviesByFilters(genre, year).then(data => {
-    handleResponse(data, apiServiceSearch);
+    handleResponse(data, apiServiceFilterSearch);
   });
 }
 
