@@ -2,6 +2,7 @@ import Api from '../api-service';
 import handleResponse from './handlerResponse';
 import spiner from '../spiner';
 import { showEmptyInputMessage } from '../showFailMessage';
+import { changeUrl } from '../service/chengingUrlApi';
 
 const apiServiceSearch = new Api();
 // let searchInput = null;
@@ -23,8 +24,9 @@ const onSearchMovie = e => {
   }
   spiner.on();
 
-  apiServiceSearch.query = queryString;
   apiServiceSearch.resetPage();
+
+  changeUrl().goToSearch(queryString);
 
   searchMovie();
 
@@ -32,6 +34,9 @@ const onSearchMovie = e => {
 };
 
 function searchMovie() {
+  apiServiceSearch.pageNumber = +changeUrl().getCurrentPage();
+  apiServiceSearch.query = changeUrl().getQuery();
+
   apiServiceSearch
     .fetchSearchMovie()
     .then(data => handleResponse(data, apiServiceSearch))

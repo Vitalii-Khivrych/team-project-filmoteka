@@ -2,6 +2,7 @@ import makePaginatuonBtnMarkup from './templates/paginationMarkup';
 import { initRenderTrendingMovie } from './createTrendingMovieCards';
 import { searchMovie } from './handlers/onSearchMovie';
 import spiner from './spiner';
+import { changeUrl } from './service/chengingUrlApi';
 
 function createPaginationBtn(data, apiService) {
   const paginationSectionRef = document.querySelector('.pagination');
@@ -30,7 +31,11 @@ function createPaginationBtn(data, apiService) {
     if (e.target.id === 'next') {
       apiService.incrementPage();
 
-      if (apiService.query !== '') {
+      changeUrl().changePage(apiService.pageNumber);
+
+      if (changeUrl().isSearch()) {
+        changeUrl().setQuery(apiService.query);
+
         searchMovie();
         return;
       }
@@ -42,20 +47,28 @@ function createPaginationBtn(data, apiService) {
     if (e.target.id === 'previous') {
       apiService.decrementPage();
 
-      if (apiService.query !== '') {
+      changeUrl().changePage(apiService.pageNumber);
+
+      if (changeUrl().isSearch()) {
+        changeUrl().setQuery(apiService.query);
+
         searchMovie();
         return;
       }
 
       initRenderTrendingMovie();
+
       return;
     }
 
     if (e.target.textContent !== '...' && e.target.nodeName === 'BUTTON') {
       spiner.on();
       apiService.pageNumber = +e.target.textContent;
+      changeUrl().changePage(apiService.pageNumber, apiService.query);
 
-      if (apiService.query !== '') {
+      if (changeUrl().isSearch()) {
+        changeUrl().setQuery(apiService.query);
+
         searchMovie();
         return;
       }
