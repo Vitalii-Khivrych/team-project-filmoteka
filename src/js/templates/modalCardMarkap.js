@@ -22,7 +22,9 @@ export default function createModalMarkup({
       </svg></button>
         <div class="modal__content">
      
-    <button class="modal__btn-play">play</button>
+    <button class="modal__btn-play"><svg class="modal__play-icon">
+        <use href="${icon}#icon-youtube"></use>
+      </svg></button>
     <img class="modal__img" src="${imageUrl}" alt="cinema" />
   </div>
 
