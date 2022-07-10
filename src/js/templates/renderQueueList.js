@@ -2,6 +2,9 @@ import Api from '../api-service';
 import { renderLibraryCards } from './renderLibraryCards';
 import { localStorageApi } from '../localStorageApi';
 import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
+import { renderQueuePagination } from '../renderLibraryPagination';
+import { devideListBy20 } from '../devideListBy20';
+import spiner from '../spiner';
 import { changeUrl } from '../service/chengingUrlApi';
 
 const apiService = new Api();
@@ -15,6 +18,7 @@ function renderQueueList() {
     .classList.remove('button-list__btn--current');
   const galleryElement = document.querySelector('.gallery');
   const queueList = localStorageApi.getQueueList();
+  const devidedQueuelist = devideListBy20(queueList);
 
   galleryElement.innerHTML = '';
 
@@ -23,7 +27,9 @@ function renderQueueList() {
     return;
   }
 
-  const movieCards = queueList.map(id =>
+  renderQueuePagination(queueList, apiService);
+
+  const movieCards = devidedQueuelist[apiService.pageNumber - 1].map(id =>
     apiService.fetchMovieDetails(id).catch(error => console.log(error))
   );
 
@@ -32,6 +38,10 @@ function renderQueueList() {
       changeUrl().goToLibrary('library/queue');
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
+
+      setTimeout(() => {
+        spiner.off();
+      }, 500);
     })
     .catch(error => console.log(error));
 }

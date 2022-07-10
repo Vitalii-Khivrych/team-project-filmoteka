@@ -2,6 +2,9 @@ import Api from '../api-service';
 import { renderLibraryCards } from './renderLibraryCards';
 import { localStorageApi } from '../localStorageApi';
 import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
+import { renderWatchedPagination } from '../renderLibraryPagination';
+import { devideListBy20 } from '../devideListBy20';
+import spiner from '../spiner';
 import { changeUrl } from '../service/chengingUrlApi';
 
 const apiService = new Api();
@@ -15,6 +18,7 @@ function renderWatchedList() {
     .classList.add('button-list__btn--current');
   const galleryElement = document.querySelector('.gallery');
   const watchedList = localStorageApi.getWatchedList();
+  const devidedWatchedlist = devideListBy20(watchedList);
 
   galleryElement.innerHTML = '';
 
@@ -23,7 +27,9 @@ function renderWatchedList() {
     return;
   }
 
-  const movieCards = watchedList.map(id =>
+  renderWatchedPagination(watchedList, apiService);
+
+  const movieCards = devidedWatchedlist[apiService.pageNumber - 1].map(id =>
     apiService.fetchMovieDetails(id).catch(error => console.log(error))
   );
 
@@ -32,6 +38,10 @@ function renderWatchedList() {
       changeUrl().goToLibrary('library/watched');
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
+
+      setTimeout(() => {
+        spiner.off();
+      }, 500);
     })
     .catch(error => console.log(error));
 }
