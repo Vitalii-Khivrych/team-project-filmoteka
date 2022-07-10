@@ -1,9 +1,10 @@
 import Api from '../api-service';
-import { renderLibraryCards } from './renderLibraryCards';
 import { localStorageApi } from '../localStorageApi';
 import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
+import { renderFavouritList } from "./renderQueueList";
+import makePaginatuonBtnMarkup from './paginationMarkup';
 
-const apiService = new Api();
+const apiServiceLibrWatched = new Api();
 
 
 function renderWatchedList() {
@@ -19,16 +20,46 @@ function renderWatchedList() {
     return;
   }
 
-  const movieCards = watchedList.map(id =>
-    apiService.fetchMovieDetails(id).catch(error => console.log(error))
-  );
+  renderFavouritList(watchedList, galleryElement, apiServiceLibrWatched);
 
-  Promise.all(movieCards)
-    .then(cards => {
-      const libraryMarkup = renderLibraryCards(cards);
-      galleryElement.innerHTML = libraryMarkup;
-    })
-    .catch(error => console.log(error));
+  const paginationSectionRef = document.querySelector('.pagination');
+  const currentPage = apiServiceLibrWatched.pageNumber;
+  const lastPage = Math.ceil(+watchedList.length / 20)
+
+  paginationSectionRef.innerHTML = makePaginatuonBtnMarkup(currentPage, lastPage)
+  
+  const paginationBtn = document.querySelector('.pagination-list ');
+  paginationBtn.addEventListener('click', onPaginationBtnClick);
+
+  function onPaginationBtnClick(e) {
+    e.preventDefault();
+
+    if (+e.target.textContent === currentPage) {
+      console.log('Поточна сторінка');
+      return;
+    }
+
+    if (e.target.id === 'next') {
+      apiServiceLibrWatched.incrementPage();
+
+      renderFavouritList(watchedList, galleryElement, apiServiceLibrWatched);
+      return;
+    }
+
+    if (e.target.id === 'previous') {
+      apiServiceLibrWatched.decrementPage();
+
+      renderFavouritList(watchedList, galleryElement, apiServiceLibrWatched);
+      return;
+    }
+
+    if (e.target.textContent !== '...' && e.target.nodeName === 'BUTTON') {
+      // spiner.on();
+      apiServiceLibrWatched.pageNumber = +e.target.textContent;
+
+       renderFavouritList(watchedList, galleryElement, apiServiceLibrWatched);
+    }
+  }
 }
 
 export { renderWatchedList };
