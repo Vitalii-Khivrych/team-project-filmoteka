@@ -1,8 +1,11 @@
+import icon from '../../../images/sprite.svg';
+
 export default function createHeaderLibraryMarkup() {
-  return `<div class="nav-wrap additional-margin">
+  return `<div class="container">
+  <div class="nav-wrap additional-margin">
     <a href="#" class="header__logo" id="logoLink">
       <svg class="header__icon">
-        <use href="./images/sprite.svg#icon-main-logo"></use>
+        <use href="${icon}#icon-main-logo"></use>
       </svg>
       <span class="header__text">Filmoteka</span>
     </a>
@@ -21,13 +24,14 @@ export default function createHeaderLibraryMarkup() {
   </div>
   <ul class="button-list">
     <li class="button-list__item">
-      <button class="button-list__btn button-list__btn--current" type="button">
+      <button class="button-list__btn " type="button" id="js-watched">
         Watched
       </button>
     </li>
     <li class="button-list__item">
-      <button class="button-list__btn" type="button">Queue</button>
+      <button class="button-list__btn button-list__btn--current" type="button" id="js-queue">Queue</button>
     </li>
   </ul>
+  </div>
 `;
 }

@@ -12,9 +12,6 @@
   position: absolute;
   border-radius: 5px;
   background-color: var(--white-colore);
-  padding: 48px 20px 40px 20px;
-  overflow-y: auto;
-
   margin: auto;
   right: 0;
   left: 0;
@@ -26,42 +23,48 @@
   @include tablet {
     max-width: 704px;
     max-height: 552px;
-    padding: 40px 64px 40px 44px;
-    display: flex;
   }
 
   @include desktop {
     max-width: 806px;
     max-height: 558x;
-    padding: 40px 12px;
+  }
+}
+.modal__card {
+  max-width: 100%;
+  height: 100%;
+  padding: 16px;
+  overflow: auto;
+  @include tablet {
+    padding: 24px;
+    display: flex;
+    gap: 20px;
+  }
+
+  @include desktop {
     overflow: visible;
   }
 }
-
-.modal__img {
-  border-radius: 5px;
+.modal__content {
+  position: relative;
   margin-bottom: 20px;
-
   @include tablet {
-    width: 264px;
-    height: 374px;
+    width: 40%;
     margin-bottom: 0;
-    margin-right: 68px;
   }
-
-  @include desktop {
-    width: 375px;
-    height: 478px;
-  }
+}
+.modal__img {
+  display: block;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
 }
 
 .modal__description-wrap {
+  display: flex;
+  flex-direction: column;
   @include tablet {
-    width: 264px;
-  }
-
-  @include desktop {
-    width: 391px;
+    width: 60%;
   }
 }
 
@@ -102,8 +105,8 @@
   color: var(--white-colore);
   background-color: var(--activ-btn-color);
 }
-.modal__info-value--slash{
-  color: #8C8C8C;
+.modal__info-value--slash {
+  color: #8c8c8c;
 }
 .modal__info-value--grey {
   display: inline-block;
@@ -122,8 +125,9 @@
 }
 
 .modal__about-text {
+  flex-grow: 1;
   font-weight: 500;
-    font-size: 12px;
+  font-size: 12px;
   line-height: 1.66;
   margin-bottom: 20px;
 }
@@ -137,14 +141,11 @@
     justify-content: space-around;
   }
 
- 
-
   button {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
     line-height: 1.33;
-    background-color: transparent;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -168,17 +169,91 @@
     }
   }
 }
+.isActive {
+  background-color: var(--activ-btn-color);
+  color: var(--white-colore);
+  border: transparent;
+  &:hover {
+    background-color: var(--white-colore);
+    color: var(--activ-btn-color);
+
+  }
+}
 
 .modal__close {
+  z-index: 5;
+  position:absolute;
+  border: transparent;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8px;
+  font-weight: 700;
+  &:hover {
+    fill: var(--activ-btn-color);
+  }
+}
+.modal__close-icon {
+  pointer-events: none;
+}
+.modal__video {
+  position: absolute;
+  z-index: 30;
+  margin: auto;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  max-height: 60%;
+  max-width: 280px;
+
+  @include tablet {
+    max-width: 704px;
+    max-height: 552px;
+  }
+
+  @include desktop {
+    max-width: 806px;
+    max-height: 558x;
+  }
+  .video-frame{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.modal__btn-play {
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0;
+  width: 68px;
+  height: 48px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff6b01;
+  color: white;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.modal__btn-close-trailer{
+  z-index: 35;
+ 
   position: absolute;
   border: transparent;
   background-color: transparent;
   width: 30px;
   height: 30px;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
   font-weight: 700;
+  @include tablet{
+fill: white;
+  }
+
   &:hover {
-    color: var(--activ-btn-color);
+    fill: var(--activ-btn-color);
   }
 }

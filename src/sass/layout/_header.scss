@@ -1,4 +1,6 @@
 .header {
+  width: 100vw;
+  overflow-x: hidden;
   height: 216px;
   padding-top: 40px;
 
@@ -32,9 +34,8 @@
     }
   }
 
-  // ================== Убрать при переносе в JS ======================
-  &:first-child {
-    margin-bottom: 20px;
+  @media screen and(max-width: 768px) {
+    padding-top: 30px;
   }
 }
 
@@ -96,7 +97,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 54px;
+  margin-bottom: 45px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
@@ -237,9 +238,16 @@
 
   color: #ff001b;
 
-  @media screen and (min-width: 768px) {
-    text-align: center;
-  }
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+
+  text-align: center;
+}
+
+.notification.notification--is-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .button-list {
@@ -303,29 +311,31 @@
 }
 //-------------Firebase
 #user-container {
-  // position: absolute;
+  position: absolute;
   display: flex;
-  flex-direction: row;
-  top: 22px;
+  top: 14px;
   width: 100%;
-  right: 0;
-  padding-left: 10px;
+  right: 30px;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 10px;
+  // padding-right: 10px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 7px;
+    right: 20px;
+    top: 11px;
+  }
 }
 
 #user-container #user-pic {
- 
   @media screen and (min-width: 768px) {
     position: relative;
-      display: inline-block;
-      background-image: url('../images/free-icon-delete-account-7084160.png');
-      background-repeat: no-repeat;
-      width: 26px;
-      height: 26px;
-      background-size: 26px;
-      border-radius: 20px;
+    display: inline-block;
+    background-image: url('../images/free-icon-delete-account-7084160.png');
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+    border-radius: 20px;
   }
 }
 
@@ -338,8 +348,9 @@
   line-height: 1.17;
   padding-right: 10px;
   padding-left: 10px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     padding-left: 0px;
+    font-size: 10px;
   }
 }
 
@@ -350,7 +361,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  text-transform: uppercase;
+  text-transform: inherit;
 
   color: #ffffff;
 
@@ -358,13 +369,27 @@
   border-radius: 5px;
   background: transparent;
   @media screen and (max-width: 768px) {
-      font-size: 10px;
-    }
+    font-size: 10px;
+    font-weight: 400;
+  }
 }
 
-.mdl-button#sign-in {
-  margin-left: 10px;
+.mdl-button#sign-in,
+.mdl-button#sign-out {
+  // margin-left: 10px;
+  padding: 0 7px;
+  height: 24px;
+  @media screen and(max-width: 768px) {
+    height: 18px;
+    padding: 0 2px;
+  }
 }
-.nav-list__link{
-white-space: nowrap;
+
+.mdl-button .material-icons {
+  @media screen and(max-width: 768px) {
+    font-size: 18px;
+  }
+}
+.auth {
+  position: relative;
 }
