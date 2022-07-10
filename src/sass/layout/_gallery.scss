@@ -111,6 +111,19 @@
     margin-bottom: 0px;
   }
 }
+.gallery__item {
+  background-color: var(--white-colore);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition-property: transform, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+}
+.gallery__item:hover,
+.gallery__item:focus {
+  transform: scale(1.15);
+  box-shadow: 0 10px 26px var(--shadow-color);
+}
 .card__image {
   pointer-events: none;
   border-radius: 5px;
