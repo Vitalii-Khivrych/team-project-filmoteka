@@ -9,6 +9,7 @@ import {
 function openModal() {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.classList.remove('is-hidden');
+  const rootEl = document.querySelector('#root').classList.toggle('noScroll');
   document.addEventListener('keydown', onCloseEsc);
   backdropEl.addEventListener('click', onBtnCloseModalClick);
   backdropEl.addEventListener('click', onBtnAddToQueueClick);
@@ -20,6 +21,7 @@ function closeModal() {
   const backdropEl = document.querySelector('.backdrop');
   const modalEl = document.querySelector('.modal');
   modalEl.remove();
+  const rootEl = document.querySelector('#root').classList.toggle('noScroll');
   backdropEl.classList.add('is-hidden');
   document.removeEventListener('keydown', onCloseEsc);
   backdropEl.removeEventListener('click', onBtnCloseModalClick);
