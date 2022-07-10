@@ -16,13 +16,10 @@ export default function createModalMarkup({
     ? `https://image.tmdb.org/t/p/w500/${poster_path}`
     : `${defaultPoster}`;
   return `<div class="modal">
-    <button class="modal__close" data-action="close-modal"><svg class="modal__close-icon" width="14" height="14">
-        <use href="${icon}#icon-close"></use>
-      </svg></button>
-         <button  class="modal__btn-close-trailer is-hidden"><svg class="modal__close-icon" width="14" height="14">
-        <use href="${icon}#icon-close"></use>
-      </svg></button>
         <div class="modal__card">
+         <button class="modal__close" data-action="close-modal"><svg class="modal__close-icon" width="14" height="14">
+        <use href="${icon}#icon-close"></use>
+      </svg></button>
         <div class="modal__content">
      
     <button class="modal__btn-play">play</button>

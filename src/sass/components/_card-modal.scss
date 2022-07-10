@@ -6,10 +6,10 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.8s ease 0s;
 }
 
 .modal {
-  
   position: absolute;
   border-radius: 5px;
   background-color: var(--white-colore);
@@ -20,12 +20,11 @@
   bottom: 0;
   max-height: 90%;
   max-width: 280px;
-  padding:32px 16px;
+  padding: 32px 16px;
 
   @include tablet {
     max-width: 704px;
     max-height: 552px;
-    
   }
 
   @include desktop {
@@ -46,6 +45,7 @@
     overflow: visible;
   }
 }
+
 .modal__content {
   position: relative;
   margin-bottom: 20px;
@@ -59,9 +59,7 @@
   border-radius: 5px;
   width: 100%;
   height: 100%;
- 
 }
-
 .modal__description-wrap {
   display: flex;
   flex-direction: column;
@@ -178,20 +176,23 @@
   &:hover {
     background-color: var(--white-colore);
     color: var(--activ-btn-color);
-
   }
 }
 
 .modal__close {
   z-index: 5;
-  position:absolute;
+  position: absolute;
   border: transparent;
   background-color: transparent;
   width: 30px;
   height: 30px;
-  top: 8px;
-  right: 8px;
+  top: 4px;
+  right: 4px;
   font-weight: 700;
+  @include tablet {
+    top: 8px;
+    right: 8px;
+  }
   &:hover {
     fill: var(--activ-btn-color);
   }
@@ -219,7 +220,7 @@
     max-width: 806px;
     max-height: 558x;
   }
-  .video-frame{
+  .video-frame {
     width: 100%;
     height: 100%;
   }
@@ -240,7 +241,7 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
-.modal__btn-close-trailer{
+.modal__btn-close-trailer {
   z-index: 35;
   position: absolute;
   border: transparent;
@@ -250,9 +251,7 @@
   top: 8px;
   right: 8px;
   font-weight: 700;
-  @include tablet{
-fill: white;
-  }
+  fill: white;
 
   &:hover {
     fill: var(--activ-btn-color);
