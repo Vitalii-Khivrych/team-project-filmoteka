@@ -19,7 +19,7 @@ const onLibraryLinkClick = event => {
 
   renderLibraryHeader();
   renderQueueList();
-  changeUrl().goToLibrary('library');
+  changeUrl().goToLibrary();
 };
 
 export { onLibraryLinkClick };
