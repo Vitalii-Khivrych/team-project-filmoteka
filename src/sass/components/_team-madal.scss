@@ -34,13 +34,18 @@
         max-height: 650px;
     }
 }
-// .backdrop__team-modal.is-hidden .team-modal {
-//     transform: translate(-50%, 0);
-// }
+.backdrop__team-modal.is-hidden .team-modal {
+    @media screen and (min-width: 768px) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s ease 0s;
+    }
+}
 .team-modal__btn-close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 4px;
+    right: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,9 +59,13 @@
     &:hover, &:focus {
         fill: var(--accent-text-color);
     }
+    @media screen and (min-width: 768px) {
+        top: 5px;
+        right: 10px;
+    }
 }
 .team-modal__title {
-    margin-top: 0;
+    margin-top: 10px;
     text-align: center;
     @include font($fs: 12px, $fw: 700, $lh: 1.17);
     margin-bottom: 10px;
