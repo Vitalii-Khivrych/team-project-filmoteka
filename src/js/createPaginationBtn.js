@@ -33,7 +33,7 @@ function createPaginationBtn(data, apiService) {
 
       changeUrl().changePage(apiService.pageNumber);
 
-      if (apiService.query !== '') {
+      if (changeUrl().isSearch()) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
@@ -49,7 +49,7 @@ function createPaginationBtn(data, apiService) {
 
       changeUrl().changePage(apiService.pageNumber);
 
-      if (apiService.query !== '') {
+      if (changeUrl().isSearch()) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
@@ -66,7 +66,7 @@ function createPaginationBtn(data, apiService) {
       apiService.pageNumber = +e.target.textContent;
       changeUrl().changePage(apiService.pageNumber, apiService.query);
 
-      if (apiService.query !== '') {
+      if (changeUrl().isSearch()) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();

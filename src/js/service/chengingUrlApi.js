@@ -5,21 +5,21 @@ function changeUrl() {
   return {
     goToStartPage: function () {
       url.pathname = 'home/';
-      // url.searchParams.delete('page');
-      // url.searchParams.delete('query');
+      url.searchParams.delete('page');
+      url.searchParams.delete('query');
       history.pushState({}, '', `${url}`);
     },
 
     goToHome: function () {
-      url.searchParams.delete('query');
       url.pathname = 'home/';
+      url.searchParams.delete('query');
       history.pushState({}, '', `${url}`);
     },
 
     goToLibrary: function () {
-      url.searchParams.delete('query');
       url.pathname = 'library/';
       url.searchParams.delete('page');
+      url.searchParams.delete('query');
       history.pushState({}, '', `${url}`);
     },
 
@@ -30,11 +30,13 @@ function changeUrl() {
       history.pushState({}, '', `${url}`);
     },
 
+    isSearch: function () {
+      return url.searchParams.has('query');
+    },
+
     changePage: function (value) {
-      if (+value > 1) {
-        url.searchParams.set('page', +value);
-        history.pushState({}, '', `${url}`);
-      }
+      url.searchParams.set('page', +value);
+      history.pushState({}, '', `${url}`);
     },
 
     setQuery: function (searchQuery) {
@@ -43,7 +45,7 @@ function changeUrl() {
     },
 
     getQuery: function () {
-      console.log(url.searchParams.get('query'));
+      // console.log(url.searchParams.get('query'));
       return url.searchParams.get('query');
     },
 

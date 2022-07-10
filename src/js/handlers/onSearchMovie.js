@@ -27,6 +27,7 @@ const onSearchMovie = e => {
   apiServiceSearch.resetPage();
 
   changeUrl().goToSearch(queryString);
+
   searchMovie();
 
   e.target.reset();
@@ -35,7 +36,6 @@ const onSearchMovie = e => {
 function searchMovie() {
   apiServiceSearch.pageNumber = +changeUrl().getCurrentPage();
   apiServiceSearch.query = changeUrl().getQuery();
-  console.log(apiServiceSearch.query);
 
   apiServiceSearch
     .fetchSearchMovie()
