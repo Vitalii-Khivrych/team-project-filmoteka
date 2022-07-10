@@ -33,6 +33,7 @@ export default function createInitialHeaderMarkup() {
         name="searchQuery"
         type="text"
         placeholder="Movie search"
+        autocomplete="off"
       />
       <button class="search-form__button-submit" type="submit">
         <svg width="12" height="12">

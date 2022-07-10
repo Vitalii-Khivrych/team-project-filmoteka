@@ -7,7 +7,7 @@ import { initHeader } from './js/templates/header/initHeader';
 import { initRenderTrendingMovie } from './js/createTrendingMovieCards';
 import { searchMovie } from './js/handlers/onSearchMovie';
 import renderBackdrop from './js/templates/render-backdrop';
-import { onCardClick } from './js/handlers/onModalCardHandlers';
+import { onCardClick } from './js/handlers/onGalleryCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
 import onGoItClick from './js/handlers/onGoItStudentsClick';
 import spiner from './js/spiner';

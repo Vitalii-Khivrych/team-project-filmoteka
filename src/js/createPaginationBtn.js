@@ -26,8 +26,6 @@ function createPaginationBtn(data, apiService) {
       return;
     }
 
-    // removePaginationBtnClick();
-
     if (e.target.id === 'next') {
       apiService.incrementPage();
 
