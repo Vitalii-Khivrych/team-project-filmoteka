@@ -1,6 +1,5 @@
 import icon from '../../images/sprite.svg';
-
-const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
+import defaultPoster from '../../images/no-poster.jpg';
 
 export default function createModalMarkup({
   poster_path,
@@ -13,18 +12,20 @@ export default function createModalMarkup({
   overview,
 }) {
   const genersList = genres.map(element => element.name);
+  const imageUrl = poster_path
+    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+    : `${defaultPoster}`;
   return `<div class="modal">
-    <button class="modal__close" data-action="close-modal"><svg class="modal__close-icon" width="14" height="14">
-        <use href="${icon}#icon-close"></use>
-      </svg></button>
-         <button  class="modal__btn-close-trailer is-hidden"><svg class="modal__close-icon" width="14" height="14">
-        <use href="${icon}#icon-close"></use>
-      </svg></button>
         <div class="modal__card">
+         <button class="modal__close" data-action="close-modal"><svg class="modal__close-icon" width="14" height="14">
+        <use href="${icon}#icon-close"></use>
+      </svg></button>
         <div class="modal__content">
      
-    <button class="modal__btn-play">play</button>
-    <img class="modal__img" src="${IMG_URL}${poster_path}" alt="cinema" />
+    <button class="modal__btn-play"><svg class="modal__play-icon">
+        <use href="${icon}#icon-youtube"></use>
+      </svg></button>
+    <img class="modal__img" src="${imageUrl}" alt="cinema" />
   </div>
 
   
