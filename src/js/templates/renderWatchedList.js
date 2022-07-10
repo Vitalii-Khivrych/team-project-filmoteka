@@ -35,7 +35,7 @@ function renderWatchedList() {
 
   Promise.all(movieCards)
     .then(cards => {
-      changeUrl().goToLibrary('library/watched');
+      changeUrl().goToLibrary();
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
 

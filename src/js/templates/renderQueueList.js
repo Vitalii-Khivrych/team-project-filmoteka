@@ -35,7 +35,7 @@ function renderQueueList() {
 
   Promise.all(movieCards)
     .then(cards => {
-      changeUrl().goToLibrary('library/queue');
+      changeUrl().goToLibrary();
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
 
