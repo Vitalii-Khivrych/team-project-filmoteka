@@ -11,7 +11,8 @@ import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModa
 import onGoItClick from './js/handlers/onGoItStudentsClick';
 import spiner from './js/spiner';
 import { changeUrl } from './js/service/chengingUrlApi';
-
+import { rendereThemeIcon } from './js/service/changeTheme';
+import { theme } from './js/service/changeTheme';
 // import Spiner from './js/spiner';
 
 // -------------Створює початкову розмітку сайту-----------
@@ -31,6 +32,9 @@ function createSiteMarkup() {
   rootRef.insertAdjacentHTML('beforeend', renderBackdrop());
   rootRef.insertAdjacentHTML('beforeend', renderBackdropTeamModal());
   onGoItClick();
+  rootRef.insertAdjacentHTML('beforeend', rendereThemeIcon());
+  theme();
+
   document.querySelector('.gallery').addEventListener('click', onCardClick);
 
   changeUrl().isSearch() ? searchMovie() : initRenderTrendingMovie();

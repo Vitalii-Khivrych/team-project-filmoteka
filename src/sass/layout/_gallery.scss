@@ -8,7 +8,7 @@
 }
 .filter {
   padding: 15px 0;
-  background-color: #f7f7f7;
+  background-color: var(--filter-bg);
   margin-bottom: 20px;
   text-align: center;
   @include tablet {
@@ -19,7 +19,7 @@
 }
 .filter__text {
   margin-bottom: 10px;
-  color: #545454;
+  color: var(--filter-text);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
@@ -67,7 +67,7 @@
   border: none;
   border-radius: 5px;
   background-color: var(--activ-btn-color);
-  color: #ffffff;
+  color: var(--white-colore);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
@@ -192,11 +192,12 @@
   align-items: center;
   justify-content: center;
   padding: 12px;
-  background: #f1ebe1;
+  background: var(--pagination-bg);
   border-radius: 5px;
   border: none;
 }
 .pagination-arrow-icon {
+  fill: var(--primery-text-color);
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -214,19 +215,21 @@
   padding: 14px 16px;
   border-radius: 5px;
   border: none;
-  background-color: var(--white-colore);
+  background-color: var(--pagination-btn);
+  color: var(--primery-text-color);
 }
 .pagination__btn--choice {
   background-color: var(--activ-btn-color);
   color: var(--white-colore);
 }
 .pagination-btn-more {
+  color: var(--primery-text-color);
   display: none;
   @media (min-width: 768px) {
     display: block;
     @include font($fs: 12px, $fw: 500, $lh: 1.33);
     letter-spacing: 0em;
-    background-color: var(--white-colore);
+    background-color: var(--pagination-btn);
     border: none;
     padding: 0 0 6px 0;
   }
