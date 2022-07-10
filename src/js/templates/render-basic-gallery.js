@@ -4,10 +4,11 @@ export default function makeBasicGalleryMarkup() {
     <section class="section">
       <div class="container">
       <div class="filter">
-        <p class="filter__text">Find the best movies:</p>
+        <p class="filter__text">Find the movies:</p>
         <ul class="filter__list">
   <li class="filter__item">
-    <select class="filter__select genre" id="genre" name="genre">
+    <select class="filter__select" id="genre" name="genre">
+      <option value="">Genre</option>
       <option value="28">Action</option>
       <option value="12">Adventure</option>
       <option value="16">Animation</option>
@@ -29,7 +30,8 @@ export default function makeBasicGalleryMarkup() {
       <option value="37">TV Western</option>
     </select>
   </li>
-  <li class="filter__item"><select class="filter__select date" id="year" name="year">
+  <li class="filter__item"><select class="filter__select" id="year" name="year">
+          <option value="">Year</option>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
