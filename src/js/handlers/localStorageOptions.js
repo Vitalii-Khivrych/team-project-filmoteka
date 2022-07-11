@@ -1,7 +1,11 @@
 export { onBtnAddToQueueClick, onBtnAddWachedClick };
+<<<<<<< feature/FT-67
+import { localStorageApi } from '../service/localStorageApi';
+=======
 import { localStorageApi } from '../localStorageApi';
 import { renderQueueList } from '../templates/renderQueueList';
 import {renderWatchedList} from '../templates/renderWatchedList'
+>>>>>>> main
 
 function onBtnAddToQueueClick(e) {
   const queueStorage = document.getElementById('js-queue');

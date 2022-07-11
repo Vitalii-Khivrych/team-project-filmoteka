@@ -1,14 +1,27 @@
-import Api from './api-service';
+import Api from './service/api-service';
 import handleResponse from './handlers/handlerResponse';
 import { changeUrl } from './service/chengingUrlApi';
 import makeBasicFilterMarkup from './templates/render-filter';
 import { onFilterUpdate } from './handlers/onSearchFilters';
+import { searchMovie } from './handlers/onSearchMovie ';
+import { filterMovie } from './handlers/onSearchFilters';
+import { changeUrl } from './service/chengingUrlApi';
 
 const apiServiceTrending = new Api();
 
 function initRenderTrendingMovie() {
-  createSearchFilter();
-  createTrendingMoviegallery();
+  if (changeUrl().isSearch()) {
+    searchMovie();
+    return;
+  }
+
+  if (changeUrl().isFilter()) {
+    filterMovie();
+    return;
+  }
+
+  createTrendingMovieGallery();
+  // createTrendingMoviegallery();
 }
 
 function createSearchFilter() {
@@ -17,15 +30,16 @@ function createSearchFilter() {
   document.querySelector('.filter').addEventListener('change', onFilterUpdate);
 }
 
-function createTrendingMoviegallery() {
+async function createTrendingMovieGallery() {
   apiServiceTrending.pageNumber = +changeUrl().getCurrentPage();
+  createSearchFilter();
 
-  apiServiceTrending
-    .fetchTrending()
-    .then(data => {
-      handleResponse(data, apiServiceTrending);
-    })
-    .catch(console.log);
+  try {
+    const response = await apiServiceTrending.fetchTrending();
+    handleResponse(response, apiServiceTrending);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export { initRenderTrendingMovie, appService };

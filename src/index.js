@@ -3,8 +3,8 @@ import createAuthMarkup from './js/templates/header/createAuthMarkup';
 import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
-import { initRenderTrendingMovie } from './js/createTrendingMovieCards';
-import { searchMovie } from './js/handlers/onSearchMovie';
+import { initRenderTrendingMovie } from './js/initRenderTrendingMovie';
+
 import renderBackdrop from './js/templates/render-backdrop';
 import { onCardClick } from './js/handlers/onGalleryCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
@@ -33,11 +33,11 @@ function createSiteMarkup() {
   onGoItClick();
   document.querySelector('.gallery').addEventListener('click', onCardClick);
 
-  changeUrl().isSearch() ? searchMovie() : initRenderTrendingMovie();
+  initRenderTrendingMovie();
 
-  if (!changeUrl().isSearch()) {
-    changeUrl().goToStartPage();
-  }
+  // if (!changeUrl().isSearch()) {
+  //   changeUrl().goToStartPage();
+  // }
 }
 
 // window.onpopstate = function (event) {
