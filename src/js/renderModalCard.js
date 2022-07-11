@@ -19,12 +19,10 @@ export default async function renderModalCard(movieId) {
   if (localStorageApi.isMovieInQueueList(movieId)) {
     addToQueue.textContent = 'delete from queue';
     addToQueue.classList.toggle('isActive');
-    addWached.disabled = true;
   }
   if (localStorageApi.isMovieInWatchedList(movieId)) {
     addWached.textContent = 'delete from watched';
     addWached.classList.toggle('isActive');
-    addToQueue.disabled = true;
   }
   openModal();
 }
