@@ -58,6 +58,9 @@ function searchMovie() {
   apiServiceSearch.pageNumber = +changeUrl().getCurrentPage();
   apiServiceSearch.query = changeUrl().getQuery();
 
+  const galleryTitleRef = document.querySelector('.filter__wrap');
+  galleryTitleRef.innerHTML = '';
+
   apiServiceSearch
     .fetchSearchMovie()
     .then(data => handleResponse(data, apiServiceSearch))

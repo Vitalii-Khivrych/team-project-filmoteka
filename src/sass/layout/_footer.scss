@@ -31,6 +31,14 @@ footer {
   color: var(--filter-text);
   cursor: pointer;
 
+  transition-property: transform, color;
+  transition-duration: 180ms;
+  transition-timing-function: linear;
+}
+
+.footer__button:hover {
+  transform: scale(1.1);
+  color: var(--accent-text-color);
 }
 
 @keyframes lds-heart {

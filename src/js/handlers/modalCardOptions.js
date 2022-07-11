@@ -1,4 +1,4 @@
-export { openModal };
+export { openModal, closeModal };
 import { onBtnPlayClick } from './onPlayBtnClick';
 import {
   onBtnAddToQueueClick,
@@ -9,6 +9,7 @@ import {
 function openModal() {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.classList.remove('is-hidden');
+  document.addEventListener('keydown', onCloseEsc);
   backdropEl.addEventListener('click', onBtnCloseModalClick);
   backdropEl.addEventListener('click', onBtnAddToQueueClick);
   backdropEl.addEventListener('click', onBtnAddWachedClick);
@@ -42,8 +43,3 @@ function onBtnCloseModalClick(e) {
     closeModal();
   }
 }
-// const scrollLockMethod = !isMenuOpen ? 'disableBodyScroll' : 'enableBodyScroll';
-// bodyScrollLock['scrollLockMethod'](document.body);
-// bodyScrollLock[scrollLockMethod](document.body);
-// bodyScrollLock.disableBodyScroll(document.body);
-// bodyScrollLock.enableBodyScroll(document.body);

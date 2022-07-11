@@ -117,15 +117,24 @@
 .header__logo {
   color: #ffffff;
 
+  transition-property: color;
+  transition-duration: 180ms;
+  transition-timing-function: linear;
+
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
   }
 }
 
+.header__logo:hover {
+  color: var(--accent-text-color);
+}
+
 .header__icon {
   width: 24px;
   height: 24px;
+  stroke: currentColor;
 
   @media screen and (min-width: 768px) {
     margin-right: 8px;
@@ -144,7 +153,7 @@
     font-size: 30px;
     line-height: 1.17;
 
-    color: #ffffff;
+    color: inherit;
   }
 }
 
@@ -165,8 +174,15 @@
   font-size: 12px;
   line-height: 1.17;
   text-transform: uppercase;
-
   color: #ffffff;
+
+  transition-property: color;
+  transition-duration: 180ms;
+  transition-timing-function: linear;
+}
+
+.nav-list__link:hover {
+  color: var(--accent-text-color);
 }
 
 .nav-list__link--current {
@@ -327,7 +343,7 @@
   justify-content: flex-end;
   align-items: center;
   // padding-right: 10px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     margin-bottom: 7px;
     right: 20px;
     top: 11px;
@@ -356,7 +372,7 @@
   line-height: 1.17;
   padding-right: 10px;
   padding-left: 10px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-left: 0px;
     font-size: 10px;
   }
@@ -376,7 +392,7 @@
   border: 1px solid #ffffff;
   border-radius: 5px;
   background: transparent;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     font-size: 10px;
     font-weight: 400;
   }
@@ -387,7 +403,7 @@
   // margin-left: 10px;
   padding: 0 7px;
   height: 24px;
-  @media screen and(max-width: 768px) {
+  @media screen and(max-width: 767px) {
     height: 18px;
     padding: 0 2px;
   }
@@ -395,7 +411,7 @@
 
 .mdl-button .material-icons {
   margin-right: 3px;
-  @media screen and(max-width: 768px) {
+  @media screen and(max-width: 767px) {
     font-size: 18px;
   }
 }
