@@ -11,6 +11,9 @@ export default function createModalMarkup({
   title,
   overview,
 }) {
+  if (overview.length === 0) { 
+    overview =  overview + "Sorry, there is no description for this movie."; 
+    }
   const genersList = genres.map(element => element.name);
   const imageUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500/${poster_path}`
