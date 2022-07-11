@@ -5,7 +5,7 @@ export { rendereThemeIcon, theme }
 function rendereThemeIcon() {
     return `<div class="theme">
     <button class="theme__toggle">
-    <svg width="50" height="50" style="display: none;">
+    <svg width="50" height="50"">
         <use href="${icon}#icon-moon"></use>
     </svg>
     <svg width="50" height="50">
