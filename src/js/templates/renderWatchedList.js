@@ -26,7 +26,8 @@ function renderWatchedList() {
 
   if (localStorageApi.isWatchedListEmpty()) {
     addEmptyListPlaceholder(galleryElement);
-    renderWatchedPagination(watchedList, apiService);
+    const paginationElement = document.querySelector('.pagination');
+    paginationElement.innerHTML = '';
     return;
   }
 

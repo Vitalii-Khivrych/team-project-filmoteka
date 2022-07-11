@@ -24,6 +24,8 @@ function renderQueueList() {
 
   if (localStorageApi.isQueueListEmpty()) {
     addEmptyListPlaceholder(galleryElement);
+    const paginationElement = document.querySelector('.pagination');
+    paginationElement.innerHTML = '';
     return;
   }
 
