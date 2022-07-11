@@ -3,9 +3,6 @@ import { createPaginationBtn } from '../createPaginationBtn';
 import spiner from '../spiner';
 import { showNoResultMessage } from '../showFailMessage';
 import { scrollUp } from '../scrollUp';
-import makeBasicFilterMarkup from '../templates/render-filter';
-import { onFilterUpdate } from './onSearchFilters';
-
 
 export default function handleResponse(response, apiService) {
   if (response.total_results === 0) {
@@ -27,11 +24,8 @@ export default function handleResponse(response, apiService) {
       );
 
       const galleryRef = document.querySelector('.gallery');
-      const galleryTitleRef = document.querySelector('.filter__wrap')
-      galleryRef.innerHTML = renderPopularCards(cards, genreMap);
-      galleryTitleRef.innerHTML = makeBasicFilterMarkup();
-      document.querySelector('.filter').addEventListener('change', onFilterUpdate);
 
+      galleryRef.innerHTML = renderPopularCards(cards, genreMap);
 
       createPaginationBtn(response, apiService);
 
