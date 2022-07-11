@@ -31,7 +31,7 @@ function onBtnCloseTrailer(e) {
   if (e.target.classList.contains('modal__btn-close-trailer')) {
     modalVideoEl.remove();
     modalCardEl.classList.remove('is-hidden');
-    modalEl.style.backgroundColor = 'white';
+    modalEl.style.backgroundColor = 'var(--main-bg)';
     backdropEl.removeEventListener('click', onBtnCloseTrailer);
   }
 }

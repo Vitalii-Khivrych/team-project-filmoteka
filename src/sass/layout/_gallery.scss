@@ -58,7 +58,8 @@
 }
 .filter__select {
   appearance: none;
-  color: #545454;
+  color: var(--filter-text);
+  background-color: var(--main-bg);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
@@ -127,7 +128,7 @@
 
 .gallery__item {
   height: 100%;
-  background-color: var(--white-colore);
+  background-color: var(--main-bg);
   padding: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -232,7 +233,7 @@
   justify-content: center;
   padding: 0;
   // padding: 12px;
-  background: #f1ebe1;
+  background: var(--pagination-bg);
   border-radius: 5px;
   border: none;
 }
@@ -257,7 +258,7 @@
   padding: 0;
   border-radius: 5px;
   border: none;
-  background-color: var(--pagination-btn);
+  background-color: var(--main-bg);
   color: var(--primery-text-color);
 }
 .pagination__btn--choice {
@@ -272,7 +273,8 @@
     display: block;
     @include font($fs: 12px, $fw: 500, $lh: 1.33);
     letter-spacing: 0em;
-    background-color: var(--pagination-btn);
+    background-color: var(--main-bg);
+    color: var(--primery-text-color);
     border: none;
     padding: 0 0 6px 0;
   }

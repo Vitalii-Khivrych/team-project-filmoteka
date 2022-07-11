@@ -33,7 +33,7 @@ function createSiteMarkup() {
   rootRef.insertAdjacentHTML('beforeend', renderBackdrop());
   rootRef.insertAdjacentHTML('beforeend', renderBackdropTeamModal());
   onGoItClick();
-  rootRef.insertAdjacentHTML('beforeend', rendereThemeIcon());
+  rootRef.insertAdjacentHTML('afterbegin', rendereThemeIcon());
   theme();
 
   document.querySelector('.gallery').addEventListener('click', onCardClick);
