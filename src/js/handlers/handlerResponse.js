@@ -28,9 +28,9 @@ export default function handleResponse(response, apiService) {
 
       createPaginationBtn(response, apiService);
 
-      setTimeout(() => {
-        spiner.off();
-      }, 500);
+      // setTimeout(() => {
+      //   spiner.off();
+      // }, 500);
     })
     .catch(console.log);
 }
