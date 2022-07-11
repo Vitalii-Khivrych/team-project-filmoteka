@@ -23,11 +23,11 @@ function createPaginationBtn(data, apiService) {
     e.preventDefault();
 
     if (+e.target.textContent === currentPage) {
-      console.log('Поточна сторінка');
       return;
     }
 
     if (e.target.id === 'next') {
+      spiner.on();
       apiService.incrementPage();
 
       changeUrl().changePage(apiService.pageNumber);
@@ -46,6 +46,7 @@ function createPaginationBtn(data, apiService) {
     }
 
     if (e.target.id === 'previous') {
+      spiner.on();
       apiService.decrementPage();
 
       changeUrl().changePage(apiService.pageNumber);

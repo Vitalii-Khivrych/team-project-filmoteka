@@ -42,9 +42,9 @@ function renderWatchedList() {
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
 
-      setTimeout(() => {
-        spiner.off();
-      }, 500);
+      // setTimeout(() => {
+      //   spiner.off();
+      // }, 500);
     })
     .catch(error => console.log(error));
 }
