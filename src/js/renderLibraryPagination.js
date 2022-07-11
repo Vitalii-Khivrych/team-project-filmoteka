@@ -6,7 +6,11 @@ import { renderWatchedList } from './templates/renderWatchedList';
 function renderQueuePagination(data, apiService) {
   const paginationSectionRef = document.querySelector('.pagination');
   const currentPage = apiService.pageNumber;
-  const lastPage = data.length > 20 ? Math.ceil(data.length / 20) : 1;
+  let lastPage = 1;
+
+  if (data) {
+    lastPage = data.length > 20 ? Math.ceil(data.length / 20) : 1;
+  }
 
   paginationSectionRef.innerHTML = makePaginatuonBtnMarkup(
     currentPage,
@@ -21,7 +25,6 @@ function renderQueuePagination(data, apiService) {
     e.preventDefault();
 
     if (+e.target.textContent === currentPage) {
-      console.log('Поточна сторінка');
       return;
     }
 
@@ -51,7 +54,11 @@ function renderQueuePagination(data, apiService) {
 function renderWatchedPagination(data, apiService) {
   const paginationSectionRef = document.querySelector('.pagination');
   const currentPage = apiService.pageNumber;
-  const lastPage = data.length > 20 ? Math.ceil(data.length / 20) : 1;
+  let lastPage = 1;
+
+  if (data) {
+    lastPage = data.length > 20 ? Math.ceil(data.length / 20) : 1;
+  }
 
   paginationSectionRef.innerHTML = makePaginatuonBtnMarkup(
     currentPage,
@@ -66,7 +73,6 @@ function renderWatchedPagination(data, apiService) {
     e.preventDefault();
 
     if (+e.target.textContent === currentPage) {
-      console.log('Поточна сторінка');
       return;
     }
 
