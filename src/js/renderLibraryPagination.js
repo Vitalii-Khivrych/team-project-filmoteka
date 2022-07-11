@@ -1,3 +1,4 @@
+import { scrollUp } from './scrollUp';
 import spiner from './spiner';
 import makePaginatuonBtnMarkup from './templates/paginationMarkup';
 import { renderQueueList } from './templates/renderQueueList';
@@ -29,16 +30,20 @@ function renderQueuePagination(data, apiService) {
     }
 
     if (e.target.id === 'next') {
+      spiner.on();
       apiService.incrementPage();
 
       renderQueueList();
+      scrollUp();
       return;
     }
 
     if (e.target.id === 'previous') {
+      spiner.on();
       apiService.decrementPage();
 
       renderQueueList();
+      scrollUp();
       return;
     }
 
@@ -47,6 +52,7 @@ function renderQueuePagination(data, apiService) {
       apiService.pageNumber = +e.target.textContent;
 
       renderQueueList();
+      scrollUp();
     }
   }
 }
@@ -77,16 +83,20 @@ function renderWatchedPagination(data, apiService) {
     }
 
     if (e.target.id === 'next') {
+      spiner.on();
       apiService.incrementPage();
 
       renderWatchedList();
+      scrollUp();
       return;
     }
 
     if (e.target.id === 'previous') {
+      spiner.on();
       apiService.decrementPage();
 
       renderWatchedList();
+      scrollUp();
       return;
     }
 
@@ -95,6 +105,7 @@ function renderWatchedPagination(data, apiService) {
       apiService.pageNumber = +e.target.textContent;
 
       renderWatchedList();
+      scrollUp();
     }
   }
 }

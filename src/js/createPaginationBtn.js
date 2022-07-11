@@ -3,6 +3,7 @@ import { initRenderTrendingMovie } from './createTrendingMovieCards';
 import { searchMovie } from './handlers/onSearchMovie';
 import spiner from './spiner';
 import { changeUrl } from './service/chengingUrlApi';
+import { scrollUp } from './scrollUp';
 
 function createPaginationBtn(data, apiService) {
   const paginationSectionRef = document.querySelector('.pagination');
@@ -35,10 +36,12 @@ function createPaginationBtn(data, apiService) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
         return;
       }
 
       initRenderTrendingMovie();
+      scrollUp();
       return;
     }
 
@@ -51,10 +54,12 @@ function createPaginationBtn(data, apiService) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
         return;
       }
 
       initRenderTrendingMovie();
+      scrollUp();
 
       return;
     }
@@ -68,10 +73,12 @@ function createPaginationBtn(data, apiService) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
         return;
       }
 
       initRenderTrendingMovie();
+      scrollUp();
     }
   }
 }
