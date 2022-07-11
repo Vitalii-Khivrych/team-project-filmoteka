@@ -57,7 +57,11 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
     buttonArr.push(firstPageBtn);
   }
 
-  if (currentPage > 3 && !isMobile) {
+  if (currentPage > 1 && currentPage < 4 && isMobile) {
+    buttonArr.push(firstPageBtn);
+  }
+
+  if (currentPage > 4 && !isMobile) {
     buttonArr.push(moreBtn);
   }
 
@@ -74,8 +78,12 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
     }
   }
 
-  if (currentPage < lastPage - 2 && !isMobile) {
+  if (currentPage < lastPage - 3 && !isMobile) {
     buttonArr.push(moreBtn);
+  }
+
+  if (currentPage > lastPage - 3 && currentPage < lastPage && isMobile) {
+    buttonArr.push(lastBtn);
   }
 
   if (currentPage < lastPage && !isMobile) {
