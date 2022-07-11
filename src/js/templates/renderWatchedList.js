@@ -18,12 +18,15 @@ function renderWatchedList() {
     .classList.add('button-list__btn--current');
   const galleryElement = document.querySelector('.gallery');
   const watchedList = localStorageApi.getWatchedList();
-  const devidedWatchedlist = devideListBy20(watchedList);
+  const devidedWatchedlist = watchedList
+    ? devideListBy20(watchedList)
+    : watchedList;
 
-  galleryElement.innerHTML = '';
+  // galleryElement.innerHTML = '';
 
   if (localStorageApi.isWatchedListEmpty()) {
     addEmptyListPlaceholder(galleryElement);
+    renderWatchedPagination(watchedList, apiService);
     return;
   }
 

@@ -20,7 +20,7 @@ function renderQueueList() {
   const queueList = localStorageApi.getQueueList();
   const devidedQueuelist = devideListBy20(queueList);
 
-  galleryElement.innerHTML = '';
+  // galleryElement.innerHTML = '';
 
   if (localStorageApi.isQueueListEmpty()) {
     addEmptyListPlaceholder(galleryElement);

@@ -1,7 +1,7 @@
 function scrollUp() {
-  const root = document.getElementById('root');
+  const gallery = document.querySelector('.gallery');
 
-  root.scrollIntoView({
+  gallery.scrollIntoView({
     block: 'start',
     inline: 'nearest',
   });
