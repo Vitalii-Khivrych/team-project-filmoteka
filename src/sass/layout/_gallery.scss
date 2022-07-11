@@ -235,7 +235,12 @@
   background: #f1ebe1;
   border-radius: 5px;
   border: none;
+
+  transition-property: color;
+  transition-duration: 150ms;
+  transition-timing-function: linear;
 }
+
 .pagination-arrow-icon {
   display: inline-block;
   width: 1em;
@@ -243,7 +248,14 @@
   stroke-width: 0;
   stroke: currentColor;
   pointer-events: none;
+  color: currentColor;
+  fill: currentColor;
 }
+
+.pagination__arrow:hover {
+  color: var(--accent-text-color);
+}
+
 .pagination-list {
   display: flex;
   align-items: center;
@@ -257,11 +269,26 @@
   border-radius: 5px;
   border: none;
   background-color: var(--white-colore);
+
+  transition-property: color;
+  transition-duration: 150ms;
+  transition-timing-function: linear;
 }
+
+.pagination__btn:hover {
+  color: var(--accent-text-color);
+}
+
 .pagination__btn--choice {
   background-color: var(--activ-btn-color);
   color: var(--white-colore);
+  cursor: auto;
 }
+
+.pagination__btn--choice:hover {
+  color: var(--white-colore);
+}
+
 .pagination-btn-more {
   width: 40px;
   height: 40px;
