@@ -97,3 +97,5 @@ function getUserName() {
 }
 
 initFirebaseAuth();
+
+export {signIn}

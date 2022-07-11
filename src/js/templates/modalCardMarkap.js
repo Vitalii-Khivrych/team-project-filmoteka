@@ -11,10 +11,14 @@ export default function createModalMarkup({
   title,
   overview,
 }) {
+  if (overview.length === 0) {
+    overview = overview + 'Sorry, there is no description for this movie.';
+  }
   const genersList = genres.map(element => element.name);
   const imageUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500/${poster_path}`
     : `${defaultPoster}`;
+  const aboutText = overview.slice(0, 1000);
   return `<div class="modal">
         <div class="modal__card">
          <button class="modal__close" data-action="close-modal"><svg class="modal__close-icon" width="14" height="14">
@@ -56,7 +60,7 @@ export default function createModalMarkup({
     
       <h3 class="modal__about-title">About</h3>
       <p class="modal__about-text">
-        ${overview}
+        ${aboutText}
       </p>
       <div class="modal__option">
         <button class="btn-add-watched" data-action="add-watched">add to Watched</button>

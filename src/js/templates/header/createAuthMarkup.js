@@ -8,7 +8,7 @@ export default function createAuthMarkup() {
     </button>
     <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect">
       <i class="material-icons">account_circle</i>
-      Sign-in with Google
+      Sign-in
     </button>
   </div>
   </div>

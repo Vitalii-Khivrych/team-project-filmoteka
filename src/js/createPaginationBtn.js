@@ -3,6 +3,7 @@ import { initRenderTrendingMovie } from './createTrendingMovieCards';
 import { searchMovie } from './handlers/onSearchMovie';
 import spiner from './spiner';
 import { changeUrl } from './service/chengingUrlApi';
+import { scrollUp } from './scrollUp';
 
 function createPaginationBtn(data, apiService) {
   const paginationSectionRef = document.querySelector('.pagination');
@@ -22,11 +23,11 @@ function createPaginationBtn(data, apiService) {
     e.preventDefault();
 
     if (+e.target.textContent === currentPage) {
-      console.log('Поточна сторінка');
       return;
     }
 
     if (e.target.id === 'next') {
+      spiner.on();
       apiService.incrementPage();
 
       changeUrl().changePage(apiService.pageNumber);
@@ -35,14 +36,17 @@ function createPaginationBtn(data, apiService) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
         return;
       }
 
       initRenderTrendingMovie();
+      scrollUp();
       return;
     }
 
     if (e.target.id === 'previous') {
+      spiner.on();
       apiService.decrementPage();
 
       changeUrl().changePage(apiService.pageNumber);
@@ -51,10 +55,12 @@ function createPaginationBtn(data, apiService) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
         return;
       }
 
       initRenderTrendingMovie();
+      scrollUp();
 
       return;
     }
@@ -68,10 +74,12 @@ function createPaginationBtn(data, apiService) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
         return;
       }
 
       initRenderTrendingMovie();
+      scrollUp();
     }
   }
 }
