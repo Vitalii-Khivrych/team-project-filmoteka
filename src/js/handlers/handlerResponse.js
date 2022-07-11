@@ -24,6 +24,7 @@ export default function handleResponse(response, apiService) {
       );
 
       const galleryRef = document.querySelector('.gallery');
+
       galleryRef.innerHTML = renderPopularCards(cards, genreMap);
 
       createPaginationBtn(response, apiService);
