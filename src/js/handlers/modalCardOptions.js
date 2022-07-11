@@ -9,10 +9,6 @@ import {
 function openModal() {
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.classList.remove('is-hidden');
-
-  const bodyEl = document.querySelector('body').classList.toggle('noScroll');
-
-  document.addEventListener('keydown', onCloseEsc);
   backdropEl.addEventListener('click', onBtnCloseModalClick);
   backdropEl.addEventListener('click', onBtnAddToQueueClick);
   backdropEl.addEventListener('click', onBtnAddWachedClick);
@@ -23,9 +19,6 @@ function closeModal() {
   const backdropEl = document.querySelector('.backdrop');
   const modalEl = document.querySelector('.modal');
   modalEl.remove();
-
-  const bodyEl = document.querySelector('body').classList.toggle('noScroll');
-
   backdropEl.classList.add('is-hidden');
   document.removeEventListener('keydown', onCloseEsc);
   backdropEl.removeEventListener('click', onBtnCloseModalClick);
@@ -49,3 +42,8 @@ function onBtnCloseModalClick(e) {
     closeModal();
   }
 }
+// const scrollLockMethod = !isMenuOpen ? 'disableBodyScroll' : 'enableBodyScroll';
+// bodyScrollLock['scrollLockMethod'](document.body);
+// bodyScrollLock[scrollLockMethod](document.body);
+// bodyScrollLock.disableBodyScroll(document.body);
+// bodyScrollLock.enableBodyScroll(document.body);
