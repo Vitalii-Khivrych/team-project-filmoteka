@@ -1,5 +1,5 @@
 export { onBtnAddToQueueClick, onBtnAddWachedClick };
-import { localStorageApi } from '../localStorageApi';
+import { localStorageApi } from '../service/localStorageApi';
 
 function onBtnAddToQueueClick(e) {
   if (e.target.dataset.action === 'add-queue') {

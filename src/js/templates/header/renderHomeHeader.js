@@ -1,11 +1,10 @@
 import createHeaderHomeMarkup from './createHeaderHomeMarkup';
 import { onLibraryLinkClick } from '../../handlers/onLibraryLinkClick';
 import { onSearchMovie } from '../../handlers/onSearchMovie';
-import { initRenderTrendingMovie } from '../../createTrendingMovieCards';
+import { initRenderTrendingMovie } from '../../initRenderTrendingMovie';
+import reloadPage from '../../service/reloadPage';
 
 const renderHomeHeader = () => {
-  initRenderTrendingMovie();
-
   const headerElement = document.querySelector('.header');
 
   headerElement.innerHTML = createHeaderHomeMarkup();
@@ -16,6 +15,13 @@ const renderHomeHeader = () => {
 
   const searchInput = document.getElementById('search-movie');
   searchInput.addEventListener('submit', onSearchMovie);
+
+  // -------Очищуєм параметри запиту і виконуємо перезавантаження-------
+  const logoIconRef = document.querySelector('#logoLink');
+  logoIconRef.addEventListener('click', reloadPage);
+  // ------------------------------------
+
+  initRenderTrendingMovie();
 };
 
 export { renderHomeHeader };
