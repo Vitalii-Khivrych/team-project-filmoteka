@@ -1,6 +1,8 @@
 export { onBtnPlayClick };
 import ApiService from '../api-service';
 import traillerMarkup from '../templates/traillerMarkup';
+import swal from 'sweetalert';
+import spiner from '../spiner';
 
 const api = new ApiService();
 
@@ -11,15 +13,18 @@ async function onBtnPlayClick(e) {
   if (e.target.classList.contains('modal__btn-play')) {
     const filmId = e.currentTarget.getAttribute('id');
     try {
+      spiner.on();
       const key = await api.searchTrailerById(filmId);
       const markup = await traillerMarkup(key);
       modalCardEl.classList.add('is-hidden');
       modalEl.style.backgroundColor = 'transparent';
-      modalEl.insertAdjacentHTML('afterbegin', markup);
+      await modalEl.insertAdjacentHTML('afterbegin', markup);
       backdropEl.addEventListener('click', onBtnCloseTrailer);
     } catch (error) {
       swal('sorry, there are no trailers for this movie(');
       console.log(error);
+    } finally {
+      spiner.off();
     }
   }
 }
