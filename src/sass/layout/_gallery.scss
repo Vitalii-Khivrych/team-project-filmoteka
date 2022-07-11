@@ -123,16 +123,18 @@
   }
 }
 .gallery__item {
+  height: 100%;
   background-color: var(--white-colore);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
   transition-property: transform, box-shadow;
   transition-duration: 250ms;
   transition-timing-function: linear;
 }
-.gallery__item:hover,
-.gallery__item:focus {
-  transform: scale(1.10);
+.gallery__item:hover {
+  transform: scale(1.02);
   box-shadow: 0 10px 26px var(--shadow-color);
 }
 .card__image {
@@ -157,6 +159,7 @@
   @include font($fs: 12px, $fw: 500, $lh: 1.16);
   font-family: 'Roboto';
   text-transform: uppercase;
+  margin: 0;
   color: var(--primery-text-color);
   @media screen and (min-width: 768px) {
     @include font($lh: 1.33);
