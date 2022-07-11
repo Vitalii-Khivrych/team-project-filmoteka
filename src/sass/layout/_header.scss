@@ -367,7 +367,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  text-transform: inherit;
+  text-transform: uppercase;
 
   color: #ffffff;
 
@@ -392,6 +392,7 @@
 }
 
 .mdl-button .material-icons {
+  margin-right: 3px;
   @media screen and(max-width: 768px) {
     font-size: 18px;
   }
