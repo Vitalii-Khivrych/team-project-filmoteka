@@ -11,13 +11,13 @@ const apiServiceSearch = new Api();
 //   searchInput = document.querySelector('#search-movie');
 //   searchInput.addEventListener('submit', onSearchMovie);
 // });
+let currentInputPlaceholder = "";
 const onFocusInput = (event) => {
   event.preventDefault();
-  const currentInputPlaceholder = localStorage.getItem("current-input-placeholder");
-  if (currentInputPlaceholder !== null) {
+  if (currentInputPlaceholder.length > 0) {
     event.currentTarget.placeholder = currentInputPlaceholder;
     event.currentTarget.classList.add("search-form__input-focus-placeholder");
-  }
+  } 
 }
 const onBlurInput = (event) => {
   event.preventDefault();
@@ -28,8 +28,8 @@ const onBlurInput = (event) => {
 const onSearchMovie = e => {
   e.preventDefault();
   const queryString = e.currentTarget.elements.searchQuery.value.trim();
-  localStorage.setItem("current-input-placeholder", `${queryString}`);
-  e.currentTarget.elements.searchQuery.placeholder = queryString;
+  currentInputPlaceholder = queryString;
+  e.currentTarget.elements.searchQuery.placeholder = currentInputPlaceholder;
   e.currentTarget.elements.searchQuery.classList.add("search-form__input-focus-placeholder");
   if (queryString === '') {
     e.target.reset();

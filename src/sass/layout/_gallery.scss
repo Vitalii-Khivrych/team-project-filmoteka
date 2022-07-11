@@ -86,8 +86,8 @@
     margin-left: -16px;
   }
   @media screen and (min-width: 1280px) {
-    margin-right: -8px;
-    margin-left: -8px;
+    margin-right: -16px;
+    margin-left: -16px;
   }
 }
 .card {
@@ -99,10 +99,10 @@
     margin-left: 16px;
   }
   @media screen and (min-width: 1280px) {
-    width: calc((100% - 48px) / 3);
+    width: calc((100% - 96px) / 3);
     margin-bottom: 32px;
-    margin-right: 8px;
-    margin-left: 8px;
+    margin-right: 16px;
+    margin-left: 16px;
   }
   cursor: pointer;
 }
@@ -121,7 +121,7 @@
 }
 .gallery__item:hover,
 .gallery__item:focus {
-  transform: scale(1.15);
+  transform: scale(1.10);
   box-shadow: 0 10px 26px var(--shadow-color);
 }
 .card__image {
