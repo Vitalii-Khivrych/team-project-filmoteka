@@ -39,7 +39,6 @@ function createSiteMarkup() {
   if (!changeUrl().isSearch()) {
     changeUrl().goToStartPage();
   }
-
   const scrollToTopBtn = document.querySelector('#scrollToTopBtn');
   scrollToTopBtn.addEventListener('click', scrollUp);
 }
