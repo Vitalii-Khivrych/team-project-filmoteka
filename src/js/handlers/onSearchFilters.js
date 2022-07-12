@@ -2,6 +2,8 @@ import Api from '../service/api-service';
 import handleResponse from './handlerResponse';
 import { changeUrl } from '../service/chengingUrlApi';
 
+import createSearchFilter from '../createSearchFilter';
+
 const apiServiceFilterSearch = new Api();
 
 function onFilterUpdate() {
@@ -12,16 +14,21 @@ function onFilterUpdate() {
   // apiServiceFilterSearch.yearFilter = year.value;
   apiServiceFilterSearch.resetPage();
 
-  changeUrl().goToFilter(genre.value || 28, year.value || 2022);
+  changeUrl().goToFilter(genre.value, year.value);
 
   filterMovie();
 }
 
 async function filterMovie() {
   try {
+    createSearchFilter();
+
     apiServiceFilterSearch.genreIdFilter = changeUrl().getGenre();
     apiServiceFilterSearch.yearFilter = changeUrl().getYeare();
     apiServiceFilterSearch.pageNumber = +changeUrl().getCurrentPage();
+
+    genre.value = apiServiceFilterSearch.genreIdFilter;
+    year.value = apiServiceFilterSearch.yearFilter;
 
     const response = await apiServiceFilterSearch.fetchMoviesByFilters();
     handleResponse(response, apiServiceFilterSearch);

@@ -3,6 +3,11 @@ import { onLibraryLinkClick } from '../../handlers/onLibraryLinkClick';
 import { onSearchMovie } from '../../handlers/onSearchMovie';
 import { initRenderTrendingMovie } from '../../initRenderTrendingMovie';
 import reloadPage from '../../service/reloadPage';
+import {
+  onSearchMovie,
+  onFocusInput,
+  onBlurInput,
+} from '../../handlers/onSearchMovie';
 
 const renderHomeHeader = () => {
   const headerElement = document.querySelector('.header');
@@ -20,6 +25,10 @@ const renderHomeHeader = () => {
   const logoIconRef = document.querySelector('#logoLink');
   logoIconRef.addEventListener('click', reloadPage);
   // ------------------------------------
+
+  const searchInputPlaceholder = document.querySelector('.search-form__input');
+  searchInputPlaceholder.addEventListener('focus', onFocusInput);
+  searchInputPlaceholder.addEventListener('blur', onBlurInput);
 
   initRenderTrendingMovie();
 };

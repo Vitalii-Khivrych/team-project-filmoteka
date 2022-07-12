@@ -74,11 +74,11 @@ function changeUrl(value) {
     },
 
     getGenre: function () {
-      return url.searchParams.get('with_genres') ?? 28;
+      return url.searchParams.get('with_genres');
     },
 
     getYeare: function () {
-      return url.searchParams.get('primary_release_year') ?? 2022;
+      return url.searchParams.get('primary_release_year');
     },
 
     setFilter: function (genre, year) {

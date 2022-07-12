@@ -4,6 +4,8 @@ import spiner from '../spiner';
 import { showEmptyInputMessage } from '../showFailMessage';
 import { changeUrl } from '../service/chengingUrlApi';
 
+import createSearchFilter from '../createSearchFilter';
+
 const apiServiceSearch = new Api();
 // let searchInput = null;
 
@@ -55,11 +57,13 @@ const onSearchMovie = e => {
 };
 
 async function searchMovie() {
+  createSearchFilter();
+
   apiServiceSearch.pageNumber = +changeUrl().getCurrentPage();
   apiServiceSearch.query = changeUrl().getQuery();
 
-  const galleryTitleRef = document.querySelector('.filter__wrap');
-  galleryTitleRef.innerHTML = '';
+  // const galleryTitleRef = document.querySelector('.filter__wrap');
+  // galleryTitleRef.innerHTML = '';
 
   try {
     const responce = await apiServiceSearch.fetchSearchMovie();
