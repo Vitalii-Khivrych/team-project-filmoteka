@@ -3,8 +3,6 @@ import createModalMarkup from './templates/modalCardMarkap';
 import { openModal } from './handlers/modalCardOptions';
 import { localStorageApi } from './service/localStorageApi';
 
-import trailerMarkup from './templates/traillerMarkup';
-
 const appService = new ApiService();
 
 export default async function renderModalCard(movieId) {
@@ -38,12 +36,10 @@ function uppendModalMarkap(markup) {
 }
 
 async function fetchByTrailer(filmId) {
-  const modalEl = document.querySelector('.modal');
   const btnPlay = document.querySelector('.modal__btn-play');
   try {
     const key = await appService.searchTrailerById(filmId);
-    const markup = await trailerMarkup(key);
-    await modalEl.insertAdjacentHTML('afterbegin', markup);
+    btnPlay.setAttribute('id', key);
     btnPlay.classList.remove('is-hidden');
   } catch (error) {
     console.log(error);
