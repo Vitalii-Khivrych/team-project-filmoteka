@@ -1,0 +1,31 @@
+.theme {
+  position: relative;
+}
+.theme__toggle {
+  position: absolute;
+  top: 26px;
+  right: 89px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    top: 35px;
+    right: 100px;
+  }
+  @media screen and (min-width: 769px) {
+    top: 45px;
+  }
+}
+.theme__icon--moon,
+.theme__icon--sun {
+    width: 25px;
+    height: 25px;
+  fill: var(--white-colore);
+  &:hover,
+  &:focus {
+      fill: var(--activ-btn-color);
+  }
+}
+.theme__active {
+  display: none;
+}

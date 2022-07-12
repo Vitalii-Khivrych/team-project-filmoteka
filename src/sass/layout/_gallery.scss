@@ -8,7 +8,7 @@
 }
 .filter {
   padding: 15px 0;
-  background-color: #f7f7f7;
+  background-color: var(--filter-bg);
   margin-bottom: 20px;
   text-align: center;
   @include tablet {
@@ -19,6 +19,7 @@
 }
 .filter__text {
   margin-bottom: 10px;
+  color: var(--filter-text);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
@@ -55,6 +56,8 @@
 
 .filter__select {
   appearance: none;
+  color: var(--filter-text);
+  background-color: var(--main-bg);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
@@ -84,8 +87,19 @@
 //     line-height: 1.2;
 //   }
 // }
+.filter__button {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--activ-btn-color);
+  color: var(--white-colore);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.14;
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 
-.gallery {
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
@@ -124,7 +138,7 @@
 
 .gallery__item {
   height: 100%;
-  background-color: var(--white-colore);
+  background-color: var(--main-bg);
   padding: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -229,16 +243,17 @@
   justify-content: center;
   padding: 0;
   // padding: 12px;
-  background: #f1ebe1;
+  background: var(--pagination-bg);
   border-radius: 5px;
   border: none;
-
+  color: var(--primery-text-color);
   transition-property: color;
   transition-duration: 150ms;
   transition-timing-function: linear;
 }
 
 .pagination-arrow-icon {
+  fill: var(--primery-text-color);
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -265,11 +280,8 @@
   padding: 0;
   border-radius: 5px;
   border: none;
-  background-color: var(--white-colore);
-
-  transition-property: color;
-  transition-duration: 150ms;
-  transition-timing-function: linear;
+  background-color: var(--main-bg);
+  color: var(--primery-text-color);
 }
 
 .pagination__btn:hover {
@@ -294,7 +306,8 @@
     display: block;
     @include font($fs: 12px, $fw: 500, $lh: 1.33);
     letter-spacing: 0em;
-    background-color: var(--white-colore);
+    background-color: var(--main-bg);
+    color: var(--primery-text-color);
     border: none;
     padding: 0 0 6px 0;
   }

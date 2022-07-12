@@ -1,11 +1,11 @@
 import { renderHomeHeader } from '../templates/header/renderHomeHeader';
-import { changeUrl } from '../service/chengingUrlApi';
+// import { changeUrl } from '../service/chengingUrlApi';
 
 const onHomeLinkClick = event => {
   event.preventDefault();
 
   renderHomeHeader();
-  changeUrl().goToHome();
+  // changeUrl().goToHome();
 };
 
 export { onHomeLinkClick };
