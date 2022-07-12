@@ -4,13 +4,13 @@
 .theme__toggle {
   position: absolute;
   top: 26px;
-  right: 89px;
+  right: 35px;
   border: none;
   background-color: transparent;
   cursor: pointer;
   @media screen and (min-width: 768px) {
-    top: 45px;
-  right: 200px;
+    top: 26px;
+  right: 45px;
   }
 }
 .theme__icon--moon,
