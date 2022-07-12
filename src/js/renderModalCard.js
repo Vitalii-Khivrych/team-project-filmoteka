@@ -1,7 +1,8 @@
-import ApiService from './api-service';
+import ApiService from './service/api-service';
 import createModalMarkup from './templates/modalCardMarkap';
 import { openModal } from './handlers/modalCardOptions';
-import { localStorageApi } from './localStorageApi';
+import { localStorageApi } from './service/localStorageApi';
+
 const appService = new ApiService();
 
 export default async function renderModalCard(movieId) {
