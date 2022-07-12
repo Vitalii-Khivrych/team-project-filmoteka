@@ -93,19 +93,6 @@
   }
 }
 
-// .filter__button {
-//   border: none;
-//   border-radius: 5px;
-//   background-color: var(--activ-btn-color);
-//   color: #ffffff;
-//   font-size: 14px;
-//   font-weight: 400;
-//   line-height: 1.14;
-//   @include desktop {
-//     font-size: 20px;
-//     line-height: 1.2;
-//   }
-// }
 .filter__button {
   border: none;
   border-radius: 5px;
@@ -118,7 +105,9 @@
     font-size: 20px;
     line-height: 1.2;
   }
-
+ }
+  
+.gallery {
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
@@ -331,6 +320,7 @@
     padding: 0 0 6px 0;
   }
 }
+
 #scrollToTopBtn {
   display: none;
   @media screen and (min-width: 768px) {
