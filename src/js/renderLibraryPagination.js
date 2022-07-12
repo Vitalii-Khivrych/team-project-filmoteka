@@ -9,11 +9,6 @@ function renderQueuePagination(data, apiService) {
   const currentPage = apiService.pageNumber;
   let lastPage = 1;
 
-  if (data.length <= 20) {
-    paginationSectionRef.innerHTML = '';
-    return;
-  }
-
   if (data) {
     lastPage = data.length > 20 ? Math.ceil(data.length / 20) : 1;
   }
@@ -66,11 +61,6 @@ function renderWatchedPagination(data, apiService) {
   const paginationSectionRef = document.querySelector('.pagination');
   const currentPage = apiService.pageNumber;
   let lastPage = 1;
-
-  if (data.length <= 20) {
-    paginationSectionRef.innerHTML = '';
-    return;
-  }
 
   if (data) {
     lastPage = data.length > 20 ? Math.ceil(data.length / 20) : 1;
