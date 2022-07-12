@@ -1,6 +1,6 @@
 export { onBtnAddToQueueClick, onBtnAddWachedClick };
 
-import { localStorageApi } from '../localStorageApi';
+import { localStorageApi } from '../service/localStorageApi';
 import { renderQueueList } from '../templates/renderQueueList';
 import {renderWatchedList} from '../templates/renderWatchedList'
 
