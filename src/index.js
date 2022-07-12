@@ -11,6 +11,8 @@ import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModa
 import onGoItClick from './js/handlers/onGoItStudentsClick';
 import spiner from './js/spiner';
 import { changeUrl } from './js/service/chengingUrlApi';
+import { scrollUp } from './js/scrollUp.js';
+
 import { rendereThemeIcon } from './js/service/changeTheme';
 import { theme } from './js/service/changeTheme';
 // import Spiner from './js/spiner';
@@ -39,6 +41,11 @@ function createSiteMarkup() {
 
   initRenderTrendingMovie();
 
+  if (!changeUrl().isSearch()) {
+    changeUrl().goToStartPage();
+  }
+  const scrollToTopBtn = document.querySelector('#scrollToTopBtn');
+  scrollToTopBtn.addEventListener('click', scrollUp);
   // if (!changeUrl().isSearch()) {
   //   changeUrl().goToStartPage();
   // }
