@@ -17,7 +17,7 @@ function onScroll() {
     scrollUpBtn.style.display = 'none';
   }
 
-  console.log('throttle');
+  // console.log('throttle');
 }
 
 export { onScroll };

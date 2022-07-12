@@ -2,16 +2,19 @@ import renderPopularCards from '../templates/render-popular-card';
 import { createPaginationBtn } from '../createPaginationBtn';
 import spiner from '../spiner';
 import { showNoResultMessage } from '../showFailMessage';
+import { changeUrl } from '../service/chengingUrlApi';
 // import { scrollUp } from '../scrollUp';
 
 export default async function handleResponse(response, apiService) {
   if (response.total_results === 0) {
     spiner.off();
+
     showNoResultMessage();
+    changeUrl().reset();
     return;
   }
 
-  console.log(response);
+  // console.log(response);
   const cards = response.results;
 
   try {
