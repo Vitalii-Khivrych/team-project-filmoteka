@@ -1,5 +1,5 @@
 export { onBtnPlayClick };
-import ApiService from '../api-service';
+import ApiService from '../service/api-service';
 import traillerMarkup from '../templates/traillerMarkup';
 import swal from 'sweetalert';
 import spiner from '../spiner';
