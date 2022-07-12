@@ -13,6 +13,12 @@ function changeUrl(value) {
       history.pushState({}, '', `${url}`);
     },
 
+    reset: function () {
+      url.searchParams.delete('page');
+      url.searchParams.delete('query');
+      history.pushState({}, '', `${url}`);
+    },
+
     // goToHome: function () {
     //   // получить параметры запроса через локал сторедж
 
@@ -92,16 +98,5 @@ function changeUrl(value) {
     },
   };
 }
-
-// &query=bvb
-//
-// class UrlApi {
-//   constructor() {
-//     this.path = '';
-//     this.params = '';
-//   }
-
-//   changePath() {}
-// }
 
 export { changeUrl };
