@@ -10,6 +10,8 @@ import { changeUrl } from '../service/chengingUrlApi';
 const apiService = new Api();
 
 function renderQueueList() {
+  spiner.on();
+
   const queueBtn = document
     .getElementById('js-queue')
     .classList.add('button-list__btn--current');
