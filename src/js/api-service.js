@@ -11,7 +11,7 @@ export default class ApiService {
   }
 
   async fetchMoviesByFilters() {
-    const url = `${BASE_URL}/discover/movie?api_key=${KEY}&language=en-US&primary_release_year=${this.year}&with_genres=${this.genre}&page=${this.page}`;
+    const url = `${BASE_URL}/discover/movie?api_key=${KEY}&language=en-US&primary_release_year=${this.year}&with_genres=${this.genre}`;
     const response = await fetch(url);
     const data = await response.json();
     return data;
