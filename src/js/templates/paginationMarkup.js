@@ -49,6 +49,10 @@ export default function makePaginatuonBtnMarkup(currentPage, lastPage) {
 
   buttonArr.push('<ul class="pagination-list">');
 
+  if (lastPage === 1) {
+    return '';
+  }
+
   if (currentPage > 1) {
     buttonArr.push(prevArow);
   }
