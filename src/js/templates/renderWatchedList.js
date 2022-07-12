@@ -1,6 +1,6 @@
-import Api from '../api-service';
+import Api from '../service/api-service';
 import { renderLibraryCards } from './renderLibraryCards';
-import { localStorageApi } from '../localStorageApi';
+import { localStorageApi } from '../service/localStorageApi';
 import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 import { renderWatchedPagination } from '../renderLibraryPagination';
 import { devideListBy20 } from '../devideListBy20';
@@ -39,7 +39,7 @@ function renderWatchedList() {
 
   Promise.all(movieCards)
     .then(cards => {
-      changeUrl().goToLibrary();
+      // changeUrl().goToLibrary();
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
 
