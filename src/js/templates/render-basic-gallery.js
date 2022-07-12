@@ -1,7 +1,7 @@
 export default function makeBasicGalleryMarkup() {
   return `
   <main>
-    <section class="section">
+    <section class="section gallery__section">
     <div class="container">
     <div class="filter__wrap"></div>
       
