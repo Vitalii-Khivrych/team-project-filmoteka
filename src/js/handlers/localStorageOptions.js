@@ -6,11 +6,6 @@ import { renderWatchedList } from '../templates/renderWatchedList';
 
 function onBtnAddToQueueClick(e) {
   const libraryBtn = document.getElementById('libraryLink');
-  if (libraryBtn.classList.contains('nav-list__link--current')) {
-    console.log('current');
-  }
-  const queueStorage = document.getElementById('js-queue');
-  const watchedStorage = document.getElementById('js-watched');
   if (e.target.dataset.action === 'add-queue') {
     const addToQueue = document.querySelector('.btn-add-queue');
     const addWached = document.querySelector('.btn-add-watched');
@@ -22,18 +17,26 @@ function onBtnAddToQueueClick(e) {
       localStorageApi.addMovieToQueueList(filmId);
       addToQueue.classList.toggle('isActive');
       addToQueue.textContent = 'delete from queue';
-      if (queueStorage.classList.contains('button-list__btn--current')) {
-        renderQueueList();
+      if (libraryBtn.classList.contains('nav-list__link--current')) {
+        const queueStorage = document.getElementById('js-queue');
+        if (queueStorage.classList.contains('button-list__btn--current')) {
+          renderQueueList();
+        }
       }
+
       return;
     }
     if (localStorageApi.isMovieInQueueList(filmId)) {
       localStorageApi.removeMovieFromQueueList(filmId);
       addToQueue.classList.toggle('isActive');
       addToQueue.textContent = 'add to queue';
-      if (queueStorage.classList.contains('button-list__btn--current')) {
-        renderQueueList();
+      if (libraryBtn.classList.contains('nav-list__link--current')) {
+        const queueStorage = document.getElementById('js-queue');
+        if (queueStorage.classList.contains('button-list__btn--current')) {
+          renderQueueList();
+        }
       }
+
       return;
     }
     if (localStorageApi.isMovieInWatchedList(filmId)) {
@@ -43,20 +46,19 @@ function onBtnAddToQueueClick(e) {
       localStorageApi.addMovieToQueueList(filmId);
       addToQueue.classList.toggle('isActive');
       addToQueue.textContent = 'delete from queue';
-      if (watchedStorage.classList.contains('button-list__btn--current')) {
-        renderWatchedList();
+      if (libraryBtn.classList.contains('nav-list__link--current')) {
+        const watchedStorage = document.getElementById('js-watched');
+        if (watchedStorage.classList.contains('button-list__btn--current')) {
+          renderWatchedList();
+        }
       }
+
       return;
     }
   }
 }
 function onBtnAddWachedClick(e) {
   const libraryBtn = document.getElementById('libraryLink');
-  if (libraryBtn.classList.contains('nav-list__link--current')) {
-    console.log('current');
-  }
-  const watchedStorage = document.getElementById('js-watched');
-  const queueStorage = document.getElementById('js-queue');
   if (e.target.dataset.action === 'add-watched') {
     const addWached = document.querySelector('.btn-add-watched');
     const addToQueue = document.querySelector('.btn-add-queue');
@@ -68,18 +70,26 @@ function onBtnAddWachedClick(e) {
       localStorageApi.addMovieToWatchedList(filmId);
       addWached.classList.toggle('isActive');
       addWached.textContent = 'delete from watched';
-      if (watchedStorage.classList.contains('button-list__btn--current')) {
-        renderWatchedList();
+      if (libraryBtn.classList.contains('nav-list__link--current')) {
+        const watchedStorage = document.getElementById('js-watched');
+        if (watchedStorage.classList.contains('button-list__btn--current')) {
+          renderWatchedList();
+        }
       }
+
       return;
     }
     if (localStorageApi.isMovieInWatchedList(filmId)) {
       localStorageApi.removeMovieFromWatchedList(filmId);
       addWached.classList.toggle('isActive');
       addWached.textContent = 'add to watched';
-      if (watchedStorage.classList.contains('button-list__btn--current')) {
-        renderWatchedList();
+      if (libraryBtn.classList.contains('nav-list__link--current')) {
+        const watchedStorage = document.getElementById('js-watched');
+        if (watchedStorage.classList.contains('button-list__btn--current')) {
+          renderWatchedList();
+        }
       }
+
       return;
     }
     if (localStorageApi.isMovieInQueueList(filmId)) {
@@ -89,9 +99,13 @@ function onBtnAddWachedClick(e) {
       localStorageApi.addMovieToWatchedList(filmId);
       addWached.classList.toggle('isActive');
       addWached.textContent = 'delete from watched';
-      if (queueStorage.classList.contains('button-list__btn--current')) {
-        renderQueueList();
+      if (libraryBtn.classList.contains('nav-list__link--current')) {
+        const queueStorage = document.getElementById('js-queue');
+        if (queueStorage.classList.contains('button-list__btn--current')) {
+          renderQueueList();
+        }
       }
+
       return;
     }
   }
