@@ -1,5 +1,5 @@
 footer {
-  background-color: #f7f7f7;
+  background-color: var(--footer-bg);
 }
 .footer__container {
   padding: 30px 0px 30px 0px;
@@ -13,8 +13,7 @@ footer {
 }
 
 .footer__text {
-  color: #545454;
-
+  color: var(--filter-text);
   @include font(14px, 400, 1.14);
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -29,7 +28,7 @@ footer {
   background-color: transparent;
   border: none;
   text-decoration: underline;
-  color: #545454;
+  color: var(--filter-text);
   cursor: pointer;
 
   transition-property: transform, color;

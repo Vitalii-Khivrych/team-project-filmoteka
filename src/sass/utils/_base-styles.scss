@@ -11,7 +11,10 @@ button {
   font-weight: 500;
   line-height: 1.33;
 }
-
+body {
+  background-color: var(--main-bg);
+  transition: 0.3s;
+}
 p,
 h1,
 h2,

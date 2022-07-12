@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: var(--backdrop-mod);
     transition: all 0.8s ease 0s;
 }
 .team-modal {
@@ -14,7 +14,7 @@
     max-width: 280px;
     position: relative;
     border-radius: 5px;
-    background-color: var(--white-colore);
+    background-color: var(--main-bg);
     padding: 15px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -51,7 +51,7 @@
     justify-content: center;
     width: 30px;
     height: 30px;
-    background-color: var(--white-colore);
+    background-color: var(--main-bg);
     border: rgba(0, 0, 0, 0);
     border-radius: 50%;
     fill: var(--primery-text-color);
@@ -82,7 +82,7 @@
     }
 }
 .team-modal__card {
-    background-color: var(--white-colore);
+    background-color: var(--footer-bg);
     border-radius: 0px 0px 4px 4px;
     @media screen and (max-width: 767px) {
         &:not(:last-child) {
@@ -100,6 +100,9 @@
         transform: scale(1.02);
         box-shadow: 0 10px 26px var(--shadow-color);
       }      
+}
+.team-modal__box svg {
+    fill: var(--primery-text-color);
 }
 .team-modal__card img {
     border-radius: 3%;
