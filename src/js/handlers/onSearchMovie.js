@@ -1,4 +1,4 @@
-import Api from '../service/api-service';
+import Api from '../api-service';
 import handleResponse from './handlerResponse';
 import spiner from '../spiner';
 import { showEmptyInputMessage } from '../showFailMessage';
@@ -54,19 +54,17 @@ const onSearchMovie = e => {
   e.target.reset();
 };
 
-async function searchMovie() {
+function searchMovie() {
   apiServiceSearch.pageNumber = +changeUrl().getCurrentPage();
   apiServiceSearch.query = changeUrl().getQuery();
 
   const galleryTitleRef = document.querySelector('.filter__wrap');
   galleryTitleRef.innerHTML = '';
 
-  try {
-    const responce = await apiServiceSearch.fetchSearchMovie();
-    handleResponse(responce, apiServiceSearch);
-  } catch (error) {
-    console.log(error);
-  }
+  apiServiceSearch
+    .fetchSearchMovie()
+    .then(data => handleResponse(data, apiServiceSearch))
+    .catch(console.log);
 }
 
 export { onSearchMovie, searchMovie, onFocusInput, onBlurInput };
