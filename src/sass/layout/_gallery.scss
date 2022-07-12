@@ -44,7 +44,7 @@
     margin-bottom: 0;
   }
 }
-.filter__item {
+.filter__item:not(:last-child) {
   margin-right: 15px;
   @include tablet {
     margin-right: 30px;
@@ -53,9 +53,7 @@
     margin-right: 45px;
   }
 }
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
+
 .filter__select {
   appearance: none;
   color: var(--filter-text);
@@ -63,11 +61,12 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
+  border-radius: 4px;
   @include desktop {
     font-size: 18px;
     line-height: 1.2;
   }
-  &.date {
+  &.year {
     width: 90px;
   }
   &::-webkit-scrollbar {
@@ -236,7 +235,12 @@
   background: var(--pagination-bg);
   border-radius: 5px;
   border: none;
+
+  transition-property: color;
+  transition-duration: 150ms;
+  transition-timing-function: linear;
 }
+
 .pagination-arrow-icon {
   fill: var(--primery-text-color);
   display: inline-block;
@@ -245,7 +249,14 @@
   stroke-width: 0;
   stroke: currentColor;
   pointer-events: none;
+  color: currentColor;
+  fill: currentColor;
 }
+
+.pagination__arrow:hover {
+  color: var(--accent-text-color);
+}
+
 .pagination-list {
   display: flex;
   align-items: center;
@@ -258,13 +269,29 @@
   padding: 0;
   border-radius: 5px;
   border: none;
+
   background-color: var(--main-bg);
   color: var(--primery-text-color);
+
+  transition-property: color;
+  transition-duration: 150ms;
+  transition-timing-function: linear;
 }
+
+.pagination__btn:hover {
+  color: var(--accent-text-color);
+}
+
 .pagination__btn--choice {
   background-color: var(--activ-btn-color);
   color: var(--white-colore);
+  cursor: auto;
 }
+
+.pagination__btn--choice:hover {
+  color: var(--white-colore);
+}
+
 .pagination-btn-more {
   width: 40px;
   height: 40px;

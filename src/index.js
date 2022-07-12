@@ -1,11 +1,10 @@
 import './sass/index.scss';
 import createAuthMarkup from './js/templates/header/createAuthMarkup';
 import makeBasicGalleryMarkup from './js/templates/render-basic-gallery';
-import { onFilterUpdate } from './js/handlers/onSearchFilters';
 import renderFooter from './js/templates/render-footer';
 import { initHeader } from './js/templates/header/initHeader';
-import { initRenderTrendingMovie } from './js/createTrendingMovieCards';
-import { searchMovie } from './js/handlers/onSearchMovie';
+import { initRenderTrendingMovie } from './js/initRenderTrendingMovie';
+
 import renderBackdrop from './js/templates/render-backdrop';
 import { onCardClick } from './js/handlers/onGalleryCardHandlers';
 import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModal';
@@ -38,18 +37,9 @@ function createSiteMarkup() {
 
   document.querySelector('.gallery').addEventListener('click', onCardClick);
 
-  changeUrl().isSearch() ? searchMovie() : initRenderTrendingMovie();
+  initRenderTrendingMovie();
 
-  if (!changeUrl().isSearch()) {
-    changeUrl().goToStartPage();
-  }
-
-  document.querySelector('#genre').addEventListener('change', onFilterUpdate);
-  document.querySelector('#year').addEventListener('change', onFilterUpdate);
+  // if (!changeUrl().isSearch()) {
+  //   changeUrl().goToStartPage();
+  // }
 }
-
-// window.onpopstate = function (event) {
-//   alert(
-//     `location: ${document.location}, state: ${JSON.stringify(event.state)}`
-//   );
-// };

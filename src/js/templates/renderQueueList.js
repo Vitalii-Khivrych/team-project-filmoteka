@@ -1,6 +1,6 @@
-import Api from '../api-service';
+import Api from '../service/api-service';
 import { renderLibraryCards } from './renderLibraryCards';
-import { localStorageApi } from '../localStorageApi';
+import { localStorageApi } from '../service/localStorageApi';
 import { addEmptyListPlaceholder } from '../addEmptyListPlaceholder';
 import { renderQueuePagination } from '../renderLibraryPagination';
 import { devideListBy20 } from '../devideListBy20';
@@ -18,12 +18,14 @@ function renderQueueList() {
     .classList.remove('button-list__btn--current');
   const galleryElement = document.querySelector('.gallery');
   const queueList = localStorageApi.getQueueList();
-  const devidedQueuelist = devideListBy20(queueList);
+  const devidedQueuelist = queueList ? devideListBy20(queueList) : queueList;
 
   // galleryElement.innerHTML = '';
 
   if (localStorageApi.isQueueListEmpty()) {
     addEmptyListPlaceholder(galleryElement);
+    const paginationElement = document.querySelector('.pagination');
+    paginationElement.innerHTML = '';
     return;
   }
 
@@ -35,7 +37,7 @@ function renderQueueList() {
 
   Promise.all(movieCards)
     .then(cards => {
-      changeUrl().goToLibrary();
+      // changeUrl().goToLibrary();
       const libraryMarkup = renderLibraryCards(cards);
       galleryElement.innerHTML = libraryMarkup;
 

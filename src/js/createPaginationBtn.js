@@ -1,6 +1,7 @@
 import makePaginatuonBtnMarkup from './templates/paginationMarkup';
-import { initRenderTrendingMovie } from './createTrendingMovieCards';
+import { initRenderTrendingMovie } from './initRenderTrendingMovie';
 import { searchMovie } from './handlers/onSearchMovie';
+import { filterMovie } from './handlers/onSearchFilters';
 import spiner from './spiner';
 import { changeUrl } from './service/chengingUrlApi';
 import { scrollUp } from './scrollUp';
@@ -30,12 +31,22 @@ function createPaginationBtn(data, apiService) {
       spiner.on();
       apiService.incrementPage();
 
+      console.log(apiService.pageNumber);
+
       changeUrl().changePage(apiService.pageNumber);
 
       if (changeUrl().isSearch()) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
+        return;
+      }
+
+      if (changeUrl().isFilter()) {
+        changeUrl().setFilter(apiService.genre, apiService.year);
+
+        filterMovie();
         scrollUp();
         return;
       }
@@ -59,6 +70,14 @@ function createPaginationBtn(data, apiService) {
         return;
       }
 
+      if (changeUrl().isFilter()) {
+        changeUrl().setFilter(apiService.genre, apiService.year);
+
+        filterMovie();
+        scrollUp();
+        return;
+      }
+
       initRenderTrendingMovie();
       scrollUp();
 
@@ -74,6 +93,14 @@ function createPaginationBtn(data, apiService) {
         changeUrl().setQuery(apiService.query);
 
         searchMovie();
+        scrollUp();
+        return;
+      }
+
+      if (changeUrl().isFilter()) {
+        changeUrl().setFilter(apiService.genre, apiService.year);
+
+        filterMovie();
         scrollUp();
         return;
       }
