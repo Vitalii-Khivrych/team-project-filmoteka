@@ -1,7 +1,9 @@
 export { onBtnAddToQueueClick, onBtnAddWachedClick };
+
 import { localStorageApi } from '../localStorageApi';
 import { renderQueueList } from '../templates/renderQueueList';
 import {renderWatchedList} from '../templates/renderWatchedList'
+
 
 function onBtnAddToQueueClick(e) {
   const queueStorage = document.getElementById('js-queue');
