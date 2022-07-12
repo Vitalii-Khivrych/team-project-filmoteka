@@ -15,9 +15,7 @@ const onLibraryLinkClick = async event => {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(getAuth(), provider);
     }
-    
-    spiner.on();
-
+ 
     // console.log(event);
 
     renderLibraryHeader();
