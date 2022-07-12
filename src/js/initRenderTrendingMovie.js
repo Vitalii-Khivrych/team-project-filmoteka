@@ -1,8 +1,7 @@
 import Api from './service/api-service';
 import handleResponse from './handlers/handlerResponse';
 import { changeUrl } from './service/chengingUrlApi';
-import makeBasicFilterMarkup from './templates/render-filter';
-import { onFilterUpdate } from './handlers/onSearchFilters';
+import createSearchFilter from './createSearchFilter';
 import { searchMovie } from './handlers/onSearchMovie ';
 import { filterMovie } from './handlers/onSearchFilters';
 import { changeUrl } from './service/chengingUrlApi';
@@ -22,12 +21,6 @@ function initRenderTrendingMovie() {
 
   createTrendingMovieGallery();
   // createTrendingMoviegallery();
-}
-
-function createSearchFilter() {
-  const galleryTitleRef = document.querySelector('.filter__wrap');
-  galleryTitleRef.innerHTML = makeBasicFilterMarkup();
-  document.querySelector('.filter').addEventListener('change', onFilterUpdate);
 }
 
 async function createTrendingMovieGallery() {

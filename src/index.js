@@ -41,7 +41,7 @@ function createSiteMarkup() {
 
   initRenderTrendingMovie();
 
-  if (!changeUrl().isSearch()) {
+  if (!changeUrl().isSearch() && !changeUrl().isFilter()) {
     changeUrl().goToStartPage();
   }
   const scrollToTopBtn = document.querySelector('#scrollToTopBtn');
