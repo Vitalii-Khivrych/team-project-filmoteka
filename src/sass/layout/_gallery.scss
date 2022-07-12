@@ -93,19 +93,6 @@
   }
 }
 
-// .filter__button {
-//   border: none;
-//   border-radius: 5px;
-//   background-color: var(--activ-btn-color);
-//   color: #ffffff;
-//   font-size: 14px;
-//   font-weight: 400;
-//   line-height: 1.14;
-//   @include desktop {
-//     font-size: 20px;
-//     line-height: 1.2;
-//   }
-// }
 .filter__button {
   border: none;
   border-radius: 5px;
@@ -118,7 +105,9 @@
     font-size: 20px;
     line-height: 1.2;
   }
+}
 
+.gallery {
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
@@ -329,28 +318,5 @@
     color: var(--primery-text-color);
     border: none;
     padding: 0 0 6px 0;
-  }
-}
-#scrollToTopBtn {
-  display: none;
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--accent-text-color);
-    border-radius: 50%;
-    border: none;
-    font-size: 18px;
-    width: 35px;
-    height: 35px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: 25px;
-    width: 40px;
-    height: 40px;
-    right: 30px;
   }
 }
