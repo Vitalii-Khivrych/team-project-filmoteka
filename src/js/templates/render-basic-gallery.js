@@ -8,9 +8,7 @@ export default function makeBasicGalleryMarkup() {
         <h2 class="gallery__title visually-hidden">Gallery list</h2>
         <ul class="gallery"></ul>
         <div class="pagination">
-        </div>
-        <button id="scrollToTopBtn">☝️</button>
-      </div>
+        
     </section>
   </main>`;
 }

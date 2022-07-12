@@ -11,10 +11,10 @@ import { renderBackdropTeamModal } from './js/templates/render-backdrop-teamModa
 import onGoItClick from './js/handlers/onGoItStudentsClick';
 import spiner from './js/spiner';
 import { changeUrl } from './js/service/chengingUrlApi';
-import { scrollUp } from './js/scrollUp.js';
-
+// import { scrollUp } from './js/scrollUp.js';
 import { rendereThemeIcon } from './js/service/changeTheme';
 import { theme } from './js/service/changeTheme';
+import { initScrollUpBtn } from './js/initScrollUpBtn';
 // import Spiner from './js/spiner';
 
 // -------------Створює початкову розмітку сайту-----------
@@ -40,12 +40,13 @@ function createSiteMarkup() {
   document.querySelector('.gallery').addEventListener('click', onCardClick);
 
   initRenderTrendingMovie();
+  initScrollUpBtn();
 
   if (!changeUrl().isSearch() && !changeUrl().isFilter()) {
     changeUrl().goToStartPage();
   }
-  const scrollToTopBtn = document.querySelector('#scrollToTopBtn');
-  scrollToTopBtn.addEventListener('click', scrollUp);
+  // const scrollToTopBtn = document.querySelector('#scrollToTopBtn');
+  // scrollToTopBtn.addEventListener('click', scrollUp);
   // if (!changeUrl().isSearch()) {
   //   changeUrl().goToStartPage();
   // }
