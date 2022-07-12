@@ -15,6 +15,7 @@ import { scrollUp } from './js/scrollUp.js';
 
 import { rendereThemeIcon } from './js/service/changeTheme';
 import { theme } from './js/service/changeTheme';
+import { handleScroll } from './js/handlers/onScrollbtn';
 // import Spiner from './js/spiner';
 
 // -------------Створює початкову розмітку сайту-----------
@@ -46,6 +47,11 @@ function createSiteMarkup() {
   }
   const scrollToTopBtn = document.querySelector('#scrollToTopBtn');
   scrollToTopBtn.addEventListener('click', scrollUp);
+  //
+  window.onscroll = function () {
+    handleScroll();
+  };
+
   // if (!changeUrl().isSearch()) {
   //   changeUrl().goToStartPage();
   // }

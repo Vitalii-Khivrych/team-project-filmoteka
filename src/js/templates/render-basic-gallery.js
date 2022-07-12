@@ -9,7 +9,7 @@ export default function makeBasicGalleryMarkup() {
         <ul class="gallery"></ul>
         <div class="pagination">
         </div>
-        <button id="scrollToTopBtn">☝️</button>
+        <button id="scrollToTopBtn">&uarr;</button>
       </div>
     </section>
   </main>`;

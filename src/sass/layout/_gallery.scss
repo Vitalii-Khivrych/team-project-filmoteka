@@ -5,40 +5,40 @@
     padding-top: 65px;
     padding-bottom: 60px;
   }
-  @include desktop{
-      padding-top: 80px;
+  @include desktop {
+    padding-top: 80px;
   }
 }
-.gallery__section{
+.gallery__section {
   position: relative;
 }
-.filter__wrap{
+.filter__wrap {
   position: absolute;
   top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .filter {
   padding: 15px 0;
   // background-color: #f7f7f7;
   text-align: center;
-    @include tablet {
+  @include tablet {
     display: flex;
     text-align: center;
     justify-content: center;
-      padding: 25px 0;
+    padding: 25px 0;
   }
   @include desktop {
-      padding-top: 75px;
-      padding: 30px 0;
+    padding-top: 75px;
+    padding: 30px 0;
   }
 }
 .filter__text {
   margin-bottom: 10px;
   color: var(--filter-text);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.14;
   text-align: center;
   // border-bottom: 2px solid;
@@ -106,8 +106,8 @@
     font-size: 20px;
     line-height: 1.2;
   }
- }
-  
+}
+
 .gallery {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -325,9 +325,9 @@
 #scrollToTopBtn {
   display: none;
   @media screen and (min-width: 768px) {
-    display: flex;
+    display: none;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     background-color: var(--accent-text-color);
     border-radius: 50%;
     border: none;
