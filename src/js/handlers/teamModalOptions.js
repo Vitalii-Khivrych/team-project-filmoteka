@@ -13,6 +13,7 @@ function openTeamModal() {
     let closeTeamModalBtn = document.querySelector('.team-modal__btn-close');
     closeTeamModalBtn.addEventListener('click', closeTeamModal);
     backdropTeamModal.addEventListener('click', onBackdropCloseTeamModal);
+    document.body.addEventListener('wheel', preventScroll, { passive: false });
 }
 function closeTeamModal() {
     let backdropTeamModal = document.querySelector('.backdrop__team-modal');
@@ -20,6 +21,7 @@ function closeTeamModal() {
     document.body.classList.toggle('lock');
     document.removeEventListener('keydown', onEscCloseTeamModal);
     backdropTeamModal.removeEventListener('click', onBackdropCloseTeamModal);
+    document.body.removeEventListener('wheel', preventScroll, { passive: false });
 }
 
 function onEscCloseTeamModal(event) {
@@ -32,3 +34,9 @@ function onBackdropCloseTeamModal(event) {
         closeTeamModal();
     }
 }
+function preventScroll(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  return false;
+}
+
