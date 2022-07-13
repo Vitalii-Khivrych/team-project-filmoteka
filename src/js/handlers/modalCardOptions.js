@@ -19,8 +19,6 @@ function openModal() {
 // //додає is.hidden на refs.backdrop та знімає слухачів
 function closeModal() {
   const backdropEl = document.querySelector('.backdrop');
-  const modalEl = document.querySelector('.modal');
-  modalEl.remove();
   backdropEl.classList.add('is-hidden');
   document.removeEventListener('keydown', onCloseEsc);
   backdropEl.removeEventListener('click', onBtnCloseModalClick);
@@ -32,15 +30,23 @@ function closeModal() {
 
 // // закриття по Esc
 function onCloseEsc(e) {
-  if (e.code === 'Escape') {
+  const modalCardEl = document.querySelector('.modal__card');
+  if (e.code === 'Escape' && !modalCardEl.classList.contains('is-hidden')) {
     closeModal();
   }
 }
-// // закриття по кнопкі або по кліку на бєкдроп
+// // закриття по кнопкі або по кліку на бeкдроп
 function onBtnCloseModalClick(e) {
+  const modalCardEl = document.querySelector('.modal__card');
   if (
-    e.target.dataset.action === 'close-modal' ||
-    e.currentTarget === e.target
+    e.target.dataset.action === 'close-modal' &&
+    !modalCardEl.classList.contains('is-hidden')
+  ) {
+    closeModal();
+  }
+  if (
+    e.currentTarget === e.target &&
+    !modalCardEl.classList.contains('is-hidden')
   ) {
     closeModal();
   }
