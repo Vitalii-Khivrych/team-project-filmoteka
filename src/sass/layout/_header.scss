@@ -275,6 +275,14 @@
   text-align: center;
 }
 
+.notification--success {
+  color: #ffffff;
+}
+
+.notification--query {
+  color: #29eb22;
+}
+
 .notification.notification--is-hidden {
   opacity: 0;
   visibility: hidden;
