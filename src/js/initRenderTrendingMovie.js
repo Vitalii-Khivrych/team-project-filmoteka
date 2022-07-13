@@ -20,7 +20,6 @@ function initRenderTrendingMovie() {
   }
 
   createTrendingMovieGallery();
-  // createTrendingMoviegallery();
 }
 
 async function createTrendingMovieGallery() {

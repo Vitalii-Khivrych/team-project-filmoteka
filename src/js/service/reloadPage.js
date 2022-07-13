@@ -3,7 +3,7 @@ import { changeUrl } from './chengingUrlApi';
 // -------Очищуєм параметри запиту і виконуємо перезавантаження-------
 
 export default function reloadPage() {
-  changeUrl().goToStartPage();
+  changeUrl().reset();
   location.reload();
 }
 

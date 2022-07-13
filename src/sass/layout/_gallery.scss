@@ -5,33 +5,33 @@
     padding-top: 65px;
     padding-bottom: 60px;
   }
-  @include desktop{
-      padding-top: 80px;
+  @include desktop {
+    padding-top: 80px;
   }
 }
-.gallery__section{
+.gallery__section {
   position: relative;
 }
-.filter__wrap{
+.filter__wrap {
   position: absolute;
   top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .filter {
   padding: 15px 0;
   text-align: center;
-    @include tablet {
+  @include tablet {
     display: flex;
     text-align: center;
     justify-content: center;
     width: 768px;
-      padding: 25px 0;
+    padding: 25px 0;
   }
   @include desktop {
-      padding-top: 75px;
-      padding: 30px 0;
+    padding-top: 75px;
+    padding: 30px 0;
   }
 }
 .filter__text {
@@ -113,14 +113,14 @@
   line-height: 1.14;
   @include tablet {
     font-size: 16px;
-      line-height: 1.17;
+    line-height: 1.17;
   }
   @include desktop {
     font-size: 20px;
     line-height: 1.2;
   }
- }
-  
+}
+
 .gallery {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -313,7 +313,7 @@
 .pagination__btn--choice {
   background-color: var(--activ-btn-color);
   color: var(--white-colore);
-  cursor: auto;
+  cursor: default;
 }
 
 .pagination__btn--choice:hover {
@@ -323,7 +323,8 @@
 .pagination-btn-more {
   width: 40px;
   height: 40px;
-  display: none;
+  // display: none;
+  cursor: default;
   @media (min-width: 768px) {
     display: block;
     @include font($fs: 12px, $fw: 500, $lh: 1.33);
