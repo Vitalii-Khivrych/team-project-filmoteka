@@ -50,6 +50,8 @@ function onBtnAddToQueueClick(e) {
         const watchedStorage = document.getElementById('js-watched');
         if (watchedStorage.classList.contains('button-list__btn--current')) {
           renderWatchedList();
+        } else {
+          renderQueueList();
         }
       }
 
@@ -103,6 +105,8 @@ function onBtnAddWachedClick(e) {
         const queueStorage = document.getElementById('js-queue');
         if (queueStorage.classList.contains('button-list__btn--current')) {
           renderQueueList();
+        } else {
+          renderWatchedList();
         }
       }
 

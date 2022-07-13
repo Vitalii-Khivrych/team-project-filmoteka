@@ -118,7 +118,7 @@
 
 .header__logo {
   color: #ffffff;
-
+  cursor: default;
   transition-property: color;
   transition-duration: 180ms;
   transition-timing-function: linear;
@@ -129,7 +129,8 @@
   }
 }
 
-.header__logo:hover {
+.header__logo--active:hover {
+  cursor: pointer;
   color: var(--accent-text-color);
 }
 

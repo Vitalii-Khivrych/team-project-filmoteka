@@ -16,8 +16,8 @@ const initHeader = () => {
   rootRef.insertAdjacentHTML('afterbegin', headerMarkup);
 
   // -------Очищуєм параметри запиту і виконуємо перезавантаження-------
-  const logoIconRef = document.querySelector('#logoLink');
-  logoIconRef.addEventListener('click', reloadPage);
+  // const logoIconRef = document.querySelector('#logoLink');
+  // logoIconRef.addEventListener('click', reloadPage);
   // ------------------------------------
 
   // document.body.insertAdjacentHTML('afterbegin', headerMarkup);
@@ -28,9 +28,9 @@ const initHeader = () => {
   const searchInput = document.getElementById('search-movie');
   searchInput.addEventListener('submit', onSearchMovie);
 
-  const searchInputPlaceholder = document.querySelector('.search-form__input');
-  searchInputPlaceholder.addEventListener('focus', onFocusInput);
-  searchInputPlaceholder.addEventListener('blur', onBlurInput);
+  // const searchInputPlaceholder = document.querySelector('.search-form__input');
+  // searchInputPlaceholder.addEventListener('focus', onFocusInput);
+  // searchInputPlaceholder.addEventListener('blur', onBlurInput);
 };
 
 export { initHeader };
