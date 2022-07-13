@@ -21,6 +21,11 @@ function onFilterUpdate() {
 
 async function filterMovie() {
   try {
+    const galleryRef = document.querySelector('.gallery');
+    const paginationSectionRef = document.querySelector('.pagination');
+    galleryRef.innerHTML = '';
+    paginationSectionRef.innerHTML = '';
+
     createSearchFilter();
 
     apiServiceFilterSearch.genreIdFilter = changeUrl().getGenre();
