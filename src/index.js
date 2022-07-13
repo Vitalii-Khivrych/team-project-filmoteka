@@ -40,6 +40,6 @@ function createSiteMarkup() {
   initScrollUpBtn();
 
   if (!changeUrl().isSearch() && !changeUrl().isFilter()) {
-    changeUrl().goToStartPage();
+    changeUrl().reset();
   }
 }

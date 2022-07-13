@@ -22,13 +22,13 @@ const renderHomeHeader = () => {
   searchInput.addEventListener('submit', onSearchMovie);
 
   // -------Очищуєм параметри запиту і виконуємо перезавантаження-------
-  const logoIconRef = document.querySelector('#logoLink');
-  logoIconRef.addEventListener('click', reloadPage);
+  // const logoIconRef = document.querySelector('#logoLink');
+  // logoIconRef.addEventListener('click', reloadPage);
   // ------------------------------------
 
-  const searchInputPlaceholder = document.querySelector('.search-form__input');
-  searchInputPlaceholder.addEventListener('focus', onFocusInput);
-  searchInputPlaceholder.addEventListener('blur', onBlurInput);
+  // const searchInputPlaceholder = document.querySelector('.search-form__input');
+  // searchInputPlaceholder.addEventListener('focus', onFocusInput);
+  // searchInputPlaceholder.addEventListener('blur', onBlurInput);
 
   initRenderTrendingMovie();
 };

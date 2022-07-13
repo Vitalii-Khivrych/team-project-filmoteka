@@ -1,4 +1,3 @@
-
 export default function makeBasicFilterMarkup() {
   return `
 <div class="filter">
@@ -6,7 +5,7 @@ export default function makeBasicFilterMarkup() {
         <ul class="filter__list">
   <li class="filter__item">
     <select class="filter__select genre" id="genre" name="genre">
-      <option value="">Genre: all</option>
+      <option value="all">Genre: all</option>
       <option value="28">Action</option>
       <option value="12">Adventure</option>
       <option value="16">Animation</option>
@@ -30,7 +29,7 @@ export default function makeBasicFilterMarkup() {
   </li>
   <li class="filter__item">
   <select class="filter__select year" id="year" name="year">
-          <option value="">Year: all</option>
+          <option value="all">Year: all</option>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
@@ -94,5 +93,5 @@ export default function makeBasicFilterMarkup() {
         </ul>        
         <button class="filter__button"
   >Clear</button>
-</div>`
+</div>`;
 }

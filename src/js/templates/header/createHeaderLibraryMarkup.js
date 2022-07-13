@@ -3,7 +3,7 @@ import icon from '../../../images/sprite.svg';
 export default function createHeaderLibraryMarkup() {
   return `<div class="container">
   <div class="nav-wrap additional-margin">
-    <a href="#" class="header__logo" id="logoLink">
+    <a href="#" class="header__logo header__logo--active" id="logoLink">
       <svg class="header__icon">
         <use href="${icon}#icon-main-logo"></use>
       </svg>

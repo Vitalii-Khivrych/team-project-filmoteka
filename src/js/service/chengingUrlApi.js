@@ -1,39 +1,25 @@
-function changeUrl(value) {
+function changeUrl() {
   const href = location.href;
   // const search = location.search;
   // console.log(search);
   const url = new URL(href);
 
   return {
-    goToStartPage: function () {
-      url.searchParams.delete('with_genres');
-      url.searchParams.delete('primary_release_year'); //
-      url.searchParams.delete('page');
-      url.searchParams.delete('query');
-      history.pushState({}, '', `${url}`);
-    },
-
-    reset: function () {
-      url.searchParams.delete('page');
-      url.searchParams.delete('query');
-      history.pushState({}, '', `${url}`);
-    },
-
-    // goToHome: function () {
-    //   // получить параметры запроса через локал сторедж
-
-    //   // url.searchParams.set('page', page);
-    //   // url.searchParams.set('query', query);
-    //   history.pushState({}, '', `${url}`);
-    // },
-
-    // goToLibrary: function (newPath) {
-    //   // сохр параметры запроса через локал сторедж
-
+    // goToStartPage: function () {
+    //   url.searchParams.delete('with_genres');
+    //   url.searchParams.delete('primary_release_year'); //
     //   url.searchParams.delete('page');
     //   url.searchParams.delete('query');
     //   history.pushState({}, '', `${url}`);
     // },
+
+    reset: function () {
+      url.searchParams.delete('page');
+      url.searchParams.delete('query');
+      url.searchParams.delete('with_genres');
+      url.searchParams.delete('primary_release_year');
+      history.pushState({}, '', `${url}`);
+    },
 
     goToSearch: function (searchQuery) {
       url.searchParams.delete('page');
@@ -48,9 +34,8 @@ function changeUrl(value) {
       url.searchParams.delete('page');
       url.searchParams.delete('query');
 
-      url.searchParams.set('with_genres', genre);
       url.searchParams.set('primary_release_year', year);
-
+      url.searchParams.set('with_genres', genre);
       history.pushState({}, '', `${url}`);
     },
 

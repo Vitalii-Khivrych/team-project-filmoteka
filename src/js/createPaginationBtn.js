@@ -31,7 +31,7 @@ function createPaginationBtn(data, apiService) {
       spiner.on();
       apiService.incrementPage();
 
-      console.log(apiService.pageNumber);
+      // console.log(apiService.pageNumber);
 
       changeUrl().changePage(apiService.pageNumber);
 

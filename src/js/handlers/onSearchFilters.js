@@ -14,7 +14,7 @@ function onFilterUpdate() {
   // apiServiceFilterSearch.yearFilter = year.value;
   apiServiceFilterSearch.resetPage();
 
-  changeUrl().goToFilter(genre.value, year.value);
+  changeUrl().goToFilter(genre.value || 'all', year.value || 'all');
 
   filterMovie();
 }
@@ -27,10 +27,14 @@ async function filterMovie() {
     apiServiceFilterSearch.yearFilter = changeUrl().getYeare();
     apiServiceFilterSearch.pageNumber = +changeUrl().getCurrentPage();
 
-    genre.value = apiServiceFilterSearch.genreIdFilter;
-    year.value = apiServiceFilterSearch.yearFilter;
+    genre.value = apiServiceFilterSearch.genreIdFilter || 'all';
+    year.value = apiServiceFilterSearch.yearFilter || 'all';
 
     const response = await apiServiceFilterSearch.fetchMoviesByFilters();
+
+    response.total_pages <= 500
+      ? response.total_pages
+      : (response.total_pages = 500);
     handleResponse(response, apiServiceFilterSearch);
   } catch (err) {
     console.log(err);
