@@ -23,6 +23,9 @@
     height: 25px;
   fill: var(--white-colore);
   }
+  transition-property: fill;
+    transition-duration: 0.18s;
+    transition-timing-function: linear;
   &:hover,
   &:focus {
       fill: var(--activ-btn-color);
