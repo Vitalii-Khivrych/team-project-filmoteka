@@ -91,6 +91,8 @@ export default function makeBasicFilterMarkup() {
           <option value="1965">1965</option>
           <option value="1964">1964</option>
         </select></li>
-</ul>        
+        </ul>        
+        <button class="filter__button"
+  >Clear</button>
 </div>`
 }
