@@ -35,4 +35,4 @@ async function createTrendingMovieGallery() {
   }
 }
 
-export { initRenderTrendingMovie, appService };
+export { initRenderTrendingMovie, appService, createTrendingMovieGallery };
