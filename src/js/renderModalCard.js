@@ -41,7 +41,5 @@ async function fetchByTrailer(filmId) {
     const key = await appService.searchTrailerById(filmId);
     btnPlay.setAttribute('id', key);
     btnPlay.classList.remove('is-hidden');
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }
