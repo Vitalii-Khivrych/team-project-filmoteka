@@ -3,6 +3,7 @@ import { createPaginationBtn } from '../createPaginationBtn';
 import spiner from '../spiner';
 import { showNoResultMessage } from '../showFailMessage';
 import { changeUrl } from '../service/chengingUrlApi';
+import { showSuccessMessage } from '../showSuccessMessage';
 // import { scrollUp } from '../scrollUp';
 
 export default async function handleResponse(response, apiService) {
@@ -28,6 +29,10 @@ export default async function handleResponse(response, apiService) {
     const galleryRef = document.querySelector('.gallery');
 
     galleryRef.innerHTML = renderPopularCards(cards, genreMap);
+
+    if (apiService.searchQuery) {
+      showSuccessMessage(response.total_results, apiService.searchQuery);
+    }
 
     createPaginationBtn(response, apiService);
 
