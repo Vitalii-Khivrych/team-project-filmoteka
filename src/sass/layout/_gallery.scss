@@ -44,18 +44,20 @@
   // border-bottom: 2px solid;
   border-color: var(--accent-text-color);
   @include tablet {
+    padding-top: 2px;
     margin-bottom: 0;
     margin-right: 30px;
     font-size: 16px;
     line-height: 1.17;
   }
   @include desktop {
+    padding-top: 3px;
     font-size: 20px;
     line-height: 1.2;
   }
 }
 .filter__list {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
@@ -75,10 +77,12 @@
 }
 
 .filter__select {
+  padding-left: 5px;
+  cursor: pointer;
   appearance: none;
   color: var(--filter-text);
   background-color: var(--main-bg);
-  transition: background-color 0.3s;
+  transition: all 0.3s;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
@@ -86,14 +90,14 @@
   border-bottom: 2px solid;
   border-color: var(--accent-text-color);
   outline: none;
-  // border-radius: 4px;
+  transform: scale(1);
   @include tablet {
     font-size: 16px;
     line-height: 1.17;
   }
   @include desktop {
     font-size: 20px;
-    line-height: 1.2;
+    line-height: 1.1;
   }
   &.year {
     width: 90px;
@@ -101,26 +105,50 @@
   &::-webkit-scrollbar {
     display: none;
   }
+  &:hover {
+      color: var(--accent-text-color);
+      border-color: var(--filter-text);
+      @include tablet {
+        transform: scale(1.1);
+      }
+  }
 }
-
+.filter__select option {
+  color: var(--filter-text);
+}
 .filter__button {
+  margin-left: 5px;
+  width: 50px;
+  height: 20px;
+  padding: 0;
   border: none;
   border-radius: 5px;
   background-color: var(--activ-btn-color);
   color: var(--white-colore);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.14;
+  transform: scale(1);
+  transition: 0.3s;
   @include tablet {
+    margin-left: 0px;
+    width: 65px;
+    height: 25px;
     font-size: 16px;
     line-height: 1.17;
   }
   @include desktop {
+    width: 70px;
+    height: 30px;
     font-size: 20px;
     line-height: 1.2;
   }
-}
-
+  &:hover {
+    @include tablet {
+    transform: scale(1.1);
+  }
+} 
+ }
 .gallery {
   @media screen and (min-width: 768px) {
     display: flex;
