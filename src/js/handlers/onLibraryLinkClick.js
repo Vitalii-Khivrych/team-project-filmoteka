@@ -11,7 +11,6 @@ const onLibraryLinkClick = async event => {
     event.preventDefault();
 
     if (!getAuth().currentUser) {
-      console.log('Authorized');
       const provider = new GoogleAuthProvider();
       await signInWithPopup(getAuth(), provider);
     }
