@@ -23,8 +23,8 @@ async function filterMovie() {
   try {
     const galleryRef = document.querySelector('.gallery');
     const paginationSectionRef = document.querySelector('.pagination');
-    galleryRef.innerHTML = '';
-    paginationSectionRef.innerHTML = '';
+    // galleryRef.innerHTML = '';
+    // paginationSectionRef.innerHTML = '';
 
     createSearchFilter();
 
