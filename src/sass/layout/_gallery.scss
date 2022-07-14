@@ -109,9 +109,9 @@
   &:hover {
     color: var(--accent-text-color);
     border-color: var(--filter-text);
-    @include tablet {
-      transform: scale(1.1);
-    }
+    // @include tablet {
+    //   transform: scale(1.1);
+    // }
   }
 }
 .filter__select option {
