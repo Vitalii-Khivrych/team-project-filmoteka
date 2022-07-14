@@ -88,7 +88,7 @@ function addSizeToGoogleProfilePic(url) {
 }
 // Отримуємо фото зареєстрованого користувача
 function getProfilePicUrl() {
-  return getAuth().currentUser.photoURL || './images/free-icon-delete-account-7084160.png';
+  return getAuth().currentUser.photoURL;
 }
 
 // Отримуємо displayName зареєстрованого користувача
