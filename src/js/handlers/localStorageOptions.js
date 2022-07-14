@@ -3,8 +3,13 @@ export { onBtnAddToQueueClick, onBtnAddWachedClick };
 import { localStorageApi } from '../service/localStorageApi';
 import { renderQueueList } from '../templates/renderQueueList';
 import { renderWatchedList } from '../templates/renderWatchedList';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 function onBtnAddToQueueClick(e) {
+  if (!getAuth().currentUser) {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(getAuth(), provider);
+    }
   const libraryBtn = document.getElementById('libraryLink');
   if (e.target.dataset.action === 'add-queue') {
     const addToQueue = document.querySelector('.btn-add-queue');
@@ -60,6 +65,10 @@ function onBtnAddToQueueClick(e) {
   }
 }
 function onBtnAddWachedClick(e) {
+  // if (!getAuth().currentUser) {
+  //     const providerWatched = new GoogleAuthProvider();
+  //     signInWithPopup(getAuth(), providerWatched);
+  //   }
   const libraryBtn = document.getElementById('libraryLink');
   if (e.target.dataset.action === 'add-watched') {
     const addWached = document.querySelector('.btn-add-watched');
