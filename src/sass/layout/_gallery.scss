@@ -1,5 +1,5 @@
 .section {
-  padding-top: 100px;
+  padding-top: 70px;
   padding-bottom: 40px;
   @media screen and (min-width: 768px) {
     padding-top: 65px;
@@ -20,6 +20,7 @@
 }
 
 .filter {
+  width: 320px;
   padding: 15px 0;
   text-align: center;
   @include tablet {
@@ -106,11 +107,11 @@
     display: none;
   }
   &:hover {
-      color: var(--accent-text-color);
-      border-color: var(--filter-text);
-      @include tablet {
-        transform: scale(1.1);
-      }
+    color: var(--accent-text-color);
+    border-color: var(--filter-text);
+    @include tablet {
+      transform: scale(1.1);
+    }
   }
 }
 .filter__select option {
@@ -145,10 +146,10 @@
   }
   &:hover {
     @include tablet {
-    transform: scale(1.1);
+      transform: scale(1.1);
+    }
   }
-} 
- }
+}
 .gallery {
   @media screen and (min-width: 768px) {
     display: flex;
