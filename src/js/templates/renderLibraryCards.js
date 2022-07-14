@@ -1,3 +1,5 @@
+import defaultPoster from '../../images/no-poster.jpg';
+
 function renderLibraryCards(cards) {
   const markup = cards
     .map(
@@ -11,6 +13,10 @@ function renderLibraryCards(cards) {
         vote_average,
         id,
       }) => {
+        const imageUrl = poster_path
+          ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+          : `${defaultPoster}`;
+
         const date = release_date ? release_date : first_air_date;
         const year = new Date(date).getFullYear();
         const name = original_title ? original_title : original_name;
@@ -29,7 +35,7 @@ function renderLibraryCards(cards) {
         return `<li class="gallery__item card" data-id="${id}">
           <img
             class="card__image"
-            src="https://image.tmdb.org/t/p/w500/${poster_path}"
+            src=${imageUrl}
             alt="poster"
             loading="lazy"
           />
