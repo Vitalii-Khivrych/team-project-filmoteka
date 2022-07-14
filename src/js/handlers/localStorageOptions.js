@@ -6,12 +6,13 @@ import { renderWatchedList } from '../templates/renderWatchedList';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 function onBtnAddToQueueClick(e) {
-  if (!getAuth().currentUser) {
-      const provider = new GoogleAuthProvider();
-      signInWithPopup(getAuth(), provider);
-    }
+
   const libraryBtn = document.getElementById('libraryLink');
   if (e.target.dataset.action === 'add-queue') {
+    if (!getAuth().currentUser) {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(getAuth(), provider)
+    };
     const addToQueue = document.querySelector('.btn-add-queue');
     const addWached = document.querySelector('.btn-add-watched');
     const filmId = e.currentTarget.getAttribute('id');
@@ -65,12 +66,12 @@ function onBtnAddToQueueClick(e) {
   }
 }
 function onBtnAddWachedClick(e) {
-  // if (!getAuth().currentUser) {
-  //     const providerWatched = new GoogleAuthProvider();
-  //     signInWithPopup(getAuth(), providerWatched);
-  //   }
   const libraryBtn = document.getElementById('libraryLink');
   if (e.target.dataset.action === 'add-watched') {
+    if (!getAuth().currentUser) {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(getAuth(), provider)
+    };
     const addWached = document.querySelector('.btn-add-watched');
     const addToQueue = document.querySelector('.btn-add-queue');
     const filmId = e.currentTarget.getAttribute('id');
