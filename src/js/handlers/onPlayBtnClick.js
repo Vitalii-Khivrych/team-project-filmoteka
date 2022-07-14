@@ -38,13 +38,7 @@ function onBtnCloseTrailer(e) {
     closeTrailer();
   }
 }
-// function onCloseTrailerEsc(e) {
-//   const modalCardEl = document.querySelector('.modal__card');
-//   if (e.code === 'Escape' && modalCardEl.classList.contains('is-hidden')) {
-//     console.log('backdrop trailer');
-//     closeTrailer();
-//   }
-// }
+
 function onCloseTrailerEsc(e) {
   const modalCardEl = document.querySelector('.modal__card');
   if (e.code === 'Escape' && modalCardEl.classList.contains('is-hidden')) {
