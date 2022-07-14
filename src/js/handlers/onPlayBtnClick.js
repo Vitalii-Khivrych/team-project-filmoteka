@@ -15,7 +15,6 @@ function onBtnPlayClick(e) {
     modalEl.style.backgroundColor = 'transparent';
     backdropEl.addEventListener('click', onBtnCloseTrailer);
     modalEl.addEventListener('click', onBtnCloseTrailer);
-    modalEl.addEventListener('keydown', onCloseTrailerEsc);
     document.addEventListener('keydown', onCloseTrailerEsc);
   }
 }
