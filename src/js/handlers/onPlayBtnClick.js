@@ -14,6 +14,8 @@ function onBtnPlayClick(e) {
     modalVideoEl.classList.remove('is-hidden');
     modalEl.style.backgroundColor = 'transparent';
     backdropEl.addEventListener('click', onBtnCloseTrailer);
+    modalEl.addEventListener('click', onBtnCloseTrailer);
+    modalEl.addEventListener('keydown', onCloseTrailerEsc);
     document.addEventListener('keydown', onCloseTrailerEsc);
   }
 }
@@ -27,6 +29,7 @@ function closeTrailer() {
   modalCardEl.classList.remove('is-hidden');
   const backdropEl = document.querySelector('.backdrop');
   backdropEl.removeEventListener('click', onBtnCloseTrailer);
+  modalEl.removeEventListener('click', onBtnCloseTrailer);
   document.removeEventListener('keydown', onCloseTrailerEsc);
 }
 
