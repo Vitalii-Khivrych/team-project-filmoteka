@@ -5,7 +5,7 @@ export default function trailerMarkup(videoKey) {
      <button  class="modal__btn-close-trailer"><svg class="modal__close-icon" width="14" height="14">
         <use href="${icon}#icon-close"></use>
       </svg></button>
-    <iframe class="video-frame" src="https://www.youtube.com/embed/${videoKey}"
+    <iframe class="video-frame" src="https://www.youtube.com/embed/${videoKey}?autoplay=1"
     frameborder = '0';
     title = 'YouTube video player';
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
